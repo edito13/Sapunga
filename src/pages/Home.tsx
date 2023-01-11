@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-import Menu from "../Components/Menu";
-import { Header } from "./style";
+import Header from "../Components/Header";
 
 const Home = () => {
   return (
     <>
-      <Header>
-        <div>
-          <h1>shhsshhshhsh</h1>
-          <Menu />
-        </div>
-      </Header>
+      <Header />
     </>
   );
 };

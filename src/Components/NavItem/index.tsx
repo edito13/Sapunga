@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IconButton } from '@mui/material/'
-import { BsXLg } from "react-icons/bs"
+import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp, BsXLg } from "react-icons/bs"
 import { MobileMenu } from './style'
 
 interface props{
@@ -20,6 +20,20 @@ const index = ({ CloseMenu, isAtive }: props) => {
           <li><a href="">Serviços</a></li>
           <li><a href="">Contacto</a></li>
         </ul>
+        <div>
+          <div>
+            <BsFacebook />
+          </div>
+          <div>
+            <BsInstagram />
+          </div>
+          <div>
+            <BsWhatsapp />
+          </div>
+          <div>
+            <BsTwitter />
+          </div>
+        </div>
     </MobileMenu>
   )
 }

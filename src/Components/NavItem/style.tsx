@@ -7,16 +7,18 @@ export const MobileMenu = styled.nav`
   min-height: 100vh;
   width: 100%;
   top: -100%;
+  left: 0;
   display: flex;
   flex-direction: column;
   transition: 0.5s ease-in-out;
+  z-index: 99999;
 
   button {
     align-self: flex-end;
-    margin: 40px 20px 40px 0;
+    margin: 2.7em 2em 2em 0;
 
     svg {
-      font-size: 1.5em;
+      font-size: 1.3em;
       color: #fff;
     }
   }
@@ -38,6 +40,26 @@ export const MobileMenu = styled.nav`
 
     li a.ative {
       border-bottom: 2px solid #7d72b2;
+    }
+  }
+
+  & > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-top: 3em;
+
+    div{
+      display: flex;
+      border-radius: 50%;
+      background: #fff;
+      padding: 8px;
+      
+      svg{
+        font-size: 1.7em;
+        color: #30285A;
+      }
     }
   }
 
