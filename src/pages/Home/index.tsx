@@ -23,6 +23,7 @@ const Home = () => {
           <a href="">CRIAR CONTA?</a>
         </div>
       </section>
+      
     </Container>
   );
 };
