@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../../Components/Header";
 import { Container, ImageContainer } from "./style";
 import VioletButton from "../../Components/VioletButton";
+import TitleSections from "../../Components/TitleSections";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Home = () => {
@@ -23,7 +24,9 @@ const Home = () => {
           <a href="">CRIAR CONTA?</a>
         </div>
       </section>
-      
+      <section>
+        <TitleSections>Quem somos?</TitleSections>
+      </section>
     </Container>
   );
 };

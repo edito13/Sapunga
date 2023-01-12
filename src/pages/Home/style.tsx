@@ -5,7 +5,7 @@ export const Container = styled.main`
   section {
     width: 100%;
     max-width: 1200px;
-    margin: 4em auto;
+    margin: 8em auto;
   }
 
   .Introduce-banner {
@@ -15,6 +15,7 @@ export const Container = styled.main`
     align-items: center;
     gap: 5%;
     font-size: 100%;
+    margin-top: 5em;
 
     .content {
       max-width: 400px;
