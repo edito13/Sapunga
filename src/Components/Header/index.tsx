@@ -1,7 +1,7 @@
 import React from "react";
 import Menu from "../Menu";
-import ButtonQuemSomos from "../Btn-Quem-somos";
 import { Header } from "./style";
+import { VioletButton } from "../VioletButton/style";
 
 const index = () => {
   return (
@@ -11,7 +11,7 @@ const index = () => {
         <h1>SAPUNGA</h1>
         <p>Comércio & Serviços, Lda.</p>
         <div>
-          <ButtonQuemSomos />
+          <VioletButton>Quem somos?</VioletButton>
         </div>
       </div>
     </Header>

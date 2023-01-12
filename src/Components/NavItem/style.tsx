@@ -6,7 +6,7 @@ export const MobileMenu = styled.nav`
   position: fixed;
   min-height: 100vh;
   width: 100%;
-  top: -100%;
+  top: -200%;
   left: 0;
   display: flex;
   flex-direction: column;

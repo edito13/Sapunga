@@ -6,7 +6,7 @@ import { Menu } from './style';
 
 const index = () => {
 
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   
   const OpenMenu = () => setIsActive(true)
   const CloseMenu = () => setIsActive(false)
