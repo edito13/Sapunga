@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../../Components/Header";
-import { Container, ImageContainer } from "./style";
+import { Container, ImageContainer, ImgDescribe } from "./style";
 import VioletButton from "../../Components/VioletButton";
 import TitleSections from "../../Components/TitleSections";
 import { FaShoppingCart } from "react-icons/fa";
@@ -26,6 +26,35 @@ const Home = () => {
       </section>
       <section>
         <TitleSections>Quem somos?</TitleSections>
+        <div className="content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+            voluptatem laboriosam autem consequuntur ducimus sed velit vitae,
+            odit obcaecati sint eaque dolorum error, sapiente inventore?
+            Voluptatem dignissimos eos rerum asperiores! Voluptate asperiores
+            cum at mollitia veniam. Ab deserunt aperiam ipsum blanditiis tempore
+            pariatur assumenda a earum eaque nulla quae quia quidem
+            exercitationem repellendus, perspiciatis iusto quisquam odit!
+            Tenetur, est odit! Reprehenderit facere sed quia, quod natus quos
+            perferendis officia expedita? Ducimus doloribus assumenda minus
+            corporis nulla necessitatibus culpa accusamus quis quo vitae quos
+            numquam, laboriosam sint quam quod! Magnam.
+          </p>
+          <ImgDescribe />
+        </div>
+      </section>
+      <section>
+        <TitleSections>Serviços</TitleSections>
+        <div className="agricultura">
+          <div className="content">
+            <h3>Agricultura</h3>
+          </div>
+        </div>
+        <div className="grafica">
+          <div className="content">
+            <h3>Gráfica</h3>
+          </div>
+        </div>
       </section>
     </Container>
   );

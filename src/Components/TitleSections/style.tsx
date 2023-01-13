@@ -9,6 +9,7 @@ export const TitleContainer = styled.div`
     text-transform: uppercase;
     font-weight: bold;
     color: #30285a;
+    margin-bottom: 4em;
   }
 
   h2::after {
