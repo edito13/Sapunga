@@ -9,7 +9,7 @@ export const TitleContainer = styled.div`
     text-transform: uppercase;
     font-weight: bold;
     color: #30285a;
-    margin-bottom: 4em;
+    margin-bottom: 2em;
   }
 
   h2::after {
@@ -20,5 +20,11 @@ export const TitleContainer = styled.div`
     width: 60%;
     margin: 8px auto 0;
     border-radius: 10px;
+  }
+
+  @media(min-width: 750px){
+    h2{
+      margin-bottom: 4em;
+    }
   }
 `;

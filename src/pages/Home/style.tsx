@@ -35,8 +35,8 @@ export const Container = styled.main`
     }
   }
 
-  section:nth-child(3) {
-    margin-bottom: 8em;
+  .Quem-somos {
+    margin-bottom: 12em;
 
     p {
       background: #eee;
@@ -45,7 +45,7 @@ export const Container = styled.main`
     }
   }
 
-  section:nth-child(4) {
+  .Services {
     margin-top: 10em;
     max-width: 100%;
 
@@ -59,8 +59,42 @@ export const Container = styled.main`
       display: block;
       height: 2px;
       background: currentColor;
-      width: 100%;
+      width: 60%;
       margin-top: 4px;
+    }
+    
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 40vh;
+
+      ul {
+        li {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          
+          span{
+            border: 2px solid #42c713;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+          }
+        }
+
+        li + li{
+          margin-top: 4%;
+        }
+      }
+
+      p{
+        color: #eee;
+      }
+
+      a{
+        font-weight: bold;
+      }
     }
 
     .agricultura {
@@ -68,12 +102,8 @@ export const Container = styled.main`
       background: url("./assets/Images/Grupo 18.png");
       background-size: cover;
       background-position: 48%;
-      min-height: 95vh;
 
       .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         align-items: flex-start;
 
         h3 {
@@ -87,16 +117,20 @@ export const Container = styled.main`
       background: url("./assets/Images/Grupo 19.png");
       background-size: cover;
       background-position: 55%;
-      min-height: 95vh;
 
       .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         align-items: flex-end;
 
         h3 {
           color: #7d72b2;
+          
+          h3::after{
+            margin-left: auto;
+          }
+        }
+
+        ul li span{
+          border-color: #7d72b2;
         }
       }
     }
@@ -113,7 +147,7 @@ export const Container = styled.main`
       }
     }
 
-    section:nth-child(3) {
+    .Quem-somos {
       .content {
         margin-top: 3em;
         display: flex;
@@ -132,18 +166,33 @@ export const Container = styled.main`
       }
     }
 
-    section:nth-child(4){
-      .agricultura{
+    .Services {
+      .content{
+        padding: 3em;
+        min-height: 70vh;
+
+        p{
+          font-size: 1.2em;
+        }
+
+        ul li span{
+          width: 15px;
+          height: 15px;
+          border-width: 3px;
+        }
+
+        ul li + li{
+          margin-top: 8%;
+        }
+      }
+
+      .agricultura {
         background-position: 30%;
       }
-      .grafica{
+      .grafica {
         background-position: 60%;
       }
     }
-  }
-
-  @media (min-width: 800px){
-
   }
 `;
 
@@ -195,8 +244,8 @@ export const ImgDescribe = styled.div`
     position: absolute;
     border: 10px solid #42c713;
     border-radius: 50%;
-    width: 210px;
-    height: 210px;
+    width: 180px;
+    height: 180px;
     top: -7em;
     animation: animationLine 3s linear alternate infinite;
   }
@@ -209,8 +258,8 @@ export const ImgDescribe = styled.div`
     border: 10px solid #42c713;
     animation: animationLine 3s linear alternate-reverse infinite;
     border-radius: 50%;
-    width: 210px;
-    height: 210px;
+    width: 180px;
+    height: 180px;
     bottom: -7em;
   }
 

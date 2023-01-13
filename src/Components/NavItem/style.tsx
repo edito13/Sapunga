@@ -47,18 +47,29 @@ export const MobileMenu = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 1.5em;
     margin-top: 3em;
 
     div{
       display: flex;
       border-radius: 50%;
-      background: #fff;
+      background: #30285A;
       padding: 8px;
+      transition: .3s;
+      cursor: pointer;
       
       svg{
         font-size: 1.7em;
-        color: #30285A;
+        color: #fff;
+      }
+      
+      &:hover{
+        background: #fff;
+        transform: scale(1.2);
+        
+        svg{
+          color: #30285A;
+        }
       }
     }
   }
