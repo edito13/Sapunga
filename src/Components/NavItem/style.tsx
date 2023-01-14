@@ -38,6 +38,10 @@ export const MobileMenu = styled.nav`
       margin-bottom: 2px;
     }
 
+    li:hover a{
+      color: #7d72b2;
+    }
+
     li a.ative {
       border-bottom: 2px solid #7d72b2;
     }
@@ -55,7 +59,6 @@ export const MobileMenu = styled.nav`
       border-radius: 50%;
       background: #30285A;
       padding: 8px;
-      transition: .3s;
       cursor: pointer;
       
       svg{

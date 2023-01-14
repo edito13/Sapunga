@@ -4,6 +4,8 @@ import { Container, ImageContainer, ImgDescribe } from "./style";
 import VioletButton from "../../Components/VioletButton";
 import TitleSections from "../../Components/TitleSections";
 import { FaShoppingCart } from "react-icons/fa";
+import Footer from "../../Components/Footer";
+import Slogan from "../../Components/Slogan";
 
 const Home = () => {
   return (
@@ -73,7 +75,8 @@ const Home = () => {
         </div>
         <div className="banner"></div>
       </section>
-
+      <Slogan />
+      <Footer />
     </Container>
   );
 };

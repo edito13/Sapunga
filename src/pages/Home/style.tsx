@@ -46,7 +46,7 @@ export const Container = styled.main`
   }
 
   .Services {
-    margin-top: 10em;
+    margin: 10em 0 0;
     max-width: 100%;
 
     h3 {
@@ -124,7 +124,7 @@ export const Container = styled.main`
         h3 {
           color: #7d72b2;
           
-          h3::after{
+          &::after{
             margin-left: auto;
           }
         }
