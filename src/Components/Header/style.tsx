@@ -5,7 +5,7 @@ export const Header = styled.header`
   background-attachment: fixed;
   background-position: bottom;
   background-size: cover;
-  height: 100vh;
+  height: 80vh;
 
   & > div {
     background: linear-gradient(to bottom, #000000af 80%, transparent);
@@ -19,7 +19,7 @@ export const Header = styled.header`
       letter-spacing: 5px;
       font-weight: bolder;
       text-align: center;
-      margin-top: 1em;
+      margin-top: 2.8em;
     }
     p {
       text-align: center;
