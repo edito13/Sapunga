@@ -5,123 +5,125 @@ export const FooterContainer = styled.div`
   background: #0e0e10;
   padding: 0 2em;
 
-  .ContentContainer {
-    display: flex;
-    justify-content: space-between;
-    padding: 2em 0;
-    border-bottom: 1px solid #eee;
-    color: #fff;
+  img {
+    max-width: 200px;
+  }
 
-    p {
-      font-family: "Roboto Light";
-      line-height: 1.5em;
-    }
-
-    a {
-      color: #fff;
-      font-family: "Roboto Light";
-    }
-
-    h4 {
-      font-size: 1.3em;
-      font-weight: 500;
-      margin-bottom: 1em;
-
-      &::after {
-        content: "";
-        display: block;
-        margin-top: 4px;
-        height: 1px;
-        background: currentColor;
-      }
-    }
-
-    ul li {
-      list-style: inside;
-
-      & + li {
-        margin-top: 0.7em;
-      }
-
-      &:hover {
-        li {
-            transform: scale(1.2);
-        }
-        a {
-          color: #7d72b2;
-        }
-      }
-    }
-
-    .CompanyInfo {
+  @media (min-width: 750px) {
+    .ContentContainer {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1em;
+      justify-content: space-between;
+      padding: 2em 0;
+      border-bottom: 1px solid #eee;
+      color: #fff;
 
-      img {
-        max-width: 200px;
+      p {
+        font-family: "Roboto Light";
+        line-height: 1.5em;
       }
 
-      & > p {
-        max-width: 300px;
-        text-align: center;
+      a {
+        color: #fff;
+        font-family: "Roboto Light";
       }
 
-      div {
+      h4 {
+        font-size: 1.3em;
+        font-weight: 500;
+        margin-bottom: 1em;
+
+        &::after {
+          content: "";
+          display: block;
+          margin-top: 4px;
+          height: 1px;
+          background: currentColor;
+        }
+      }
+
+      ul li {
+        list-style: inside;
+
+        & + li {
+          margin-top: 0.7em;
+        }
+
+        &:hover {
+          li {
+            transform: scale(1.2);
+          }
+          a {
+            color: #7d72b2;
+          }
+        }
+      }
+
+      .CompanyInfo {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 0.5em;
-
-        p{
-            font-size: 1.2em;
-        }
-
-        svg {
-          font-size: 1.8em;
-        }
-      }
-    }
-
-    .Contact-us {
-      & > p {
-        max-width: 300px;
-
-        span {
-          font-weight: 500;
-        }
-      }
-
-      .Newslatter {
-        background: #fff;
-        border-radius: 25px;
-        padding: 0.1em;
-        margin: 1em 0;
-        display: flex;
-        justify-content: space-between;
-
-        input {
-          border-radius: 25px;
-          padding: 0.4em 0.8em;
-          font-size: 1em;
-          border: none;
-        }
-      }
-
-      .Contacts,
-      .Contacts div {
-        display: flex;
-        align-items: center;
-      }
-
-      .Contacts {
         gap: 1em;
 
+        & > p {
+          max-width: 300px;
+          text-align: center;
+        }
+
         div {
-          gap: 0.2em;
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+
+          p {
+            font-size: 1.2em;
+          }
 
           svg {
-            font-size: 1.2em;
+            font-size: 1.8em;
+          }
+        }
+      }
+
+      .Contact-us {
+        & > p {
+          max-width: 300px;
+
+          span {
+            font-weight: 500;
+          }
+        }
+
+        .Newslatter {
+          background: #fff;
+          border-radius: 25px;
+          padding: 0.1em;
+          margin: 1em 0;
+          display: flex;
+          justify-content: space-between;
+
+          input {
+            border-radius: 25px;
+            padding: 0.4em 0.8em;
+            font-size: 1em;
+            border: none;
+          }
+        }
+
+        .Contacts,
+        .Contacts div {
+          display: flex;
+          align-items: center;
+        }
+
+        .Contacts {
+          gap: 1em;
+
+          div {
+            gap: 0.2em;
+
+            svg {
+              font-size: 1.2em;
+            }
           }
         }
       }

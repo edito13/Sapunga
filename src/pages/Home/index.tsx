@@ -22,8 +22,10 @@ const Home = () => {
             Crie sua conta aqui no nosso site e ganha 10% de{" "}
             <span className="Green">desconto</span>.
           </p>
-          <VioletButton Icon={<FaShoppingCart />}>Produtos</VioletButton>
-          <a href="">CRIAR CONTA?</a>
+          <div>
+            <VioletButton Icon={<FaShoppingCart />}>Produtos</VioletButton>
+            <a href="">CRIAR CONTA?</a>
+          </div>
         </div>
       </section>
       <section className="Quem-somos">
@@ -51,26 +53,66 @@ const Home = () => {
           <div className="content">
             <h3>Agricultura</h3>
             <ul>
-              <li><span></span><p>Plantação em grandes hectares</p></li>
-              <li><span></span><p>Plantação em grandes hectares</p></li>
-              <li><span></span><p>Plantação em grandes hectares</p></li>
-              <li><span></span><p>Plantação em grandes hectares</p></li>
-              <li><span></span><p>Plantação em grandes hectares</p></li>
+              <li>
+                <span></span>
+                <p>Plantação em grandes hectares</p>
+              </li>
+              <li>
+                <span></span>
+                <p>Plantação em grandes hectares</p>
+              </li>
+              <li>
+                <span></span>
+                <p>Plantação em grandes hectares</p>
+              </li>
+              <li>
+                <span></span>
+                <p>Plantação em grandes hectares</p>
+              </li>
+              <li>
+                <span></span>
+                <p>Plantação em grandes hectares</p>
+              </li>
             </ul>
-            <p>Ficou interessado? <a className="Green" href="">Contacta-nos.</a></p>
+            <p>
+              Ficou interessado?{" "}
+              <a className="Green" href="">
+                Contacta-nos.
+              </a>
+            </p>
           </div>
         </div>
         <div className="grafica">
           <div className="content">
             <h3>Gráfica</h3>
             <ul>
-              <li><span></span><p>Plantação em grandes hectares</p></li>
-              <li><span></span><p>Plantação em grandes hectares</p></li>
-              <li><span></span><p>Plantação em grandes hectares</p></li>
-              <li><span></span><p>Plantação em grandes hectares</p></li>
-              <li><span></span><p>Plantação em grandes hectares</p></li>
+              <li>
+                <span></span>
+                <p>Plantação em grandes hectares</p>
+              </li>
+              <li>
+                <span></span>
+                <p>Plantação em grandes hectares</p>
+              </li>
+              <li>
+                <span></span>
+                <p>Plantação em grandes hectares</p>
+              </li>
+              <li>
+                <span></span>
+                <p>Plantação em grandes hectares</p>
+              </li>
+              <li>
+                <span></span>
+                <p>Plantação em grandes hectares</p>
+              </li>
             </ul>
-            <p>Ficou interessado? <a className="LightViolet" href="">Contacta-nos.</a></p>
+            <p>
+              Ficou interessado?{" "}
+              <a className="LightViolet" href="">
+                Contacta-nos.
+              </a>
+            </p>
           </div>
         </div>
         <div className="banner"></div>

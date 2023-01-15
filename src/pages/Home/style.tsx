@@ -14,23 +14,28 @@ export const Container = styled.main`
     align-items: center;
     gap: 5%;
     font-size: 100%;
-    margin-top: 5em;
+    max-width: 90%;
+    margin: 5em auto 0;
 
     .content {
-      max-width: 400px;
-
       p {
-        font-size: 1.3em;
+        max-width: 350px;
+        font-size: 1.1em;
         line-height: 25px;
         margin-bottom: 1em;
+        text-align: center;
+
+        span {
+          font-weight: bold;
+        }
       }
 
-      p span {
-        font-weight: bold;
-      }
-
-      button {
-        margin-right: 1em;
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        margin-top: 2em;
       }
     }
   }
@@ -62,20 +67,21 @@ export const Container = styled.main`
       width: 60%;
       margin-top: 4px;
     }
-    
+
     .content {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 40vh;
+      gap: 2em;
 
       ul {
         li {
           display: flex;
           align-items: center;
           gap: 6px;
-          
-          span{
+
+          span {
             border: 2px solid #42c713;
             width: 13px;
             height: 13px;
@@ -83,16 +89,16 @@ export const Container = styled.main`
           }
         }
 
-        li + li{
+        li + li {
           margin-top: 4%;
         }
       }
 
-      p{
+      p {
         color: #eee;
       }
 
-      a{
+      a {
         font-weight: bold;
       }
     }
@@ -101,7 +107,7 @@ export const Container = styled.main`
       padding: 2em;
       background: url("./assets/Images/Grupo 18.png");
       background-size: cover;
-      background-position: 48%;
+      background-position: 33%;
 
       .content {
         align-items: flex-start;
@@ -116,20 +122,20 @@ export const Container = styled.main`
       padding: 2em;
       background: url("./assets/Images/Grupo 19.png");
       background-size: cover;
-      background-position: 55%;
+      background-position: 67%;
 
       .content {
         align-items: flex-end;
 
         h3 {
           color: #7d72b2;
-          
-          &::after{
+
+          &::after {
             margin-left: auto;
           }
         }
 
-        ul li span{
+        ul li span {
           border-color: #7d72b2;
         }
       }
@@ -139,7 +145,7 @@ export const Container = styled.main`
   @media (min-width: 750px) {
     .Introduce-banner {
       flex-direction: row;
-      gap: 15%;
+      gap: 8%;
       margin-top: 5em;
 
       .content p {
@@ -167,21 +173,21 @@ export const Container = styled.main`
     }
 
     .Services {
-      .content{
+      .content {
         padding: 3em;
         min-height: 70vh;
 
-        p{
+        p {
           font-size: 1.2em;
         }
 
-        ul li span{
+        ul li span {
           width: 15px;
           height: 15px;
           border-width: 3px;
         }
 
-        ul li + li{
+        ul li + li {
           margin-top: 8%;
         }
       }
@@ -194,14 +200,22 @@ export const Container = styled.main`
       }
     }
   }
+
+  @media (min-width: 500px) {
+    .Introduce-banner .content p {
+      font-size: 1.3em;
+      max-width: 400px;
+    }
+    
+  }
 `;
 
 export const ImageContainer = styled.div`
   background: url("./assets/Images/7.jpg") no-repeat;
   background-position: center;
   background-size: cover;
-  height: 310px;
-  width: 250px;
+  height: 280px;
+  width: 220px;
   border-radius: 12px;
   border: 6px solid #fff;
   position: relative;
@@ -223,8 +237,8 @@ export const ImageContainer = styled.div`
   }
 
   @media (min-width: 750px) {
-    height: 350px;
-    width: 290px;
+    height: 310px;
+    width: 250px;
   }
 `;
 

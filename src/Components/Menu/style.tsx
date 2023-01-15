@@ -4,7 +4,6 @@ export const Menu = styled.nav`
   background: #ffffff6f;
   backdrop-filter: blur(5px);
   padding: 7px 15px;
-  width: 100%;
   max-width: 90%;
   margin: auto;
   border-radius: 40px;
@@ -45,7 +44,7 @@ export const Menu = styled.nav`
     ul {
       display: flex;
       align-items: center;
-      gap: 0.5em;
+      gap: .3em;
 
       li {
         a {
