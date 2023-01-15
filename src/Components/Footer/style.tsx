@@ -9,10 +9,9 @@ export const FooterContainer = styled.div`
     max-width: 200px;
   }
 
-  @media (min-width: 750px) {
-    .ContentContainer {
+  .ContentContainer {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       padding: 2em 0;
       border-bottom: 1px solid #eee;
       color: #fff;
@@ -128,6 +127,9 @@ export const FooterContainer = styled.div`
         }
       }
     }
+
+  @media (min-width: 750px) {
+    
   }
 
   .Copyright {

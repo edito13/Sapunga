@@ -4,18 +4,19 @@ export const MobileMenu = styled.nav`
   background: #000000c9;
   backdrop-filter: blur(10px);
   position: fixed;
-  min-height: 100vh;
   width: 100%;
+  height: 100vh;
   top: -200%;
-  left: 0;
   display: flex;
   flex-direction: column;
-  transition: 0.5s ease-in-out;
+  justify-content: space-between;
+  padding: 2em 0;
+  transition: .5s ease-in-out;
   z-index: 99999;
 
   button {
     align-self: flex-end;
-    margin: 2.7em 2em 2em 0;
+    margin: 1em 1.5em 0 0;
 
     svg {
       font-size: 1.3em;
@@ -79,5 +80,6 @@ export const MobileMenu = styled.nav`
 
   &.ative {
     top: 0;
+    left: 0;
   }
 `;
