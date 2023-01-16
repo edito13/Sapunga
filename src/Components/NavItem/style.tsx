@@ -38,11 +38,8 @@ export const MobileMenu = styled.nav`
       margin-bottom: 2px;
     }
 
-    li:hover a{
+    li:hover, li.active a{
       color: #7d72b2;
-    }
-
-    li a.ative {
       border-bottom: 2px solid #7d72b2;
     }
   }

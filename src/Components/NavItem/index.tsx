@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { IconButton } from '@mui/material/'
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp, BsXLg } from "react-icons/bs"
 import { MobileMenu } from './style'
+import { Link, useLocation } from 'react-router-dom';
 
 interface props{
   CloseMenu: () => void;
@@ -9,16 +10,17 @@ interface props{
 }
 
 const index = ({ CloseMenu, isAtive }: props) => {
+  const itemAtivo = useLocation().pathname.substring(1)
 
   return (
     <MobileMenu className={`${isAtive && 'ative'}`}>
         <IconButton onClick={CloseMenu}><BsXLg /></IconButton>
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">Quem somos?</a></li>
-          <li><a href="">Produtos</a></li>
-          <li><a href="">Serviços</a></li>
-          <li><a href="">Contacto</a></li>
+          <li className={itemAtivo === '' ? 'active' : ''}><Link to="/">Home</Link></li>
+          <li className={itemAtivo === 'quem_somos' ? 'active' : ''}><Link to="/quem_somos">Quem somos?</Link></li>
+          <li className={itemAtivo === 'produtos' ? 'active' : ''}><Link to="/produtos">Produtos</Link></li>
+          <li className={itemAtivo === 'servicos' ? 'active' : ''}><Link to="/servicos">Serviços</Link></li>
+          <li className={itemAtivo === 'contactos' ? 'active' : ''}><Link to="/contactos">Contacto</Link></li>
         </ul>
         <div>
           <div>

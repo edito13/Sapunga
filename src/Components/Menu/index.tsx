@@ -14,8 +14,6 @@ const index = () => {
   const OpenMenu = () => setIsActive(true)
   const CloseMenu = () => setIsActive(false)
 
-  console.log(itemAtivo)
-
   return (
     <>
       <NavItem isAtive={isActive} CloseMenu={CloseMenu}/>
