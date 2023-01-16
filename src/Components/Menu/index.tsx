@@ -21,10 +21,10 @@ const index = () => {
         </IconButton>
         <ul>
           <li><a href="">Home</a></li>
-          <li><a href="">Quem somos?</a></li>
-          <li><a href="">Produtos</a></li>
-          <li><a href="">Serviços</a></li>
-          <li><a href="">Contacto</a></li>
+          <li><a href="/quem_somos">Quem somos?</a></li>
+          <li><a href="/products">Produtos</a></li>
+          <li><a href="/services">Serviços</a></li>
+          <li><a href="/contact">Contacto</a></li>
         </ul>
       </Menu>
     </>
