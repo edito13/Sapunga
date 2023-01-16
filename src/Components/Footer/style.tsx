@@ -17,6 +17,10 @@ export const FooterContainer = styled.div`
     border-bottom: 1px solid #eee;
     color: #fff;
 
+    & > div:first-child {
+      max-width: 300px;
+    }
+
     & > div:nth-child(2),
     & > div:nth-child(3) {
       max-width: 250px;
@@ -24,7 +28,7 @@ export const FooterContainer = styled.div`
 
     & > div:last-child {
       max-width: 400px;
-      min-width: 300px;
+      min-width: 250px;
     }
 
     p {
@@ -106,16 +110,21 @@ export const FooterContainer = styled.div`
       .Newslatter {
         background: #fff;
         border-radius: 25px;
-        padding: 0.1em;
+        padding: .1em;
         margin: 1em 0;
         display: flex;
         justify-content: space-between;
+        max-width: 300px;
 
         input {
           border-radius: 25px;
           padding: 0.4em 0.8em;
           font-size: 1em;
           border: none;
+        }
+
+        button {
+          margin-left: -2.4em;
         }
       }
 

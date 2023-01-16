@@ -107,7 +107,7 @@ export const Container = styled.main`
       padding: 2em;
       background: url("./assets/Images/Grupo 18.png");
       background-size: cover;
-      background-position: 38%;
+      background-position: 32%;
 
       .content {
         align-items: flex-start;
@@ -122,7 +122,7 @@ export const Container = styled.main`
       padding: 2em;
       background: url("./assets/Images/Grupo 19.png");
       background-size: cover;
-      background-position: 62%;
+      background-position: 68%;
 
       .content {
         align-items: flex-end;
@@ -139,6 +139,16 @@ export const Container = styled.main`
           border-color: #7d72b2;
         }
       }
+    }
+  }
+
+  @media (min-width: 400px) {
+    .agricultura {
+      background-position: 38%;
+    }
+    
+    .grafica {
+      background-position: 62%;
     }
   }
 
