@@ -19,7 +19,7 @@ export const Header = styled.header`
       letter-spacing: 5px;
       font-weight: bolder;
       text-align: center;
-      margin-top: 2.8em;
+      margin-top: 2em;
     }
     p {
       text-align: center;
@@ -38,6 +38,7 @@ export const Header = styled.header`
     
     & > div > h1 {
       font-size: 4em;
+      margin-top: 2.8em;
     }
     
     & > div p {
