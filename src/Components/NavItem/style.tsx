@@ -52,7 +52,7 @@ export const MobileMenu = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5em;
+    gap: 1em;
     margin-top: 3em;
 
     div{

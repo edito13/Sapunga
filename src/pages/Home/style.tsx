@@ -107,7 +107,7 @@ export const Container = styled.main`
       padding: 2em;
       background: url("./assets/Images/Grupo 18.png");
       background-size: cover;
-      background-position: 33%;
+      background-position: 38%;
 
       .content {
         align-items: flex-start;
@@ -122,7 +122,7 @@ export const Container = styled.main`
       padding: 2em;
       background: url("./assets/Images/Grupo 19.png");
       background-size: cover;
-      background-position: 67%;
+      background-position: 62%;
 
       .content {
         align-items: flex-end;
