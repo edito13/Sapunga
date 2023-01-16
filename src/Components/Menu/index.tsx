@@ -3,13 +3,18 @@ import NavItem from '../NavItem'
 import { IconButton } from '@mui/material/'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Menu } from './style';
+import { Link, useLocation } from 'react-router-dom';
 
 const index = () => {
+
+  const itemAtivo = useLocation().pathname.substring(1)
 
   const [isActive, setIsActive] = useState(false);
   
   const OpenMenu = () => setIsActive(true)
   const CloseMenu = () => setIsActive(false)
+
+  console.log(itemAtivo)
 
   return (
     <>
@@ -20,11 +25,11 @@ const index = () => {
           <GiHamburgerMenu />
         </IconButton>
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="/quem_somos">Quem somos?</a></li>
-          <li><a href="/produtos">Produtos</a></li>
-          <li><a href="/servicos">Serviços</a></li>
-          <li><a href="/contactos">Contacto</a></li>
+          <li className={itemAtivo === '' ? 'active' : ''}><Link to="/">Home</Link></li>
+          <li className={itemAtivo === 'quem_somos' ? 'active' : ''}><Link to="/quem_somos">Quem somos?</Link></li>
+          <li className={itemAtivo === 'produtos' ? 'active' : ''}><Link to="/produtos">Produtos</Link></li>
+          <li className={itemAtivo === 'servicos' ? 'active' : ''}><Link to="/servicos">Serviços</Link></li>
+          <li className={itemAtivo === 'contactos' ? 'active' : ''}><Link to="/contactos">Contacto</Link></li>
         </ul>
       </Menu>
     </>

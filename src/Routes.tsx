@@ -11,13 +11,13 @@ import Criar_conta from "./pages/Criar_conta"
 export default () => (
     <Router>
         <Routes>
-            <Route path="/" element={<Home />}/>
             <Route path="/quem_somos" element={<Quem_somos />}/>
             <Route path="/produtos" element={<Produtos />}/>
             <Route path="/servicos" element={<Services />}/>
             <Route path="/contactos" element={<Contactos />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/criar_conta" element={<Criar_conta />}/>
+            <Route path="/" element={<Home />}/>
         </Routes>
     </Router>
 )

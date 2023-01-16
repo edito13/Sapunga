@@ -66,7 +66,7 @@ export const Menu = styled.nav`
         }
       }
 
-      li:hover {
+      li:hover, li.active {
         a {
           color: #30285A;
         }

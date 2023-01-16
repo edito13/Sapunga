@@ -8,6 +8,7 @@ import Footer from "../../Components/Footer";
 import Slogan from "../../Components/Slogan";
 
 const Home = () => {
+  
   return (
     <Container>
       <Header />
