@@ -22,9 +22,9 @@ const index = () => {
         <ul>
           <li><a href="">Home</a></li>
           <li><a href="/quem_somos">Quem somos?</a></li>
-          <li><a href="/products">Produtos</a></li>
-          <li><a href="/services">Serviços</a></li>
-          <li><a href="/contact">Contacto</a></li>
+          <li><a href="/produtos">Produtos</a></li>
+          <li><a href="/servicos">Serviços</a></li>
+          <li><a href="/contactos">Contacto</a></li>
         </ul>
       </Menu>
     </>
