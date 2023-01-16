@@ -13,9 +13,19 @@ export const FooterContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2em;
-    padding: 2em 0;
+    padding: 3em 0;
     border-bottom: 1px solid #eee;
     color: #fff;
+
+    & > div:nth-child(2),
+    & > div:nth-child(3) {
+      max-width: 250px;
+    }
+
+    & > div:last-child {
+      max-width: 400px;
+      min-width: 300px;
+    }
 
     p {
       font-family: "Roboto Light";
@@ -113,23 +123,50 @@ export const FooterContainer = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: .5em;
+        gap: 0.5em;
         margin-top: 1em;
 
         div {
           display: flex;
           align-items: center;
-          gap: .2em;
+          gap: 0.2em;
 
           svg {
             font-size: 1.2em;
           }
         }
       }
-    }
-  }
 
-  @media (min-width: 750px) {
+      .social-media {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        margin-top: 1.5em;
+
+        div {
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          padding: 8px;
+          cursor: pointer;
+
+          svg {
+            font-size: 1.2em;
+            color: #30285a;
+          }
+
+          &:hover {
+            background: #30285a;
+            transform: scale(1.2);
+
+            svg {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
   }
 
   .Copyright {
@@ -137,8 +174,8 @@ export const FooterContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1em;
     gap: 0.5em;
+    padding: 1em;
 
     p {
       color: #fff;
@@ -150,31 +187,26 @@ export const FooterContainer = styled.div`
     }
   }
 
-  .social-media {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    margin-top: 1.5em;
+  @media (min-width: 800px) {
+    .ContentContainer {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1em;
+      flex-wrap: wrap;
 
-    div {
-      display: flex;
-      border-radius: 50%;
-      background: #fff;
-      padding: 8px;
-      cursor: pointer;
-
-      svg {
-        font-size: 1.2em;
-        color: #30285a;
+      .Contact-us .Contacts {
+        flex-direction: row;
       }
+    }
 
-      &:hover {
-        background: #30285a;
-        transform: scale(1.2);
-
-        svg {
-          color: #fff;
+    .Copyright{
+      flex-direction: row;
+      
+      p {
+        padding: .5em;
+        
+        &:first-child {
+          border-right: 1px solid #fff;
         }
       }
     }
