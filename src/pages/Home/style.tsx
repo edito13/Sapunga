@@ -146,9 +146,16 @@ export const Container = styled.main`
     .agricultura {
       background-position: 38%;
     }
-    
+
     .grafica {
       background-position: 62%;
+    }
+  }
+
+  @media (min-width: 500px) {
+    .Introduce-banner .content p {
+      font-size: 1.3em;
+      max-width: 400px;
     }
   }
 
@@ -157,9 +164,13 @@ export const Container = styled.main`
       flex-direction: row;
       gap: 8%;
       margin-top: 5em;
+      
 
       .content p {
         margin-bottom: 1.5em;
+        font-size: 1.4em;
+        text-align: left;
+        line-height: 1.4em;
       }
     }
 
@@ -211,12 +222,28 @@ export const Container = styled.main`
     }
   }
 
-  @media (min-width: 500px) {
-    .Introduce-banner .content p {
-      font-size: 1.3em;
-      max-width: 400px;
+  @media (min-width: 1000px) {
+
+    .Services {
+      .content {
+        padding: 3em;
+        min-height: 70vh;
+
+        p {
+          font-size: 1.4em;
+        }
+
+        ul li span {
+          width: 20px;
+          height: 20px;
+          border-width: 3px;
+        }
+
+        ul li + li {
+          margin-top: 6%;
+        }
+      }
     }
-    
   }
 `;
 
