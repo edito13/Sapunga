@@ -10,13 +10,12 @@ export const MobileMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* padding: 2em 0; */
   transition: .5s ease-in-out;
   z-index: 99999;
 
   button {
     align-self: flex-end;
-    margin: 2.2em 1.6em 0 0;
+    margin: 2.5em 1.5em 0 0;
 
     svg {
       font-size: 1.3em;

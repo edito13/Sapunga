@@ -11,7 +11,7 @@ interface props{
 const index = ({ CloseMenu, isAtive }: props) => {
 
   return (
-    <MobileMenu className={`${true && 'ative'}`}>
+    <MobileMenu className={`${isAtive && 'ative'}`}>
         <IconButton onClick={CloseMenu}><BsXLg /></IconButton>
         <ul>
           <li><a href="">Home</a></li>
