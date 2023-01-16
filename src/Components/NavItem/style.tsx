@@ -5,18 +5,18 @@ export const MobileMenu = styled.nav`
   backdrop-filter: blur(10px);
   position: fixed;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   top: -200%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2em 0;
+  /* padding: 2em 0; */
   transition: .5s ease-in-out;
   z-index: 99999;
 
   button {
     align-self: flex-end;
-    margin: 1em 1.5em 0 0;
+    margin: 2.2em 1.6em 0 0;
 
     svg {
       font-size: 1.3em;
@@ -53,7 +53,7 @@ export const MobileMenu = styled.nav`
     justify-content: center;
     align-items: center;
     gap: 1em;
-    margin-top: 3em;
+    margin: 3em 0;
 
     div{
       display: flex;
