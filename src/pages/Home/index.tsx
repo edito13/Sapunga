@@ -56,23 +56,23 @@ const Home = () => {
             <ul>
               <li>
                 <span></span>
-                <p>Plantação em grandes hectares</p>
+                <p>Produção Agrícola</p>
               </li>
               <li>
                 <span></span>
-                <p>Plantação em grandes hectares</p>
+                <p>Montagem de Sistema de irrigação</p>
               </li>
               <li>
                 <span></span>
-                <p>Plantação em grandes hectares</p>
+                <p>Montagem de Estaleiros</p>
               </li>
               <li>
                 <span></span>
-                <p>Plantação em grandes hectares</p>
+                <p>Construão de Tanques</p>
               </li>
               <li>
                 <span></span>
-                <p>Plantação em grandes hectares</p>
+                <p>Consultória Agrícola</p>
               </li>
             </ul>
             <p>

@@ -2,6 +2,7 @@ import React from "react";
 import Menu from "../Menu";
 import { Header } from "./style";
 import { VioletButton } from "../VioletButton/style";
+import { Link } from "react-router-dom";
 
 const index = () => {
   return (
@@ -11,7 +12,9 @@ const index = () => {
         <h1>SAPUNGA</h1>
         <p>Comércio & Serviços, Lda.</p>
         <div>
-          <VioletButton>Quem somos?</VioletButton>
+          <Link to={'/quem_somos'}>
+            <VioletButton>Quem somos?</VioletButton>
+          </Link>
         </div>
       </div>
     </Header>

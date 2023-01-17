@@ -7,22 +7,21 @@ interface props {
 export const Container = styled.main`
   .services section {
     width: 100%;
-    padding: 4em;
     min-height: 70vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     gap: 1em;
+    padding: 2em;
 
     .content {
-      max-width: 60%;
-
       h3 {
         font-family: "Poppins";
-        font-size: 2.7em;
+        font-size: 2em;
         color: #707070;
         font-weight: 500;
-        margin-bottom: 0.5em;
+        margin: 0.5em 0;
+        text-align: center;
       }
 
       p {
@@ -31,9 +30,14 @@ export const Container = styled.main`
         font-size: 1.3em;
       }
     }
+
   }
 
   .services > :nth-child(odd) {
+    flex-direction: column-reverse;
+  }
+
+  /* .services > :nth-child(odd) {
     display: flex;
     justify-content: flex-start;
   }
@@ -50,7 +54,7 @@ export const Container = styled.main`
     background-position: right;
     background-size: cover;
     background-attachment: scroll;
-  }
+  } */
 `;
 
 export const ImgService = styled.div(
@@ -58,9 +62,11 @@ export const ImgService = styled.div(
   background: url('./assets/Images/backgrounds/${src}.jpg') no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
+  transform: scale(1.1);
   width: 100%;
   max-width: 330px;
-  height: 70vh;
+  height: 40vh;
   border-radius: 28px;
 `
 );

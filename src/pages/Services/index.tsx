@@ -25,6 +25,7 @@ const index = () => {
               isso.
             </p>
           </div>
+          <ImgService src="9" />
         </section>
         <section>
           <ImgService src="7" />
@@ -52,6 +53,7 @@ const index = () => {
               isso.
             </p>
           </div>
+          <ImgService src="10" />
         </section>
         <section>
           <ImgService src="8" />

@@ -40,7 +40,15 @@ export const MobileMenu = styled.nav`
 
     li:hover, li.active a{
       color: #7d72b2;
-      border-bottom: 2px solid #7d72b2;
+    }
+
+    li.active a::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: currentColor;
+      width: 80%;
+      margin: .3em auto 0;
     }
   }
 
