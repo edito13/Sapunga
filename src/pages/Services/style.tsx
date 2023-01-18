@@ -5,56 +5,85 @@ interface props {
 }
 
 export const Container = styled.main`
-  .services section {
-    width: 100%;
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    padding: 2em;
+  .services {
+    margin: 2em 0 4em;
 
-    .content {
-      h3 {
-        font-family: "Poppins";
-        font-size: 2em;
-        color: #707070;
-        font-weight: 500;
-        margin: 0.5em 0;
-        text-align: center;
-      }
+    section {
+      width: 100%;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+      padding: 2em;
 
-      p {
-        color: #707070;
-        line-height: 1.5em;
-        font-size: 1.3em;
+      .content {
+        h3 {
+          font-family: "Poppins";
+          font-size: 2em;
+          color: #707070;
+          font-weight: 500;
+          margin: 0.5em 0;
+          text-align: center;
+        }
+
+        p {
+          color: #707070;
+          line-height: 1.5em;
+          font-size: 1.3em;
+        }
       }
     }
-
   }
 
   .services > :nth-child(odd) {
     flex-direction: column-reverse;
   }
 
-  /* .services > :nth-child(odd) {
-    display: flex;
-    justify-content: flex-start;
+  @media (min-width: 800px) {
+    .services section,
+    .services > :nth-child(odd) {
+      flex-direction: row;
+      gap: 8%;
+
+      .content {
+        max-width: 65%;
+
+        h3 {
+          font-size: 2.2em;
+          text-align: left;
+        }
+
+        p {
+          line-height: 1.5em;
+          font-size: 1.5em;
+        }
+      }
+    }
   }
 
-  .services > section:nth-child(1) {
-    background: url("./assets/Images/backgrounds/4.png") no-repeat;
-    background-position: right;
-    background-size: cover;
-    background-attachment: local;
-  }
+  @media (min-width: 1000px) {
+    .services section,
+    .services > :nth-child(odd) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 8%;
 
-  .services > section:nth-child(3) {
-    background: url("./assets/Images/backgrounds/5.png") no-repeat;
-    background-position: right;
-    background-size: cover;
-    background-attachment: scroll;
-  } */
+      .content {
+        max-width: 60%;
+
+        h3 {
+          font-size: 2.5em;
+          text-align: left;
+        }
+
+        p {
+          line-height: 1.5em;
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
 `;
 
 export const ImgService = styled.div(
@@ -68,5 +97,15 @@ export const ImgService = styled.div(
   max-width: 330px;
   height: 40vh;
   border-radius: 28px;
+  
+  
+  @media(min-width: 800px){
+    background-attachment: initial;
+    height: 55vh;
+  }
+  
+  @media (min-width: 1200px) {
+    height: 60vh;
+  }
 `
 );

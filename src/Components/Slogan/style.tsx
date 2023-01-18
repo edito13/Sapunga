@@ -48,4 +48,14 @@ export const SloganContainer = styled.div`
     }
   }
 
+  @media(min-width: 800px){
+    div p:first-child {
+      font-size: 2.5em;
+    }
+
+    div p:last-child {
+      font-size: 1.5em;
+    }
+  }
+
 `;
