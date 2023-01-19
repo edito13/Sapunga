@@ -10,7 +10,7 @@
   outline: none;
 }
 
-:root{
+:root {
   --green: #42C713;
   --LightViolet: #7D72B2;
   --DarkViolet: #30285A;
@@ -18,13 +18,17 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.LightViolet{
+.LightViolet {
   color: var(--LightViolet);
 }
-.DarkViolet{
+.DarkViolet {
   color: var(--DarkViolet);
 }
 
-.Green{
+.Green {
   color: var(--green);
+}
+
+span {
+  font-weight: bold;
 }

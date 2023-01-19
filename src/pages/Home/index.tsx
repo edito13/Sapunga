@@ -89,23 +89,23 @@ const Home = () => {
             <ul>
               <li>
                 <span></span>
-                <p>Plantação em grandes hectares</p>
+                <p>Criação de Logotipos, Flyers & Cartão de visita</p>
               </li>
               <li>
                 <span></span>
-                <p>Plantação em grandes hectares</p>
+                <p>Timbragem & Bordado de T-Shirts</p>
               </li>
               <li>
                 <span></span>
-                <p>Plantação em grandes hectares</p>
+                <p>Decoração de Viaturas</p>
               </li>
               <li>
                 <span></span>
-                <p>Plantação em grandes hectares</p>
+                <p>Produção de Uniformes Profissionais</p>
               </li>
               <li>
                 <span></span>
-                <p>Plantação em grandes hectares</p>
+                <p>Manuntenção de impressoras e mais.</p>
               </li>
             </ul>
             <p>
