@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@mui/material";
 import { Container } from "./style";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { VioletButton } from "../../Components/VioletButton/style";
