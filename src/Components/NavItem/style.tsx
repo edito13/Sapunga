@@ -10,7 +10,7 @@ export const MobileMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
   z-index: 99999;
 
   button {
@@ -38,45 +38,71 @@ export const MobileMenu = styled.nav`
       margin-bottom: 2px;
     }
 
-    li:hover, li.active a{
+    li:hover,
+    li.active a {
       color: #7d72b2;
     }
 
     li.active a::after {
-      content: '';
+      content: "";
       display: block;
       height: 1px;
       background: currentColor;
       width: 80%;
-      margin: .3em auto 0;
+      margin: 0.3em auto 0;
     }
   }
 
-  & > div{
+  & > div {
+    div:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      a {
+        display: flex;
+        align-items: center;
+        gap: .3em;
+        color: #fff;
+        font-size: 1.4em;
+        padding: .5em;
+
+        svg { 
+          background: #30285a;
+        }
+      }
+
+      a:first-child {
+        border-right: 1px solid #fff;
+      }
+    }
+  }
+
+  .social-media {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
-    margin: 3em 0;
+    margin: 1em 0 3em;
 
-    div{
+    div {
       display: flex;
       border-radius: 50%;
-      background: #30285A;
+      background: #30285a;
       padding: 8px;
       cursor: pointer;
-      
-      svg{
+
+      svg {
         font-size: 1.7em;
         color: #fff;
       }
-      
-      &:hover{
+
+      &:hover {
         background: #fff;
         transform: scale(1.2);
-        
-        svg{
-          color: #30285A;
+
+        svg {
+          color: #30285a;
         }
       }
     }
