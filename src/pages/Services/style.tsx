@@ -20,17 +20,17 @@ export const Container = styled.main`
       .content {
         h3 {
           font-family: "Poppins";
-          font-size: 2em;
+          font-size: 1.6em;
           color: #707070;
           font-weight: 500;
-          margin: 0.5em 0;
+          margin: .5em 0;
           text-align: center;
         }
 
         p {
           color: #707070;
           line-height: 1.5em;
-          font-size: 1.3em;
+          font-size: 1.1em;
         }
       }
     }
