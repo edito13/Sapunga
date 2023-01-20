@@ -56,23 +56,23 @@ const Home = () => {
             <ul>
               <li>
                 <span></span>
-                <p>Produção Agrícola</p>
+                <p>Produção agrícola</p>
               </li>
               <li>
                 <span></span>
-                <p>Montagem de Sistema de irrigação</p>
+                <p>Montagem de sistema de irrigação</p>
               </li>
               <li>
                 <span></span>
-                <p>Montagem de Estaleiros</p>
+                <p>Montagem de estaleiros</p>
               </li>
               <li>
                 <span></span>
-                <p>Construão de Tanques</p>
+                <p>Construão de tanques</p>
               </li>
               <li>
                 <span></span>
-                <p>Consultória Agrícola</p>
+                <p>Consultória agrícola</p>
               </li>
             </ul>
             <p>
@@ -89,19 +89,19 @@ const Home = () => {
             <ul>
               <li>
                 <span></span>
-                <p>Criação de Logotipos, Flyers & Cartão de visita</p>
+                <p>Criação de logotipos, flyers e mais</p>
               </li>
               <li>
                 <span></span>
-                <p>Timbragem & Bordado de T-Shirts</p>
+                <p>Timbragem & bordado de t-shirts</p>
               </li>
               <li>
                 <span></span>
-                <p>Decoração de Viaturas</p>
+                <p>Decoração de viaturas</p>
               </li>
               <li>
                 <span></span>
-                <p>Produção de Uniformes Profissionais</p>
+                <p>Produção de uniformes</p>
               </li>
               <li>
                 <span></span>

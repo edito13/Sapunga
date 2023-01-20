@@ -297,9 +297,10 @@ export const ImgDescribe = styled.div`
     border-radius: 50%;
     width: 180px;
     height: 180px;
-    top: -7em;
-    animation: animationLine 3s linear alternate infinite;
+    top: -6em;
+    right: 4.8em;
   }
+  
   &::after {
     content: "";
     background: url("./assets/Images/14.jpg") no-repeat;
@@ -307,38 +308,31 @@ export const ImgDescribe = styled.div`
     background-position: center;
     position: absolute;
     border: 10px solid #42c713;
-    animation: animationLine 3s linear alternate-reverse infinite;
     border-radius: 50%;
     width: 180px;
     height: 180px;
-    bottom: -7em;
+    bottom: -6em;
+    right: 4.8em;
   }
-
+  
   @media (min-width: 750px) {
     border-radius: 9px;
     max-width: 400px;
     min-height: 600px;
-
+    
     &::before {
       width: 170px;
       height: 170px;
       border-width: 6px;
       top: -5em;
+      right: -4em;
     }
     &::after {
       width: 170px;
       height: 170px;
       border-width: 6px;
       bottom: -5em;
-    }
-  }
-
-  @keyframes animationLine {
-    from {
-      right: 52%;
-    }
-    to {
-      right: 0;
+      right: -4em;
     }
   }
 `;
