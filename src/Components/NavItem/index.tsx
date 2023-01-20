@@ -20,7 +20,7 @@ const index = ({ CloseMenu, isAtive }: props) => {
   const itemAtivo = useLocation().pathname.substring(1);
 
   return (
-    <MobileMenu className={`${true && "ative"}`}>
+    <MobileMenu className={`${isAtive && "ative"}`}>
       <IconButton onClick={CloseMenu}>
         <BsXLg />
       </IconButton>
