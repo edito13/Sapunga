@@ -44,11 +44,15 @@ const index = ({ CloseMenu, isAtive }: props) => {
       <div>
         <div>
           <Link to={"/login"}>
-            <FaUserLock />
+            <div>
+              <FaUserLock />
+            </div>
             <p>Logar</p>
           </Link>
           <Link to={"/criar_conta"}>
-            <FaUserCircle />
+            <div>
+              <FaUserCircle />
+            </div>
             <p>Cadastrar</p>
           </Link>
         </div>

@@ -29,12 +29,12 @@ export const MobileMenu = styled.nav`
     flex-direction: column;
     align-self: center;
     justify-self: center;
-    gap: 2em;
+    gap: 1.5em;
 
     li a {
       color: #fff;
       text-decoration: none;
-      font-size: 1.4em;
+      font-size: 1.2em;
       margin-bottom: 2px;
     }
 
@@ -49,31 +49,37 @@ export const MobileMenu = styled.nav`
       height: 1px;
       background: currentColor;
       width: 80%;
-      margin: 0.3em auto 0;
+      margin: .3em auto 0;
     }
   }
 
   & > div {
-    div:first-child {
+    & > div:first-child {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: .5em;
       
       a {
         display: flex;
         align-items: center;
         gap: .3em;
         color: #fff;
-        font-size: 1.4em;
-        padding: .5em;
+        font-size: 1.2em;
+        padding: .3em .5em;
 
-        svg { 
+        div { 
           background: #30285a;
+          padding: .3em;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          
+          svg { 
+            color: #fff;
+          }
         }
-      }
-
-      a:first-child {
-        border-right: 1px solid #fff;
+        
       }
     }
   }
@@ -93,7 +99,7 @@ export const MobileMenu = styled.nav`
       cursor: pointer;
 
       svg {
-        font-size: 1.7em;
+        font-size: 1.5em;
         color: #fff;
       }
 
