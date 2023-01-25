@@ -23,7 +23,7 @@ export const Container = styled.main`
           font-size: 1.6em;
           color: #707070;
           font-weight: 500;
-          margin: .5em 0;
+          margin: 0.5em 0;
           text-align: center;
         }
 
@@ -47,7 +47,7 @@ export const Container = styled.main`
       gap: 8%;
 
       .content {
-        max-width: 65%;
+        max-width: 60%;
 
         h3 {
           font-size: 2.2em;
@@ -56,7 +56,7 @@ export const Container = styled.main`
 
         p {
           line-height: 1.5em;
-          font-size: 1.5em;
+          font-size: 1.3em;
         }
       }
     }
@@ -65,21 +65,14 @@ export const Container = styled.main`
   @media (min-width: 1000px) {
     .services section,
     .services > :nth-child(odd) {
-      flex-direction: row;
       justify-content: center;
-      gap: 8%;
 
       .content {
-        max-width: 60%;
-
-        h3 {
-          font-size: 2.5em;
-          text-align: left;
-        }
+        max-width: 55%;
 
         p {
-          line-height: 1.5em;
-          font-size: 1.5em;
+          line-height: 1.8em;
+          font-size: 1.2em;
         }
       }
     }

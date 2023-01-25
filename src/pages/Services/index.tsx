@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Header from "../../Components/Header";
 import Slogan from "../../Components/Slogan";
 import Footer from "../../Components/Footer";
-import { TitlePages } from "../../Components/TitlePages/style";
+import TitlePages from "../../Components/TitlePages";
 import { Container, ImgService } from "./style";
 
 const index = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <Container>
       <Header />
-      <TitlePages>
-        <h1>Serviços</h1>
-      </TitlePages>
+      <TitlePages>Serviços</TitlePages>
       <div className="services">
         <section>
-          <div className="content">
+          <div className="content" data-aos="fade-right">
             <h3>Produção Agrícola & Comércio</h3>
             <p>
               E a quarta e última: "Quando algo termina, acaba". Simplesmente
@@ -25,11 +29,11 @@ const index = () => {
               isso.
             </p>
           </div>
-          <ImgService src="9" />
+          <ImgService src="9" data-aos="zoom-in-left" />
         </section>
         <section>
-          <ImgService src="7" />
-          <div className="content">
+          <ImgService src="7" data-aos="zoom-in-right" />
+          <div className="content" data-aos="fade-left">
             <h3>Personalização Gráfica</h3>
             <p>
               E a quarta e última: "Quando algo termina, acaba". Simplesmente
@@ -42,7 +46,7 @@ const index = () => {
           </div>
         </section>
         <section>
-          <div className="content">
+          <div className="content" data-aos="fade-right">
             <h3>Instalação & Venda de Equipamentos</h3>
             <p>
               E a quarta e última: "Quando algo termina, acaba". Simplesmente
@@ -53,11 +57,11 @@ const index = () => {
               isso.
             </p>
           </div>
-          <ImgService src="10" />
+          <ImgService src="10" data-aos="zoom-in-left" />
         </section>
         <section>
-          <ImgService src="8" />
-          <div className="content">
+          <ImgService src="8" data-aos="zoom-in-right" />
+          <div className="content" data-aos="fade-left">
             <h3>Timbragem & Bordado</h3>
             <p>
               E a quarta e última: "Quando algo termina, acaba". Simplesmente

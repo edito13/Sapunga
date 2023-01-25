@@ -2,16 +2,13 @@ import React from "react";
 import Header from "../../Components/Header";
 import Slogan from "../../Components/Slogan";
 import Footer from "../../Components/Footer";
-import { TitlePages } from "../../Components/TitlePages/style";
+import TitlePages from "../../Components/TitlePages";
 
 const index = () => {
-
   return (
     <>
       <Header />
-      <TitlePages>
-        <h1>Quem Somos</h1>
-      </TitlePages>
+      <TitlePages>Quem Somos</TitlePages>
       <Slogan />
       <Footer />
     </>

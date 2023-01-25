@@ -1,20 +1,20 @@
-*{
-  box-sizing: border-box; 
+* {
+  box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-  font-family: 'Roboto Regular';
+  font-family: "Roboto Regular";
   list-style: none;
   text-decoration: none;
   font-size: 100%;
-  transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
   outline: none;
 }
 
 :root {
-  --green: #42C713;
-  --LightViolet: #7D72B2;
-  --DarkViolet: #30285A;
-  --DarkGray: #0E0E10;
+  --green: #42c713;
+  --LightViolet: #7d72b2;
+  --DarkViolet: #30285a;
+  --DarkGray: #0e0e10;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -31,4 +31,20 @@
 
 span {
   font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+  background-color: #1d1e20;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #7d72b2;
+  border-radius: 0.5rem;
+  transition: 0.4s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #514397;
+  cursor: pointer;
 }

@@ -164,7 +164,6 @@ export const Container = styled.main`
       flex-direction: row;
       gap: 8%;
       margin-top: 5em;
-      
 
       .content p {
         margin-bottom: 1.5em;
@@ -223,7 +222,6 @@ export const Container = styled.main`
   }
 
   @media (min-width: 1000px) {
-
     .Services {
       .content {
         padding: 3em;
@@ -270,7 +268,7 @@ export const ImageContainer = styled.div`
     position: relative;
     top: -30px;
     left: 30px;
-    z-index: -1;
+    /* z-index: -1; */
   }
 
   @media (min-width: 750px) {
@@ -300,7 +298,7 @@ export const ImgDescribe = styled.div`
     top: -6em;
     right: 4.8em;
   }
-  
+
   &::after {
     content: "";
     background: url("./assets/Images/14.jpg") no-repeat;
@@ -314,12 +312,12 @@ export const ImgDescribe = styled.div`
     bottom: -6em;
     right: 4.8em;
   }
-  
+
   @media (min-width: 750px) {
     border-radius: 9px;
     max-width: 400px;
     min-height: 600px;
-    
+
     &::before {
       width: 170px;
       height: 170px;

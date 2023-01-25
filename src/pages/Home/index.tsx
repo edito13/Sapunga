@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import { Container, ImageContainer, ImgDescribe } from "./style";
 import VioletButton from "../../Components/VioletButton";
@@ -6,15 +6,20 @@ import TitleSections from "../../Components/TitleSections";
 import { FaShoppingCart } from "react-icons/fa";
 import Footer from "../../Components/Footer";
 import Slogan from "../../Components/Slogan";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
-  
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <Container>
       <Header />
       <section className="Introduce-banner">
-        <ImageContainer />
-        <div className="content">
+        <ImageContainer data-aos="fade-right" />
+        <div className="content" data-aos="fade-left">
           <p>
             Produção agrícola, serviços e produtos gráficos de alta{" "}
             <span className="DarkViolet">qualidade</span>.
@@ -32,7 +37,7 @@ const Home = () => {
       <section className="Quem-somos">
         <TitleSections>Quem somos?</TitleSections>
         <div className="content">
-          <p>
+          <p data-aos="slide-up" data-aos-delay="150">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
             voluptatem laboriosam autem consequuntur ducimus sed velit vitae,
             odit obcaecati sint eaque dolorum error, sapiente inventore?
@@ -45,12 +50,12 @@ const Home = () => {
             corporis nulla necessitatibus culpa accusamus quis quo vitae quos
             numquam, laboriosam sint quam quod! Magnam.
           </p>
-          <ImgDescribe />
+          <ImgDescribe data-aos="fade-left" data-aos-delay="50" />
         </div>
       </section>
       <section className="Services">
         <TitleSections>Serviços</TitleSections>
-        <div className="agricultura">
+        <div className="agricultura" data-aos="zoom-in">
           <div className="content">
             <h3>Agricultura</h3>
             <ul>
@@ -83,7 +88,7 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="grafica">
+        <div className="grafica" data-aos="zoom-in">
           <div className="content">
             <h3>Gráfica</h3>
             <ul>
