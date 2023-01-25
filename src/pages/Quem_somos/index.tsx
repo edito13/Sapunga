@@ -9,7 +9,6 @@ const index = () => {
     <>
       <Header />
       <TitlePages>Quem Somos</TitlePages>
-      <Slogan />
       <Footer />
     </>
   );

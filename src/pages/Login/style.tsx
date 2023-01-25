@@ -59,24 +59,25 @@ export const Container = styled.main`
           label {
             display: block;
             font-size: 1.3em;
-            margin-bottom: .3em;
+            margin-bottom: 0.3em;
           }
 
           input {
             background: #fff;
             border-radius: 5px;
-            padding: .5em 0.8em;
+            padding: 0.5em 0.8em;
             font-size: 1.2em;
             width: 100%;
-            
-            &:hover, &:focus {
+
+            &:hover,
+            &:focus {
               background: #ffffffa9;
-            } 
+            }
           }
         }
 
         button {
-          margin-top: .5em;
+          margin-top: 0.5em;
         }
 
         p {
@@ -108,7 +109,6 @@ export const Container = styled.main`
 
             &:hover {
               background: #fff;
-              transform: scale(1.2);
 
               svg {
                 color: #30285a;
@@ -123,7 +123,7 @@ export const Container = styled.main`
       }
     }
 
-    @media (min-width: 500px) {
+    @media (min-width: 510px) {
       .content {
         height: auto;
       }
@@ -140,29 +140,22 @@ export const Container = styled.main`
           max-width: 400px;
           line-height: 1.6em;
           margin-bottom: 1.5em;
-          font-family: 'Poppins Light';
-          animation: appearsL 1s .3s ease-in-out backwards;
+          font-family: "Poppins Light";
         }
-        
+
         button {
           padding: 0.3em 0.8em;
           width: 100%;
           max-width: 250px;
           font-size: 1.6em;
-          animation: appearsL 1s .6s ease-in-out backwards;
         }
       }
-      
-      .content {
-        animation: appearsR 1s .5s ease-in-out backwards;
-      }
     }
-    
+
     @media (min-width: 1250px) {
       gap: 10%;
 
       & > div:first-child {
-
         p {
           font-size: 2em;
           max-width: 450px;
@@ -179,17 +172,19 @@ export const Container = styled.main`
       from {
         opacity: 0;
         transform: translateX(-50%);
-      } to {
+      }
+      to {
         opacity: 1;
         transform: translateX(0);
       }
     }
-    
+
     @keyframes appearsR {
       from {
         opacity: 0;
         transform: translateX(28%);
-      } to {
+      }
+      to {
         opacity: 1;
         transform: translateX(0);
       }

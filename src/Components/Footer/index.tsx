@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { BiAt, BiMapPin } from "react-icons/bi";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { ImPhone } from "react-icons/im";
+import { Link } from "react-router-dom";
 import { FooterContainer, SendButton } from "./style";
 
 const index = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <FooterContainer>
       <div className="ContentContainer">
-        <div className="CompanyInfo">
+        <div className="CompanyInfo" data-aos="slide-up">
           <img src="./assets/Images/SAPUNGA LOGO.png" alt="sapunga" />
           <p>Produção agrícola, serviços e produtos gráficos.</p>
           <div>
@@ -19,27 +26,27 @@ const index = () => {
             </p>
           </div>
         </div>
-        <div>
+        <div data-aos="slide-up" data-aos-delay="50">
           <h4>Links rápidos</h4>
           <ul>
             <li>
-              <a href="">Home</a>
+              <Link to={"/"}>Home</Link>
             </li>
             <li>
-              <a href="">Quem somos?</a>
+              <Link to={"/quem_somos"}>Quem somos?</Link>
             </li>
             <li>
-              <a href="">Produtos</a>
+              <Link to={"/produtos"}>Produtos</Link>
             </li>
             <li>
-              <a href="">Serviços</a>
+              <Link to={"/servicos"}>Serviços</Link>
             </li>
             <li>
-              <a href="">Contacto</a>
+              <Link to={"/contactos"}>Contacto</Link>
             </li>
           </ul>
         </div>
-        <div>
+        <div data-aos="slide-up" data-aos-delay="100">
           <h4>Serviços</h4>
           <ul>
             <li>
@@ -56,7 +63,7 @@ const index = () => {
             </li>
           </ul>
         </div>
-        <div className="Contact-us">
+        <div className="Contact-us" data-aos="slide-up" data-aos-delay="150">
           <h4>Contacte-nos</h4>
           <p>
             Entre em contacto connosco escrevendo ou acessando as nossas{" "}

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../Components/Header";
-import { Container, ImageContainer, ImgDescribe } from "./style";
-import VioletButton from "../../Components/VioletButton";
-import TitleSections from "../../Components/TitleSections";
-import { FaShoppingCart } from "react-icons/fa";
-import Footer from "../../Components/Footer";
-import Slogan from "../../Components/Slogan";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Header from "../../Components/Header";
+import VioletButton from "../../Components/VioletButton";
+import TitleSections from "../../Components/TitleSections";
+import Slogan from "../../Components/Slogan";
+import Footer from "../../Components/Footer";
+import { Container, ImageContainer, ImgDescribe } from "./style";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Home = () => {
   useEffect(() => {
