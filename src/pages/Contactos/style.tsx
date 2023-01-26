@@ -28,10 +28,34 @@ export const Container = styled.main`
         margin-top: 1.5em;
         color: #444;
       }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: #ccc;
+        font-family: "Roboto Light";
+      }
     }
 
     fieldset + fieldset {
       margin-top: 3em;
+    }
+  }
+
+  @media (min-width: 800px) {
+    form {
+      display: flex;
+      justify-content: center;
+      gap: 10%;
+      margin-bottom: 5em;
+
+      fieldset {
+        max-width: 500px;
+        flex: 1;
+      }
+
+      fieldset + fieldset {
+        margin-top: 0;
+      }
     }
   }
 `;
