@@ -5,6 +5,7 @@ import Header from "../../Components/Header";
 import TitlePages from "../../Components/TitlePages";
 import Footer from "../../Components/Footer";
 import { Container } from "./style";
+import VioletButton from "../../Components/VioletButton";
 
 const index = () => {
   useEffect(() => {
@@ -15,36 +16,58 @@ const index = () => {
     <Container>
       <Header />
       <TitlePages>Contactos</TitlePages>
-      <form>
-        <fieldset>
-          <caption>Dados Pessoais</caption>
-          <input
-            type="text"
-            placeholder="Nome Completo"
-            data-aos="slide-up"
-            data-aos-delay="50"
+      <div className="main">
+        <div className="Introduce">
+          <img
+            src="assets/Images/Black Men Office Video Chat.svg"
+            alt="Black Men Office Video Chat"
           />
-          <input
-            type="email"
-            placeholder="exemplo@gmail.com"
-            data-aos="slide-up"
-            data-aos-delay="100"
-          />
-          <input
-            type="number"
-            placeholder="Número de Telefone"
-            data-aos="slide-up"
-            data-aos-delay="150"
-          />
-        </fieldset>
-        <fieldset>
-          <caption>Mensagem</caption>
-          <textarea
-            placeholder="Escreva alguma coisa para nós!"
-            data-aos="slide-up"
-          ></textarea>
-        </fieldset>
-      </form>
+          <div className="text">
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit in
+              repellendus veritatis nemo placeat consequatur mollitia eum, totam
+              aperiam libero ad consequuntur aliquid laudantium sapiente aliquam
+              soluta incidunt, minima itaque?
+            </p>
+          </div>
+        </div>
+        <form>
+          <div className="content">
+            <fieldset data-aos="zoom-in-left">
+              <caption>Dados Pessoais</caption>
+              <input
+                type="text"
+                placeholder="Nome Completo"
+                data-aos="zoom-in"
+                data-aos-delay="50"
+              />
+              <input
+                type="email"
+                placeholder="exemplo@gmail.com"
+                data-aos="zoom-in"
+                data-aos-delay="100"
+              />
+              <input
+                type="number"
+                placeholder="Número de Telefone"
+                data-aos="zoom-in"
+                data-aos-delay="150"
+              />
+            </fieldset>
+            <fieldset data-aos="zoom-in-right">
+              <caption>Mensagem</caption>
+              <textarea
+                placeholder="Escreva alguma coisa para nós!"
+                data-aos="zoom-in"
+                data-aos-delay="50"
+              ></textarea>
+            </fieldset>
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="50">
+            <VioletButton>Enviar mensagem</VioletButton>
+          </div>
+        </form>
+      </div>
       <Footer />
     </Container>
   );

@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import styled from "styled-components";
 
 export const FooterContainer = styled.div`
+  width: 100%;
   background: #0e0e10;
   padding: 0 2em;
 
@@ -10,6 +11,7 @@ export const FooterContainer = styled.div`
   }
 
   .ContentContainer {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -110,7 +112,7 @@ export const FooterContainer = styled.div`
       .Newslatter {
         background: #fff;
         border-radius: 25px;
-        padding: .1em;
+        padding: 0.1em;
         margin: 1em 0;
         display: flex;
         justify-content: space-between;
@@ -208,12 +210,12 @@ export const FooterContainer = styled.div`
       }
     }
 
-    .Copyright{
+    .Copyright {
       flex-direction: row;
-      
+
       p {
-        padding: .5em;
-        
+        padding: 0.5em;
+
         &:first-child {
           border-right: 1px solid #fff;
         }

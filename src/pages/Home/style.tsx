@@ -1,28 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-  section {
+  .main {
     width: 100%;
-    max-width: 1200px;
-    margin: 8em auto;
+    max-width: 1000px;
+    margin: auto;
   }
 
   .Introduce-banner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5%;
-    font-size: 100%;
-    max-width: 90%;
-    margin: 5em auto 0;
+    margin: 5em 0;
 
     .content {
       p {
         max-width: 350px;
-        font-size: 1.1em;
+        font-size: 1.2em;
         line-height: 25px;
-        margin-bottom: 1em;
+        margin: 0 auto 1em;
         text-align: center;
 
         span {
@@ -161,9 +154,9 @@ export const Container = styled.main`
 
   @media (min-width: 750px) {
     .Introduce-banner {
-      flex-direction: row;
-      gap: 8%;
-      margin-top: 5em;
+      display: flex;
+      align-items: center;
+      gap: 10%;
 
       .content p {
         margin-bottom: 1.5em;
@@ -222,6 +215,16 @@ export const Container = styled.main`
   }
 
   @media (min-width: 1000px) {
+    .Introduce-banner {
+      gap: 15%;
+
+      .content {
+        p {
+          max-width: 480px;
+        }
+      }
+    }
+
     .Services {
       .content {
         padding: 3em;
@@ -251,10 +254,9 @@ export const ImageContainer = styled.div`
   background-size: cover;
   height: 280px;
   width: 220px;
-  border-radius: 12px;
-  border: 6px solid #fff;
+  border-radius: 10px;
   position: relative;
-  margin: 2em;
+  margin: 2em 0;
 
   &::after {
     content: "";
@@ -264,11 +266,12 @@ export const ImageContainer = styled.div`
     background: url("./assets/Images/4.jpg") no-repeat;
     background-position: center;
     background-size: cover;
-    border-radius: 12px;
+    border-radius: 16px;
     position: relative;
+    border: 6px solid white;
     top: -30px;
     left: 30px;
-    /* z-index: -1; */
+    z-index: 1;
   }
 
   @media (min-width: 750px) {

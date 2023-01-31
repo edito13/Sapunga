@@ -11,13 +11,13 @@ export const Menu = styled.nav`
   align-items: center;
   justify-content: space-between;
 
-  h1{
+  h1 {
     margin-left: 5px;
-    
+
     img {
       max-width: 70px;
     }
-  } 
+  }
 
   button {
     display: flex;
@@ -44,14 +44,14 @@ export const Menu = styled.nav`
     ul {
       display: flex;
       align-items: center;
-      gap: .3em;
+      gap: 0.3em;
 
       li {
         a {
           display: block;
           font-size: 1.1em;
           color: #fff;
-          padding: 10px 20px;
+          padding: 5px 20px;
           transition: 0.4s ease-in-out;
         }
 
@@ -61,18 +61,19 @@ export const Menu = styled.nav`
           height: 2px;
           width: 0;
           margin: auto;
-          background: #30285A;
+          background: #30285a;
           transition: 0.5s ease-in-out;
         }
       }
 
-      li:hover, li.active {
+      li:hover,
+      li.active {
         a {
-          color: #30285A;
+          color: #30285a;
         }
 
         &::after {
-          width: 70%;
+          width: 50%;
         }
       }
     }

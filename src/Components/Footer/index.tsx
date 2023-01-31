@@ -16,7 +16,7 @@ const index = () => {
   return (
     <FooterContainer>
       <div className="ContentContainer">
-        <div className="CompanyInfo" data-aos="slide-up">
+        <div className="CompanyInfo" data-aos="zoom-in-up">
           <img src="./assets/Images/SAPUNGA LOGO.png" alt="sapunga" />
           <p>Produção agrícola, serviços e produtos gráficos.</p>
           <div>
@@ -26,7 +26,7 @@ const index = () => {
             </p>
           </div>
         </div>
-        <div data-aos="slide-up" data-aos-delay="50">
+        <div data-aos="zoom-in-up" data-aos-delay="50">
           <h4>Links rápidos</h4>
           <ul>
             <li>
@@ -46,7 +46,7 @@ const index = () => {
             </li>
           </ul>
         </div>
-        <div data-aos="slide-up" data-aos-delay="100">
+        <div data-aos="zoom-in-up" data-aos-delay="100">
           <h4>Serviços</h4>
           <ul>
             <li>
@@ -63,7 +63,7 @@ const index = () => {
             </li>
           </ul>
         </div>
-        <div className="Contact-us" data-aos="slide-up" data-aos-delay="150">
+        <div className="Contact-us" data-aos="zoom-in-up" data-aos-delay="150">
           <h4>Contacte-nos</h4>
           <p>
             Entre em contacto connosco escrevendo ou acessando as nossas{" "}
