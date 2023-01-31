@@ -23,6 +23,9 @@ const index = () => {
             alt="Black Men Office Video Chat"
           />
           <div className="text">
+            <h3>
+              Estamos acompanhando <span className="DarkViolet">tudo!</span>
+            </h3>
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit in
               repellendus veritatis nemo placeat consequatur mollitia eum, totam

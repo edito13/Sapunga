@@ -145,12 +145,12 @@ export const Container = styled.main`
           font-size: 1.5em;
           max-width: 400px;
           line-height: 1.6em;
-          margin-bottom: 1.5em;
           font-family: "Poppins Light";
         }
 
         img {
           max-width: 300px;
+          margin-bottom: 1.5em;
         }
       }
     }
@@ -167,28 +167,6 @@ export const Container = styled.main`
         img {
           max-width: 400px;
         }
-      }
-    }
-
-    @keyframes appearsL {
-      from {
-        opacity: 0;
-        transform: translateX(-50%);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes appearsR {
-      from {
-        opacity: 0;
-        transform: translateX(28%);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
       }
     }
   }

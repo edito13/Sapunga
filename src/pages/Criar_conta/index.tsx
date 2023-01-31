@@ -16,16 +16,16 @@ const Login = () => {
     <Container>
       <div>
         <div className="post" data-aos="fade-right" data-aos-duration="1000">
+          <img
+            src="./assets/Images/Login Picture.png"
+            alt="Black Man using phone"
+            data-aos="fade-right"
+            data-aos-delay="450"
+          />
           <p data-aos="fade-right" data-aos-delay="300">
             Registra-se já e aproveite tudo que temos a{" "}
             <span className="LightViolet">disponível.</span>
           </p>
-          <img
-            src="./assets/Images/online consulting.svg"
-            alt="Consulta online"
-            data-aos="fade-right"
-            data-aos-delay="450"
-          />
         </div>
         <div className="content" data-aos="fade-left" data-aos-duration="1000">
           <h3>Criar conta</h3>
@@ -65,7 +65,7 @@ const Login = () => {
               data-aos="zoom-in"
               data-aos-delay="150"
             >
-              Criar conta
+              Registrar-se
             </VioletButton>
             <p>
               Já tem uma conta?{" "}

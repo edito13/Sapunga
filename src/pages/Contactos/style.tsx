@@ -7,15 +7,27 @@ export const Container = styled.main`
     padding: 0 1.5em;
 
     .Introduce {
-      margin-bottom: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5em;
+      margin-bottom: 3em;
+
       img {
         max-width: 400px;
-        margin: auto;
+      }
+
+      h3 {
+        color: #444;
+        font-size: 1.5em;
+        text-align: center;
+        margin-bottom: 0.5em;
       }
 
       p {
-        font-size: 1em;
+        font-size: 1.1em;
         line-height: 1.6em;
+        text-align: center;
       }
     }
 
@@ -24,6 +36,8 @@ export const Container = styled.main`
 
       fieldset {
         border: none;
+        max-width: 500px;
+        margin: auto;
 
         caption {
           padding-bottom: 0.5em;
@@ -69,6 +83,16 @@ export const Container = styled.main`
     }
 
     @media (min-width: 800px) {
+      .Introduce {
+        img {
+          max-width: 450px;
+        }
+
+        p {
+          font-size: 1.2em;
+        }
+      }
+
       form {
         margin-bottom: 5em;
 
@@ -85,6 +109,22 @@ export const Container = styled.main`
           fieldset + fieldset {
             margin-top: 0;
           }
+        }
+      }
+    }
+
+    @media (min-width: 1000px) {
+      .Introduce {
+        flex-direction: row;
+        gap: 6%;
+
+        h3 {
+          text-align: left;
+          font-size: 1.9em;
+        }
+
+        p {
+          text-align: left;
         }
       }
     }
