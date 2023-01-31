@@ -3,19 +3,22 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.div`
   width: 100%;
-  background: #0e0e10;
-  padding: 0 2em;
+  background: url("assets/Images/backgrounds/fundo5.jpg") no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 
   img {
     max-width: 200px;
   }
 
   .ContentContainer {
+    background: #0e0e10ce;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 2em;
-    padding: 3em 0;
+    padding: 3em 2em;
     border-bottom: 1px solid #eee;
     color: #fff;
 
@@ -181,6 +184,7 @@ export const FooterContainer = styled.div`
   }
 
   .Copyright {
+    background: #0e0e10ce;
     display: flex;
     flex-direction: column;
     align-items: center;

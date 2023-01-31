@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Container } from "./style";
-import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
-import { VioletButton } from "../../Components/VioletButton/style";
-import { FaRegPaperPlane } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaRegPaperPlane } from "react-icons/fa";
+import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
+import { Container } from "./style";
+import { VioletButton } from "../../Components/VioletButton/style";
 
 const Login = () => {
   useEffect(() => {
