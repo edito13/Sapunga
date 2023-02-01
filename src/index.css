@@ -48,3 +48,13 @@ span {
   background-color: #514397;
   cursor: pointer;
 }
+
+.zoom-in-up,
+.zoom-in-right,
+.fade-right,
+.fade-left,
+.slide-right,
+.slide-left,
+.zoom-in-right {
+  overflow-x: hidden;
+}

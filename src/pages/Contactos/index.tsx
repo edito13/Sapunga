@@ -21,12 +21,13 @@ const index = () => {
           <img
             src="assets/Images/Black Men Office Video Chat.svg"
             alt="Black Men Office Video Chat"
+            data-aos="zoom-in-right"
           />
           <div className="text">
-            <h3>
+            <h3 data-aos="zoom-in-left" data-aos-delay="100">
               Estamos acompanhando <span className="DarkViolet">tudo!</span>
             </h3>
-            <p>
+            <p data-aos="zoom-in-left" data-aos-delay="150">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit in
               repellendus veritatis nemo placeat consequatur mollitia eum, totam
               aperiam libero ad consequuntur aliquid laudantium sapiente aliquam
