@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaGoogle, FaRegPaperPlane } from "react-icons/fa";
+import { FaFacebook, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { Container } from "./style";
 import { VioletButton } from "../../Components/VioletButton/style";
@@ -72,7 +72,7 @@ const Login = () => {
             </div>
             <VioletButton
               type="submit"
-              startIcon={<FaRegPaperPlane />}
+              startIcon={<FaPaperPlane />}
               variant="contained"
               fullWidth
               disableElevation

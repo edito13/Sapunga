@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Button } from "@mui/material";
 import { Container } from "./style";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { VioletButton } from "../../Components/VioletButton/style";
-import { FaFacebook, FaGoogle, FaRegPaperPlane } from "react-icons/fa";
+import { FaFacebook, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -56,7 +55,7 @@ const Login = () => {
             </div>
             <VioletButton
               type="submit"
-              startIcon={<FaRegPaperPlane />}
+              startIcon={<FaPaperPlane />}
               variant="contained"
               fullWidth
               disableElevation
