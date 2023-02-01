@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { BiAt, BiMapPin } from "react-icons/bi";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
-import { FaRegPaperPlane } from "react-icons/fa";
+import { FaPaperPlane, FaRegPaperPlane } from "react-icons/fa";
 import { ImPhone } from "react-icons/im";
 import { Link } from "react-router-dom";
 import { FooterContainer, SendButton } from "./style";
@@ -71,7 +71,7 @@ const index = () => {
           </p>
           <div className="Newslatter">
             <input type="text" placeholder="email@gmail.com" />
-            <SendButton startIcon={<FaRegPaperPlane />}>Enviar</SendButton>
+            <SendButton startIcon={<FaPaperPlane />}>Enviar</SendButton>
           </div>
           <div className="Contacts">
             <div>
@@ -80,7 +80,7 @@ const index = () => {
             </div>
             <div>
               <BiAt />
-              <p>sapunga@gmail.com</p>
+              <p>sapungaservicos@gmail.com</p>
             </div>
           </div>
           <div className="social-media">

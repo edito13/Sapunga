@@ -6,6 +6,7 @@ import TitlePages from "../../Components/TitlePages";
 import Footer from "../../Components/Footer";
 import { Container } from "./style";
 import VioletButton from "../../Components/VioletButton";
+import { FaPaperPlane, FaPhoneAlt } from "react-icons/fa";
 
 const index = () => {
   useEffect(() => {
@@ -15,7 +16,9 @@ const index = () => {
   return (
     <Container>
       <Header />
-      <TitlePages>Contactos</TitlePages>
+      <TitlePages Icon={<FaPhoneAlt style={{ fontSize: "1.6em" }} />}>
+        Contactos
+      </TitlePages>
       <div className="main">
         <div className="Introduce">
           <img
@@ -68,7 +71,7 @@ const index = () => {
             </fieldset>
           </div>
           <div data-aos="zoom-in" data-aos-delay="50">
-            <VioletButton>Enviar mensagem</VioletButton>
+            <VioletButton Icon={<FaPaperPlane />}>Enviar mensagem</VioletButton>
           </div>
         </form>
       </div>

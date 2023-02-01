@@ -21,12 +21,12 @@ export const Container = styled.main`
     }
 
     .content {
-      backdrop-filter: blur(15px);
-      background: #00000061;
-      padding: 2em;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      backdrop-filter: blur(15px);
+      background: #00000061;
+      padding: 2em;
       gap: 1.5em;
       height: 100%;
       width: 100%;
@@ -36,7 +36,8 @@ export const Container = styled.main`
 
       h3 {
         font-weight: 500;
-        font-size: 2em;
+        font-size: 1.8em;
+        margin-bottom: 1em;
 
         &::after {
           content: "";
@@ -52,13 +53,13 @@ export const Container = styled.main`
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 1.5em;
+        gap: 1.3em;
         width: 100%;
 
         div {
           label {
             display: block;
-            font-size: 1.3em;
+            font-size: 1.2em;
             margin-bottom: 0.3em;
             cursor: pointer;
           }
@@ -67,7 +68,7 @@ export const Container = styled.main`
             border: none;
             border-radius: 5px;
             padding: 0.5em 0.8em;
-            font-size: 1.2em;
+            font-size: 1.1em;
             width: 100%;
 
             &:hover,
@@ -94,11 +95,95 @@ export const Container = styled.main`
             font-weight: bold;
           }
         }
+      }
+
+      .AccountLink {
+        display: block;
+        color: #fff;
+        margin-top: 1.5em;
+
+        p {
+          font-weight: 200;
+          font-size: 1.1em;
+
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .or {
+        width: 100%;
+        max-width: 80%;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        margin: 1em auto;
+
+        hr {
+          flex: 1;
+        }
+      }
+
+      .midiaLogin {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5em;
+
+        div {
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+          padding: 0.5em;
+          border-radius: 5px;
+          background: #fff;
+          margin-bottom: 1.5em;
+          cursor: pointer;
+        }
+
+        svg {
+          color: #30285a;
+        }
+
+        p {
+          color: #000;
+        }
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+
+    @media (min-width: 500px) {
+      .content {
+        height: auto;
+        display: block;
+      }
+    }
+
+    @media (min-width: 1000px) {
+      gap: 5%;
+
+      & > div:first-child {
+        display: block;
+
+        img {
+          max-width: 300px;
+        }
+
+        p {
+          font-size: 1.4em;
+          max-width: 400px;
+          line-height: 1.4em;
+          margin: -1em 0 0.7em;
+          font-family: "Poppins Light";
+        }
 
         .sociais-media {
           display: flex;
           align-items: center;
-          justify-content: center;
           gap: 1em;
 
           div {
@@ -109,7 +194,7 @@ export const Container = styled.main`
             background: #30285a;
 
             svg {
-              font-size: 1.3em;
+              font-size: 1.6em;
               color: #fff;
             }
 
@@ -123,36 +208,6 @@ export const Container = styled.main`
           }
         }
       }
-
-      p {
-        text-align: center;
-      }
-    }
-
-    @media (min-width: 500px) {
-      .content {
-        height: auto;
-      }
-    }
-
-    @media (min-width: 1000px) {
-      gap: 5%;
-
-      & > div:first-child {
-        display: block;
-
-        p {
-          font-size: 1.5em;
-          max-width: 400px;
-          line-height: 1.6em;
-          font-family: "Poppins Light";
-        }
-
-        img {
-          max-width: 300px;
-          margin-bottom: 1.5em;
-        }
-      }
     }
 
     @media (min-width: 1250px) {
@@ -160,7 +215,7 @@ export const Container = styled.main`
 
       & > div:first-child {
         p {
-          font-size: 1.9em;
+          font-size: 1.6em;
           max-width: 450px;
         }
 

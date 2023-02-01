@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-import { FaRegPaperPlane } from "react-icons/fa";
+import { FaFacebook, FaGoogle, FaRegPaperPlane } from "react-icons/fa";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { Container } from "./style";
 import { VioletButton } from "../../Components/VioletButton/style";
@@ -17,15 +17,29 @@ const Login = () => {
       <div>
         <div className="post" data-aos="fade-right" data-aos-duration="1000">
           <img
-            src="./assets/Images/Login Picture.png"
+            src="./assets/Images/Two Black Men Using Laptop.svg"
             alt="Black Man using phone"
             data-aos="fade-right"
             data-aos-delay="450"
           />
           <p data-aos="fade-right" data-aos-delay="300">
-            Registra-se já e aproveite tudo que temos a{" "}
+            Registra-se já e aproveite tudo que temos{" "}
             <span className="LightViolet">disponível.</span>
           </p>
+          <div className="sociais-media">
+            <div>
+              <BsFacebook />
+            </div>
+            <div>
+              <BsInstagram />
+            </div>
+            <div>
+              <BsWhatsapp />
+            </div>
+            <div>
+              <BsTwitter />
+            </div>
+          </div>
         </div>
         <div className="content" data-aos="fade-left" data-aos-duration="1000">
           <h3>Criar conta</h3>
@@ -67,27 +81,29 @@ const Login = () => {
             >
               Registrar-se
             </VioletButton>
-            <p>
-              Já tem uma conta?{" "}
-              <Link to={"/login"}>
-                <span className="LightViolet">LOGAR.</span>
-              </Link>
-            </p>
-            <div className="sociais-media">
+          </form>
+          <div>
+            <Link to={"/login"} className="AccountLink">
+              <p>
+                Já tem uma conta? <span className="LightViolet">LOGAR.</span>
+              </p>
+            </Link>
+            <div className="or">
+              <hr />
+              Ou
+              <hr />
+            </div>
+            <div className="midiaLogin">
               <div>
-                <BsFacebook />
+                <FaGoogle />
+                <p>Google</p>
               </div>
               <div>
-                <BsInstagram />
-              </div>
-              <div>
-                <BsWhatsapp />
-              </div>
-              <div>
-                <BsTwitter />
+                <FaFacebook />
+                <p>Facebook</p>
               </div>
             </div>
-          </form>
+          </div>
           <p>Sapunga | Todos os direitos reservados</p>
         </div>
       </div>

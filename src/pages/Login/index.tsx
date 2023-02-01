@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import { Container } from "./style";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { VioletButton } from "../../Components/VioletButton/style";
-import { FaRegPaperPlane } from "react-icons/fa";
+import { FaFacebook, FaGoogle, FaRegPaperPlane } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -16,13 +16,32 @@ const Login = () => {
     <Container>
       <div>
         <div className="post" data-aos="fade-right" data-aos-duration="1000">
+          <img
+            src="assets/Images/Login Picture.png"
+            alt="Black Man Ilustration"
+          />
           <p data-aos="fade-right" data-aos-delay="300">
-            Crie sua conta aqui no nosso site e ganhe 10% de{" "}
-            <span className="Green">desconto.</span>
+            Faça seu login e junta-te à nós em apenas um clique, é muito{" "}
+            <span className="Green">fácil.</span>
           </p>
-          <Link to={"/criar_conta"} data-aos="fade-right" data-aos-delay="450">
-            <VioletButton>Criar Conta</VioletButton>
-          </Link>
+          <div
+            className="sociais-media"
+            data-aos="fade-right"
+            data-aos-delay="450"
+          >
+            <div>
+              <BsFacebook />
+            </div>
+            <div>
+              <BsInstagram />
+            </div>
+            <div>
+              <BsWhatsapp />
+            </div>
+            <div>
+              <BsTwitter />
+            </div>
+          </div>
         </div>
         <div className="content" data-aos="fade-left" data-aos-duration="1000">
           <h3>Iniciar Sessão</h3>
@@ -46,27 +65,30 @@ const Login = () => {
             >
               Logar
             </VioletButton>
-            <p>
-              Ainda não tem uma conta?{" "}
-              <Link to={"/criar_conta"}>
+          </form>
+          <div>
+            <Link to={"/criar_conta"} className="AccountLink">
+              <p>
+                Não tem uma conta?{" "}
                 <span className="LightViolet">CRIAR CONTA.</span>
-              </Link>
-            </p>
-            <div className="sociais-media">
+              </p>
+            </Link>
+            <div className="or">
+              <hr />
+              Ou
+              <hr />
+            </div>
+            <div className="midiaLogin">
               <div>
-                <BsFacebook />
+                <FaGoogle />
+                <p>Google</p>
               </div>
               <div>
-                <BsInstagram />
-              </div>
-              <div>
-                <BsWhatsapp />
-              </div>
-              <div>
-                <BsTwitter />
+                <FaFacebook />
+                <p>Facebook</p>
               </div>
             </div>
-          </form>
+          </div>
           <p>Sapunga | Todos os direitos reservados</p>
         </div>
       </div>

@@ -6,6 +6,7 @@ import Slogan from "../../Components/Slogan";
 import Footer from "../../Components/Footer";
 import TitlePages from "../../Components/TitlePages";
 import { Container, ImgService } from "./style";
+import { FaPeopleCarry } from "react-icons/fa";
 
 const index = () => {
   useEffect(() => {
@@ -15,7 +16,7 @@ const index = () => {
   return (
     <Container>
       <Header />
-      <TitlePages>Serviços</TitlePages>
+      <TitlePages Icon={<FaPeopleCarry />}>Serviços</TitlePages>
       <div className="services">
         <section>
           <div className="content" data-aos="fade-right">
