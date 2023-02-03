@@ -6,6 +6,7 @@ export const Container = styled.main`
   background-position: bottom;
   background-size: cover;
   height: 100vh;
+  overflow-x: hidden;
 
   & > div {
     background: #000000af;

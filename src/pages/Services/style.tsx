@@ -5,6 +5,8 @@ interface props {
 }
 
 export const Container = styled.main`
+  overflow-x: hidden;
+
   .services {
     margin: 2em 0 4em;
 

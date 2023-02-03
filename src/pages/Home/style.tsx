@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
+  overflow-x: hidden;
+
   .main {
     width: 100%;
     max-width: 1000px;
@@ -256,7 +258,7 @@ export const ImageContainer = styled.div`
   width: 220px;
   border-radius: 10px;
   position: relative;
-  margin: 2em 0;
+  margin: 2em auto;
 
   &::after {
     content: "";

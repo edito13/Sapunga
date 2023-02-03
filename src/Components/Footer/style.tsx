@@ -12,29 +12,16 @@ export const FooterContainer = styled.div`
     max-width: 200px;
   }
 
-  .ContentContainer {
+  & > div {
     background: #0e0e10ce;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    padding: 3em 2em;
+    padding: 3em 2em 1em;
+  }
+
+  .ContentContainer {
+    padding-bottom: 2em;
     border-bottom: 1px solid #eee;
     color: #fff;
-
-    & > div:first-child {
-      max-width: 300px;
-    }
-
-    & > div:nth-child(2),
-    & > div:nth-child(3) {
-      max-width: 250px;
-    }
-
-    & > div:last-child {
-      max-width: 400px;
-      min-width: 250px;
-    }
 
     p {
       font-family: "Roboto Light";
@@ -77,6 +64,15 @@ export const FooterContainer = styled.div`
       }
     }
 
+    & > div {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    & > div + div {
+      margin-top: 2em;
+    }
+
     .CompanyInfo {
       display: flex;
       flex-direction: column;
@@ -104,14 +100,6 @@ export const FooterContainer = styled.div`
     }
 
     .Contact-us {
-      & > p {
-        max-width: 300px;
-
-        span {
-          font-weight: 500;
-        }
-      }
-
       .Newslatter {
         background: #fff;
         border-radius: 25px;
@@ -119,7 +107,8 @@ export const FooterContainer = styled.div`
         margin: 1em 0;
         display: flex;
         justify-content: space-between;
-        max-width: 300px;
+        flex: 1;
+        max-width: 500px;
 
         input {
           border-radius: 25px;
@@ -184,13 +173,8 @@ export const FooterContainer = styled.div`
   }
 
   .Copyright {
-    background: #0e0e10ce;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5em;
-    padding: 1em;
+    text-align: center;
+    margin-top: 1em;
 
     p {
       color: #fff;
@@ -200,22 +184,17 @@ export const FooterContainer = styled.div`
         font-weight: 500;
       }
     }
+
+    p + p {
+      margin-top: 0.4em;
+    }
   }
 
-  @media (min-width: 800px) {
-    .ContentContainer {
-      flex-direction: row;
-      justify-content: space-between;
-      gap: 1em;
-      flex-wrap: wrap;
-
-      .Contact-us .Contacts {
-        flex-direction: row;
-      }
-    }
-
+  @media (min-width: 510px) {
     .Copyright {
-      flex-direction: row;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       p {
         padding: 0.5em;
@@ -223,6 +202,41 @@ export const FooterContainer = styled.div`
         &:first-child {
           border-right: 1px solid #fff;
         }
+      }
+
+      p + p {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @media (min-width: 700px) {
+    .ContentContainer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1em;
+      flex-wrap: wrap;
+
+      & > div {
+        margin: 0;
+      }
+
+      & > div:first-child {
+        max-width: 300px;
+      }
+
+      & > div:nth-child(2),
+      & > div:nth-child(3) {
+        max-width: 250px;
+      }
+
+      & > div:last-child {
+        max-width: 400px;
+        min-width: 250px;
+      }
+
+      .Contact-us .Contacts {
+        flex-direction: row;
       }
     }
   }

@@ -4,9 +4,8 @@ export const TitlePages = styled.div`
   display: flex;
   align-items: center;
   gap: 0.6em;
-  margin: 4em 0 4em 1em;
+  margin: 4em 0;
   padding: 0.8em;
-  border-left: 2px solid #000;
 
   svg {
     font-size: 2em;
