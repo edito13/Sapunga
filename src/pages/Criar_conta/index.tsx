@@ -103,8 +103,8 @@ const Login = () => {
                 <p>Facebook</p>
               </div>
             </div>
-            <p>Sapunga | Todos os direitos reservados</p>
           </div>
+          <p>Sapunga | Todos os direitos reservados</p>
         </div>
       </div>
     </Container>
