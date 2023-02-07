@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { BiAt, BiMapPin } from "react-icons/bi";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
-import { FaPaperPlane, FaRegPaperPlane } from "react-icons/fa";
+import { FaPaperPlane } from "react-icons/fa";
 import { ImPhone } from "react-icons/im";
 import { Link } from "react-router-dom";
 import { FooterContainer, SendButton } from "./style";
@@ -44,6 +44,12 @@ const index = () => {
               </li>
               <li>
                 <Link to={"/contactos"}>Contacto</Link>
+              </li>
+              <li>
+                <Link to={"/login"}>Login</Link>
+              </li>
+              <li>
+                <Link to={"/criar_conta"}>Criar conta</Link>
               </li>
             </ul>
           </div>

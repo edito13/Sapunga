@@ -137,6 +137,35 @@ export const Container = styled.main`
     }
   }
 
+  .mobile-poster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2em;
+    gap: 3em;
+    margin-top: 3em;
+
+    .text {
+      h3 {
+        text-align: center;
+        font-size: 1.8em;
+        margin-bottom: 0.4em;
+      }
+
+      p {
+        width: 100%;
+        max-width: 520px;
+        text-align: center;
+        font-size: 1.1em;
+        line-height: 1.6em;
+      }
+    }
+
+    img {
+      max-width: 300px;
+    }
+  }
+
   @media (min-width: 400px) {
     .agricultura {
       background-position: 38%;
@@ -214,6 +243,18 @@ export const Container = styled.main`
         background-position: 60%;
       }
     }
+
+    .mobile-poster {
+      flex-direction: row;
+      justify-content: space-around;
+
+      .text {
+        h3,
+        p {
+          text-align: left;
+        }
+      }
+    }
   }
 
   @media (min-width: 1000px) {
@@ -245,6 +286,14 @@ export const Container = styled.main`
         ul li + li {
           margin-top: 6%;
         }
+      }
+    }
+
+    .mobile-poster {
+      .text p {
+        font-size: 1.2em;
+        line-height: 1.8em;
+        max-width: 600px;
       }
     }
   }

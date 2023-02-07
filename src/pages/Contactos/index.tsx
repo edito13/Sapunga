@@ -41,33 +41,33 @@ const index = () => {
           </div>
           <form>
             <div className="content">
-              <fieldset data-aos="slide-right">
+              <fieldset data-aos="zoom-in-right" data-aos-delay="200">
                 <caption>Dados Pessoais</caption>
                 <input
                   type="text"
                   placeholder="Nome Completo"
                   data-aos="zoom-in"
-                  data-aos-delay="50"
+                  data-aos-delay="150"
                 />
                 <input
                   type="email"
                   placeholder="exemplo@gmail.com"
                   data-aos="zoom-in"
-                  data-aos-delay="100"
+                  data-aos-delay="200"
                 />
                 <input
                   type="number"
                   placeholder="Número de Telefone"
                   data-aos="zoom-in"
-                  data-aos-delay="150"
+                  data-aos-delay="250"
                 />
               </fieldset>
-              <fieldset data-aos="slide-left">
+              <fieldset data-aos="zoom-in-left" data-aos-delay="200">
                 <caption>Mensagem</caption>
                 <textarea
                   placeholder="Escreva alguma coisa para nós!"
                   data-aos="zoom-in"
-                  data-aos-delay="50"
+                  data-aos-delay="100"
                 ></textarea>
               </fieldset>
             </div>
