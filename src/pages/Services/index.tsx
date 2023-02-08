@@ -19,7 +19,7 @@ const index = () => {
       <Container>
         <TitlePages Icon={<FaPeopleCarry />}>Serviços</TitlePages>
         <div className="services">
-          <section>
+          <section id="producao">
             <div className="content" data-aos="fade-right">
               <h3>Produção Agrícola & Comércio</h3>
               <p>
@@ -33,7 +33,7 @@ const index = () => {
             </div>
             <ImgService src="9" data-aos="zoom-in-left" />
           </section>
-          <section>
+          <section id="personalizacao">
             <ImgService src="7" data-aos="zoom-in-right" />
             <div className="content" data-aos="fade-left">
               <h3>Personalização Gráfica</h3>
@@ -47,7 +47,7 @@ const index = () => {
               </p>
             </div>
           </section>
-          <section>
+          <section id="instalacao">
             <div className="content" data-aos="fade-right">
               <h3>Instalação & Venda de Equipamentos</h3>
               <p>
@@ -61,7 +61,7 @@ const index = () => {
             </div>
             <ImgService src="10" data-aos="zoom-in-left" />
           </section>
-          <section>
+          <section id="timbragem">
             <ImgService src="8" data-aos="zoom-in-right" />
             <div className="content" data-aos="fade-left">
               <h3>Timbragem & Bordado</h3>

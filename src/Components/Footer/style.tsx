@@ -31,6 +31,7 @@ export const FooterContainer = styled.div`
     a {
       color: #fff;
       font-family: "Roboto Light";
+      cursor: pointer;
     }
 
     h4 {

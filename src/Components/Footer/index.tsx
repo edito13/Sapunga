@@ -6,6 +6,7 @@ import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaPaperPlane } from "react-icons/fa";
 import { ImPhone } from "react-icons/im";
 import { Link } from "react-router-dom";
+import { Link as LinkScroll } from "react-scroll";
 import { FooterContainer, SendButton } from "./style";
 
 const index = () => {
@@ -57,16 +58,48 @@ const index = () => {
             <h4>Serviços</h4>
             <ul>
               <li>
-                <a href="">Produção Agrícola</a>
+                <LinkScroll
+                  to="producao"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                >
+                  Produção Agrícola
+                </LinkScroll>
               </li>
               <li>
-                <a href="">Personalização gráfica</a>
+                <LinkScroll
+                  to="personalizacao"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                >
+                  Personalização gráfica
+                </LinkScroll>
               </li>
               <li>
-                <a href="">Venda de equipamentos</a>
+                <LinkScroll
+                  to="instalacao"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                >
+                  Venda de equipamentos
+                </LinkScroll>
               </li>
               <li>
-                <a href="">E outros</a>
+                <LinkScroll
+                  to="timbragem"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                >
+                  Timbragem e Bordado
+                </LinkScroll>
               </li>
             </ul>
           </div>
