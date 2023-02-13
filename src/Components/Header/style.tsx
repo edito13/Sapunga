@@ -15,6 +15,7 @@ export const Header = styled.header`
     color: #fff;
 
     & > h1 {
+      font-family: "century";
       font-size: 3.5em;
       letter-spacing: 5px;
       font-weight: bolder;
@@ -32,17 +33,17 @@ export const Header = styled.header`
       margin-top: 2em;
     }
   }
-  
+
   @media (min-width: 500px) {
     height: 90vh;
-    
+
     & > div > h1 {
       font-size: 4em;
       margin-top: 2.8em;
     }
-    
+
     & > div p {
       font-size: 1.2em;
     }
   }
-  `;
+`;

@@ -15,7 +15,7 @@ export const Menu = styled.nav`
     margin-left: 5px;
 
     img {
-      max-width: 70px;
+      max-width: 140px;
     }
   }
 
@@ -79,7 +79,7 @@ export const Menu = styled.nav`
     }
 
     h1 img {
-      max-width: 60px;
+      max-width: 170px;
     }
   }
 `;

@@ -19,7 +19,7 @@ const index = () => {
       <div>
         <div className="ContentContainer">
           <div className="CompanyInfo" data-aos="zoom-in-up">
-            <img src="./assets/Images/SAPUNGA LOGO.png" alt="sapunga" />
+            <img src="./assets/Images/logo ori.png" alt="sapunga" />
             <p>Produção agrícola, serviços e produtos gráficos.</p>
             <div>
               <BiMapPin />
