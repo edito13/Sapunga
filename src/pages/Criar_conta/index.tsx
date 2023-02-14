@@ -24,7 +24,7 @@ const Login = () => {
           />
           <p data-aos="fade-right" data-aos-delay="300">
             Registra-se já e aproveite tudo que temos{" "}
-            <span className="LightViolet">disponível.</span>
+            <span className="LightBlue">disponível.</span>
           </p>
           <div className="sociais-media">
             <div>
@@ -85,7 +85,7 @@ const Login = () => {
           <div>
             <Link to={"/login"} className="AccountLink">
               <p>
-                Já tem uma conta? <span className="LightViolet">LOGAR.</span>
+                Já tem uma conta? <span className="LightBlue">LOGAR.</span>
               </p>
             </Link>
             <div className="or">

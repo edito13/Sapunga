@@ -33,7 +33,7 @@ export const Container = styled.main`
       width: 100%;
       max-width: 500px;
       border-radius: 8px;
-      border: 3px solid #7d72b2;
+      border: 3px solid #5959d0;
 
       h3 {
         font-weight: 500;
@@ -144,7 +144,7 @@ export const Container = styled.main`
         }
 
         svg {
-          color: #30285a;
+          color: #000066;
         }
 
         p {
@@ -178,7 +178,7 @@ export const Container = styled.main`
           font-size: 1.4em;
           max-width: 400px;
           line-height: 1.4em;
-          margin: -1em 0 0.7em;
+          margin: 1em 0 0.7em;
           font-family: "Poppins Light";
         }
 
@@ -192,7 +192,7 @@ export const Container = styled.main`
             border-radius: 50%;
             padding: 8px;
             cursor: pointer;
-            background: #30285a;
+            background: #000066;
 
             svg {
               font-size: 1.6em;
@@ -203,7 +203,7 @@ export const Container = styled.main`
               background: #fff;
 
               svg {
-                color: #30285a;
+                color: #000066;
               }
             }
           }
