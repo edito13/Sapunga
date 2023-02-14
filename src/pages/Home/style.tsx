@@ -38,10 +38,17 @@ export const Container = styled.main`
   .Quem-somos {
     margin-bottom: 12em;
 
-    p {
+    .content div:first-child {
       background: #eee;
       padding: 2em 2em 8em;
-      line-height: 25px;
+
+      p {
+        line-height: 25px;
+      }
+
+      p + p {
+        margin-top: 1em;
+      }
     }
   }
 
@@ -123,7 +130,7 @@ export const Container = styled.main`
         align-items: flex-end;
 
         h3 {
-          color: #7d72b2;
+          color: #5959d0;
 
           &::after {
             margin-left: auto;
@@ -131,7 +138,7 @@ export const Container = styled.main`
         }
 
         ul li span {
-          border-color: #7d72b2;
+          border-color: #5959d0;
         }
       }
     }
@@ -205,13 +212,17 @@ export const Container = styled.main`
         justify-content: center;
         max-width: 1200px;
 
-        p {
-          max-width: 400px;
+        div:first-child {
+          max-width: 450px;
           padding-bottom: 2em;
           margin-right: -3em;
           position: relative;
           z-index: 99999;
           border-radius: 9px;
+
+          p {
+            line-height: 1.8em;
+          }
         }
       }
     }

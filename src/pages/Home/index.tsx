@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Header from "../../Components/Header";
-import VioletButton from "../../Components/VioletButton";
+import VioletButton from "../../Components/BlueButton";
 import TitleSections from "../../Components/TitleSections";
 import Slogan from "../../Components/Slogan";
 import Footer from "../../Components/Footer";
@@ -24,7 +24,7 @@ const Home = () => {
             <div className="content" data-aos="slide-left">
               <p>
                 Produção agrícola, serviços e produtos gráficos de alta{" "}
-                <span className="DarkViolet">qualidade</span>.
+                <span className="DarkBlue">qualidade</span>.
               </p>
               <p>
                 Crie sua conta aqui no nosso site e ganha 10% de{" "}
@@ -39,19 +39,31 @@ const Home = () => {
           <section className="Quem-somos">
             <TitleSections>Quem somos?</TitleSections>
             <div className="content">
-              <p data-aos="slide-up" data-aos-delay="150">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                voluptatem laboriosam autem consequuntur ducimus sed velit
-                vitae, odit obcaecati sint eaque dolorum error, sapiente
-                inventore? Voluptatem dignissimos eos rerum asperiores!
-                Voluptate asperiores cum at mollitia veniam. Ab deserunt aperiam
-                ipsum blanditiis tempore pariatur assumenda a earum eaque nulla
-                quae quia quidem exercitationem repellendus, perspiciatis iusto
-                quisquam odit! Tenetur, est odit! Reprehenderit facere sed quia,
-                quod natus quos perferendis officia expedita? Ducimus doloribus
-                assumenda minus corporis nulla necessitatibus culpa accusamus
-                quis quo vitae quos numquam, laboriosam sint quam quod! Magnam.
-              </p>
+              <div data-aos="slide-up" data-aos-delay="150">
+                <p>
+                  <b>SAPUNGA - Comércio & Serviços, Lda</b>, é uma empresa jovem
+                  de direito angolano, com mais de 2 anos de experiência no
+                  mercado nacional, à realizar serviços de alta qualidade
+                  centradas em <b>Comunicação e Imagem</b>,{" "}
+                  <b>Assistência técnica e tecnológica em Informática</b>,{" "}
+                  <b>Produção Agrícola</b> e Fornecimento de materiais para
+                  escritório e produção agrícola.
+                </p>
+                <p>
+                  O nosso lema é{" "}
+                  <i>
+                    actuar no mercado, comercializando e prestando os nossos
+                    serviços com responsabilidade e rigor.
+                  </i>{" "}
+                  Para tal, contamos com uma equipe de mais de 20 profissionais
+                  altamente qualificados em nossas colocações, fornecendo
+                  produtos e serviços especialmente para quem busca conforto,
+                  qualidade e segurança. Desenvolvidos com a mais alta
+                  tecnologia, sendo eles destinados para aquele que sempre está
+                  em busca de melhores produtos e serviços com os melhores
+                  preços.
+                </p>
+              </div>
               <ImgDescribe data-aos="zoom-in" />
             </div>
           </section>
@@ -118,7 +130,7 @@ const Home = () => {
               </ul>
               <p>
                 Ficou interessado?{" "}
-                <a className="LightViolet" href="">
+                <a className="LightBlue" href="">
                   Contacta-nos.
                 </a>
               </p>
@@ -129,7 +141,7 @@ const Home = () => {
         <section className="mobile-poster">
           <div className="text">
             <h3 data-aos="slide-right" data-aos-delay="50">
-              Uma melhor <span className="LightViolet">experiência</span>
+              Uma melhor <span className="LightBlue">experiência</span>
             </h3>
             <p data-aos="slide-right" data-aos-delay="150">
               Focamo-nos em criar uma experiência de qualidade e sensacional,

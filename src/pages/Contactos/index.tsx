@@ -5,7 +5,7 @@ import Header from "../../Components/Header";
 import TitlePages from "../../Components/TitlePages";
 import Footer from "../../Components/Footer";
 import { Container } from "./style";
-import VioletButton from "../../Components/VioletButton";
+import BlueButton from "../../Components/BlueButton";
 import { FaPaperPlane, FaPhoneAlt } from "react-icons/fa";
 
 const index = () => {
@@ -72,9 +72,7 @@ const index = () => {
               </fieldset>
             </div>
             <div data-aos="zoom-in" data-aos-delay="100">
-              <VioletButton Icon={<FaPaperPlane />}>
-                Enviar mensagem
-              </VioletButton>
+              <BlueButton Icon={<FaPaperPlane />}>Enviar mensagem</BlueButton>
             </div>
           </form>
         </div>

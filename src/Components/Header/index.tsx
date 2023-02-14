@@ -5,7 +5,7 @@ import Menu from "../Menu";
 import { Link } from "react-router-dom";
 import { FaUsers } from "react-icons/fa";
 import { Header } from "./style";
-import VioletButton from "../VioletButton";
+import BlueButton from "../BlueButton";
 
 const index = () => {
   useEffect(() => {
@@ -22,9 +22,9 @@ const index = () => {
         </p>
         <div data-aos="zoom-in-down" data-aos-delay="250">
           <Link to={"/quem_somos"}>
-            <VioletButton Icon={<FaUsers style={{ fontSize: "1.3em" }} />}>
+            <BlueButton Icon={<FaUsers style={{ fontSize: "1.3em" }} />}>
               Quem somos?
-            </VioletButton>
+            </BlueButton>
           </Link>
         </div>
       </div>

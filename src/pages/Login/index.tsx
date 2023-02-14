@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Container } from "./style";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
-import { VioletButton } from "../../Components/VioletButton/style";
+import { BlueButton } from "../../Components/BlueButton/style";
 import { FaFacebook, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -20,8 +20,7 @@ const Login = () => {
             alt="Black Man Ilustration"
           />
           <p data-aos="fade-right" data-aos-delay="300">
-            Faça seu login e junta-te à nós em apenas um clique, é muito{" "}
-            <span className="Green">fácil.</span>
+            Faça seu login e junta-te à nós em apenas um clique, é muito fácil.
           </p>
           <div
             className="sociais-media"
@@ -53,7 +52,7 @@ const Login = () => {
               <label htmlFor="senha">Senha</label>
               <input type="password" id="senha" placeholder="Senha" />
             </div>
-            <VioletButton
+            <BlueButton
               type="submit"
               startIcon={<FaPaperPlane />}
               variant="contained"
@@ -63,13 +62,13 @@ const Login = () => {
               data-aos-delay="150"
             >
               Logar
-            </VioletButton>
+            </BlueButton>
           </form>
           <div>
             <Link to={"/criar_conta"} className="AccountLink">
               <p>
                 Não tem uma conta?{" "}
-                <span className="LightViolet">CRIAR CONTA.</span>
+                <span className="LightBlue">CRIAR CONTA.</span>
               </p>
             </Link>
             <div className="or">

@@ -12,17 +12,17 @@
 
 :root {
   --green: #42c713;
-  --LightViolet: #7d72b2;
-  --DarkBlue: #30285a;
+  --LightBlue: #5959d0;
+  --DarkBlue: #000066;
   --DarkGray: #0e0e10;
   -webkit-text-size-adjust: 100%;
 }
 
-.LightViolet {
-  color: var(--LightViolet);
+.LightBlue {
+  color: var(--LightBlue);
 }
-.DarkViolet {
-  color: var(--DarkViolet);
+.DarkBlue {
+  color: var(--DarkBlue);
 }
 
 .Green {

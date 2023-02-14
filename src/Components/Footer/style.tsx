@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.div`
   width: 100%;
-  background: url("assets/Images/backgrounds/fundo5.jpg") no-repeat;
+  background: #0e0e10;
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
@@ -13,7 +13,6 @@ export const FooterContainer = styled.div`
   }
 
   & > div {
-    background: #0e0e10ce;
     width: 100%;
     padding: 3em 2em 1em;
   }
@@ -157,11 +156,11 @@ export const FooterContainer = styled.div`
 
           svg {
             font-size: 1.2em;
-            color: #30285a;
+            color: #000066;
           }
 
           &:hover {
-            background: #30285a;
+            background: #000066;
             transform: scale(1.2);
 
             svg {
@@ -245,7 +244,7 @@ export const FooterContainer = styled.div`
 
 export const SendButton = styled(Button)`
   && {
-    background: linear-gradient(#4d466f, #221c3e);
+    background: linear-gradient(#2828c4, #000066);
     color: #fff;
     padding: 8px 20px;
     text-transform: unset;

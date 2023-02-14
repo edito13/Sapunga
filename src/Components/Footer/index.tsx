@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css";
-import { BiAt, BiMapPin } from "react-icons/bi";
-import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
-import { FaPaperPlane } from "react-icons/fa";
-import { ImPhone } from "react-icons/im";
 import { Link } from "react-router-dom";
+import { ImPhone } from "react-icons/im";
+import { BiAt, BiMapPin } from "react-icons/bi";
+import { FaPaperPlane } from "react-icons/fa";
 import { Link as LinkScroll } from "react-scroll";
 import { FooterContainer, SendButton } from "./style";
+import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
+import "aos/dist/aos.css";
 
 const index = () => {
   useEffect(() => {

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FaFacebook, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { Container } from "./style";
-import { VioletButton } from "../../Components/VioletButton/style";
+import { BlueButton } from "../../Components/BlueButton/style";
 
 const Login = () => {
   useEffect(() => {
@@ -70,7 +70,7 @@ const Login = () => {
                 />
               </div>
             </div>
-            <VioletButton
+            <BlueButton
               type="submit"
               startIcon={<FaPaperPlane />}
               variant="contained"
@@ -80,7 +80,7 @@ const Login = () => {
               data-aos-delay="150"
             >
               Registrar-se
-            </VioletButton>
+            </BlueButton>
           </form>
           <div>
             <Link to={"/login"} className="AccountLink">

@@ -8,7 +8,7 @@ export const TitleContainer = styled.div`
     font-size: 1.7em;
     text-transform: uppercase;
     font-weight: bold;
-    color: #30285a;
+    color: #000066;
     margin-bottom: 2em;
   }
 
@@ -16,14 +16,14 @@ export const TitleContainer = styled.div`
     content: "";
     display: block;
     height: 3px;
-    background: #30285a;
+    background: currentColor;
     width: 60%;
     margin: 8px auto 0;
     border-radius: 10px;
   }
 
-  @media(min-width: 750px){
-    h2{
+  @media (min-width: 750px) {
+    h2 {
       margin-bottom: 4em;
     }
   }
