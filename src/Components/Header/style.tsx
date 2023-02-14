@@ -15,10 +15,10 @@ export const Header = styled.header`
     color: #fff;
 
     & > h1 {
-      font-family: "century";
-      font-size: 3.5em;
+      font-family: "Century Gothic";
+      font-size: 4em;
       letter-spacing: 5px;
-      font-weight: bolder;
+      font-weight: 600;
       text-align: center;
       margin-top: 2em;
     }
@@ -38,8 +38,8 @@ export const Header = styled.header`
     height: 90vh;
 
     & > div > h1 {
-      font-size: 4em;
-      margin-top: 2.8em;
+      font-size: 5em;
+      margin-top: 1.8em;
     }
 
     & > div p {
