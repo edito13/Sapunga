@@ -39,13 +39,13 @@ span {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #7d72b2;
+  background-color: #4a4ac9;
   border-radius: 0.5rem;
   transition: 0.4s ease-in-out;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #514397;
+  background-color: #151597;
   cursor: pointer;
 }
 
