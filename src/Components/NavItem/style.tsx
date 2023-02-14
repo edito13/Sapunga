@@ -93,7 +93,7 @@ export const MobileMenu = styled.nav`
     div {
       display: flex;
       border-radius: 50%;
-      background: #30285a;
+      background: #000066;
       padding: 8px;
       cursor: pointer;
 
