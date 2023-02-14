@@ -40,7 +40,7 @@ export const MobileMenu = styled.nav`
 
     li:hover,
     li.active a {
-      color: #7d72b2;
+      color: #2828c4;
     }
 
     li.active a::after {
@@ -49,7 +49,7 @@ export const MobileMenu = styled.nav`
       height: 1px;
       background: currentColor;
       width: 80%;
-      margin: .3em auto 0;
+      margin: 0.3em auto 0;
     }
   }
 
@@ -58,28 +58,27 @@ export const MobileMenu = styled.nav`
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: .5em;
-      
+      gap: 0.5em;
+
       a {
         display: flex;
         align-items: center;
-        gap: .3em;
+        gap: 0.3em;
         color: #fff;
         font-size: 1.2em;
-        padding: .3em .5em;
+        padding: 0.3em 0.5em;
 
-        div { 
-          background: #30285a;
-          padding: .3em;
+        div {
+          background: #000066;
+          padding: 0.3em;
           border-radius: 50%;
           display: flex;
           align-items: center;
-          
-          svg { 
+
+          svg {
             color: #fff;
           }
         }
-        
       }
     }
   }
@@ -108,7 +107,7 @@ export const MobileMenu = styled.nav`
         transform: scale(1.2);
 
         svg {
-          color: #30285a;
+          color: #000066;
         }
       }
     }

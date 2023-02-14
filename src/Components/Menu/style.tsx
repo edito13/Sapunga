@@ -61,7 +61,7 @@ export const Menu = styled.nav`
           height: 2px;
           width: 0;
           margin: auto;
-          background: #30285a;
+          background: #000066;
           transition: 0.5s ease-in-out;
         }
       }
@@ -69,7 +69,7 @@ export const Menu = styled.nav`
       li:hover,
       li.active {
         a {
-          color: #30285a;
+          color: #000066;
         }
 
         &::after {
