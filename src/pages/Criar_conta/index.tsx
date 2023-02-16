@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { Container } from "./style";
 import { BlueButton } from "../../Components/BlueButton/style";
 import ModalCheckRegist from "../../Components/ModalCheckRegist";
+import api from "../../assets/api";
 
 const Login = () => {
   useEffect(() => {
@@ -14,14 +15,32 @@ const Login = () => {
   }, []);
 
   const [OpenModal, setOpenModal] = useState<boolean>(false);
+  const [Error, setError] = useState<string | null>(null);
 
   const onClose = () => setOpenModal(false);
 
-  const SendForm = (e: FormEvent) => {
+  const SendForm = async (e: FormEvent) => {
     e.preventDefault();
 
-    setOpenModal(true);
+    const name = nameFill.current?.value;
+    const email = emailFill.current?.value;
+    const password = passwordFill.current?.value;
+    const confirmPassword = confirmPasswordFill.current?.value;
+
+    try {
+      const response = await api.GetUsers();
+      console.log(response);
+
+      setOpenModal(true);
+    } catch (error) {
+      alert(error);
+    }
   };
+
+  const nameFill = useRef<HTMLInputElement>(null);
+  const emailFill = useRef<HTMLInputElement>(null);
+  const passwordFill = useRef<HTMLInputElement>(null);
+  const confirmPasswordFill = useRef<HTMLInputElement>(null);
 
   return (
     <>
@@ -62,17 +81,28 @@ const Login = () => {
             <form onSubmit={SendForm}>
               <div data-aos="fade-right" data-aos-delay="50">
                 <label htmlFor="nome">Nome de usuário</label>
-                <input type="text" id="nome" placeholder="Digite seu nome" />
+                <input
+                  type="text"
+                  ref={nameFill}
+                  id="nome"
+                  placeholder="Digite seu nome"
+                />
               </div>
               <div data-aos="fade-left" data-aos-delay="100">
                 <label htmlFor="email">E-mail ou Telefone</label>
-                <input type="text" id="email" placeholder="email@gmail.com" />
+                <input
+                  type="text"
+                  ref={emailFill}
+                  id="email"
+                  placeholder="email@gmail.com"
+                />
               </div>
               <div className="senhas">
                 <div data-aos="fade-right" data-aos-delay="150">
                   <label htmlFor="senha">Senha</label>
                   <input
                     type="password"
+                    ref={passwordFill}
                     id="senha"
                     placeholder="Digite sua senha"
                   />
@@ -81,6 +111,7 @@ const Login = () => {
                   <label htmlFor="confsenha">Confirmar</label>
                   <input
                     type="password"
+                    ref={confirmPasswordFill}
                     id="confsenha"
                     placeholder="Cofirme sua senha"
                   />
@@ -124,7 +155,7 @@ const Login = () => {
           </div>
         </div>
       </Container>
-      <ModalCheckRegist open={OpenModal} onClose={onClose} />
+      {OpenModal && <ModalCheckRegist open={OpenModal} onClose={onClose} />}
     </>
   );
 };
