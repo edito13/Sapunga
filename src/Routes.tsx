@@ -15,7 +15,7 @@ export default () => {
         <Route path="/quem_somos" element={<Quem_somos />} />
         <Route path="/produtos" element={<Produtos />} />
         <Route path="/servicos" element={<Services />} />
-        <Route path="/contactos" element={<Contactos />} />
+        <Route path="/contact" element={<Contactos />} />
         <Route path="/login" element={<Login />} />
         <Route path="/criar_conta" element={<Criar_conta />} />
         <Route path="/" element={<Home />} />

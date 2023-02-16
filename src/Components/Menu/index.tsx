@@ -37,7 +37,7 @@ const index = () => {
             <Link to="/servicos">Serviços</Link>
           </li>
           <li className={itemAtivo === "contactos" ? "active" : ""}>
-            <Link to="/contactos">Contacto</Link>
+            <Link to="/contact">Contacto</Link>
           </li>
         </ul>
       </Menu>
