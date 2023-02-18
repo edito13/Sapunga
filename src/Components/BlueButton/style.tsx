@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 
 export const BlueButton = styled(Button)`
   && {
-    background: linear-gradient(#2828c4, #000066);
+    background: linear-gradient(#1f1faf, #000066);
     color: #fff;
     padding: 8px 20px;
     text-transform: unset;

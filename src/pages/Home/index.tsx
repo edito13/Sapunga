@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import Header from "../../Components/Header";
 import VioletButton from "../../Components/BlueButton";
 import TitleSections from "../../Components/TitleSections";
+import MobilePost from "../../Components/MobilePost";
 import Slogan from "../../Components/Slogan";
 import Footer from "../../Components/Footer";
 import { Container, ImageContainer, ImgDescribe } from "./style";
@@ -138,24 +139,7 @@ const Home = () => {
           </div>
           <div className="banner"></div>
         </section>
-        <section className="mobile-poster">
-          <div className="text">
-            <h3 data-aos="slide-right" data-aos-delay="50">
-              Uma melhor <span className="LightBlue">experiência</span>
-            </h3>
-            <p data-aos="slide-right" data-aos-delay="150">
-              Focamo-nos em criar uma experiência de qualidade e sensacional,
-              não apenas em nossas instalações, mas, também no nosso site e
-              nossas mídias-sociais a fim de mostrar o nosso melhor e a nossa
-              responsabilidade para com os nossos clientes.
-            </p>
-          </div>
-          <img
-            data-aos="slide-left"
-            src="assets/Images/Sapunga-mobile.png"
-            alt="IPhone14 Sapunga"
-          />
-        </section>
+        <MobilePost />
       </Container>
       <Slogan />
       <Footer />

@@ -54,13 +54,8 @@ export const FooterContainer = styled.div`
         margin-top: 0.7em;
       }
 
-      &:hover {
-        li {
-          transform: scale(1.2);
-        }
-        a {
-          color: #7d72b2;
-        }
+      &:hover a {
+        color: #5959d0;
       }
     }
 
