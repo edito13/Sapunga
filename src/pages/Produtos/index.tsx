@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../../Components/Header";
 import ProductItem from "../../Components/ProductItem";
-import Footer from "../../Components/Footer";
 import TitlePages from "../../Components/TitlePages";
 import { FaShoppingBag } from "react-icons/fa";
 import { ProductsContainer } from "./style";
+import Footer from "../../Components/Footer";
 
 const index = () => {
   const Products = [1, 2, 3, 4, 5, 6];
