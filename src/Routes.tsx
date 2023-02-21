@@ -7,6 +7,9 @@ import Produtos from "./pages/Produtos";
 import Services from "./pages/Services";
 import Contactos from "./pages/Contactos";
 import Criar_conta from "./pages/Criar_conta";
+import Admin from "./pages/Admin";
+import Dashboard from "./pages/Admin/Dashboard";
+import Products from "./pages/Admin/Products";
 
 export default () => {
   return (
@@ -18,6 +21,10 @@ export default () => {
         <Route path="/contact" element={<Contactos />} />
         <Route path="/login" element={<Login />} />
         <Route path="/criar_conta" element={<Criar_conta />} />
+        <Route path="/admin" element={<Admin />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="products" element={<Products />} />
+        </Route>
         <Route path="/" element={<Home />} />
       </Routes>
     </Router>
