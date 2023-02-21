@@ -9,7 +9,9 @@ import Contactos from "./pages/Contactos";
 import Criar_conta from "./pages/Criar_conta";
 import Admin from "./pages/Admin";
 import Dashboard from "./pages/Admin/Dashboard";
-import Products from "./pages/Admin/Products";
+import Productos from "./pages/Admin/Produtos";
+import Encomendas from "./pages/Admin/Encomendas";
+import Usuarios from "./pages/Admin/Usuarios";
 
 export default () => {
   return (
@@ -23,9 +25,12 @@ export default () => {
         <Route path="/criar_conta" element={<Criar_conta />} />
         <Route path="/admin" element={<Admin />}>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="products" element={<Products />} />
+          <Route path="produtos" element={<Productos />} />
+          <Route path="encomendas" element={<Encomendas />} />
+          <Route path="usuarios" element={<Usuarios />} />
         </Route>
         <Route path="/" element={<Home />} />
+        <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </Router>
   );
