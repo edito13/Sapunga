@@ -39,8 +39,9 @@ export const Container = styled.main`
     margin-bottom: 12em;
 
     .content div:first-child {
-      background: #eee;
+      background: #fff;
       padding: 2em 2em 8em;
+      box-shadow: 0px 0px 3px #0000002e;
 
       p {
         line-height: 25px;

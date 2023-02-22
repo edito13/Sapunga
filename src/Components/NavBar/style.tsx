@@ -7,12 +7,10 @@ export const Container = styled.div`
   width: 100%;
   max-width: 250px;
   background: #1d1e20;
-  padding: 2em 0;
+  padding: 2em 1.5em;
 
-  nav {
-    ul li + li {
-      margin-top: 0.5em;
-    }
+  nav ul li + li {
+    border-top: 1px solid #fff;
   }
 `;
 
@@ -23,6 +21,6 @@ export const ListItem = styled(Button)`
     font-weight: 400;
     font-size: 1.1em;
     justify-content: flex-start;
-    padding-left: 1.5em;
+    padding: 0.7em 0;
   }
 `;
