@@ -2,4 +2,71 @@ import styled from "styled-components";
 
 interface Props {}
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  padding: 2em;
+  width: 100%;
+  background: #f2f2f2;
+
+  .introduce {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 0.5em;
+    /* border-bottom: 2px solid #ccc; */
+
+    img {
+      max-width: 220px;
+    }
+
+    .text {
+      h3 {
+        font-weight: 400;
+        font-size: 1.7em;
+        color: #000066;
+      }
+
+      p {
+        font-size: 1.1em;
+      }
+    }
+  }
+
+  .statistic-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin-top: 2em;
+
+    .statistic-item {
+      flex: 1;
+      max-width: 260px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 0.3em;
+      background: #fcfcfc;
+      box-shadow: 0px 0px 20px 2px #00000015;
+      padding: 1.5em;
+      border-radius: 8px;
+
+      .title {
+        svg {
+          font-size: 2.3em;
+          color: #000066;
+        }
+
+        p {
+          font-size: 1.2em;
+          margin-top: 0.3em;
+        }
+      }
+
+      span {
+        font-size: 1.8em;
+        color: #000066;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+  }
+`;

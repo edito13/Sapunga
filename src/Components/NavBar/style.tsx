@@ -5,22 +5,32 @@ export const Container = styled.div`
   position: relative;
   height: 100vh;
   width: 100%;
-  max-width: 250px;
-  background: #1d1e20;
-  padding: 2em 1.5em;
+  max-width: 260px;
+  background: #f2f2f2;
+  padding: 2em;
 
-  nav ul li + li {
-    border-top: 1px solid #fff;
+  img {
+    max-width: 200px;
+    margin-bottom: 2em;
   }
 `;
 
 export const ListItem = styled(Button)`
   && {
-    color: #fff;
+    color: #000;
     text-transform: capitalize;
     font-weight: 400;
     font-size: 1.1em;
+    gap: 0.3em;
     justify-content: flex-start;
-    padding: 0.7em 0;
+    padding: 0.5em 0 0.5em 1em;
+    transition: all.0.3s ease-in-out;
+    border-left: 5px solid transparent;
+  }
+
+  &&.active {
+    border-left-color: #000066;
+    background: #013ee728;
+    color: #000066;
   }
 `;
