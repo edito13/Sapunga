@@ -1,7 +1,13 @@
 import React from "react";
+import { Title } from "../style";
+import { Container } from "./style";
 
 const index = () => {
-  return <h1>Produtos</h1>;
+  return (
+    <Container>
+      <Title>Produtos</Title>
+    </Container>
+  );
 };
 
 export default index;

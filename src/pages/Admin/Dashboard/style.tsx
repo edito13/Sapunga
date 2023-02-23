@@ -45,15 +45,17 @@ export const Container = styled.div`
       justify-content: space-between;
       align-items: flex-end;
       gap: 0.3em;
-      background: #fcfcfc;
+      background: #fdfdfd;
       box-shadow: 0px 0px 20px 2px #00000015;
       padding: 1.5em;
       border-radius: 8px;
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
 
       .title {
         svg {
           font-size: 2.3em;
-          color: #000066;
+          color: #333;
         }
 
         p {
@@ -67,6 +69,11 @@ export const Container = styled.div`
         color: #000066;
         font-family: Arial, Helvetica, sans-serif;
       }
+    }
+
+    .statistic-item:hover {
+      background: #fff;
+      transform: scale(1.1);
     }
   }
 `;

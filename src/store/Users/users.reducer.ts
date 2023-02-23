@@ -1,20 +1,20 @@
-interface a {
-  type: string;
-  payload: {};
-}
-
 interface UsersData {
-  id: string;
+  _id: string;
   name: string;
   email: string;
+}
+
+interface a {
+  type: string;
+  payload: UsersData | UsersData[];
 }
 
 const InitialState = localStorage.estado ? JSON.parse(localStorage.estado) : [];
 
 export default (state: UsersData[] = InitialState, { type, payload }: a) => {
   switch (type) {
-    case "SELECIONAR_USUARIOS":
-      return [...state];
+    case "ADICIONAR_USUARIOS":
+      return [...(payload as UsersData[])];
       break;
 
     default:
