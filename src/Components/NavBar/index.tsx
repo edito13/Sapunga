@@ -13,7 +13,7 @@ const index = () => {
       <nav>
         <ul>
           <li>
-            <Link to={"/admin/dashboard"}>
+            <Link to={"dashboard"}>
               <ListItem
                 className={page === "dashboard" ? "active" : ""}
                 startIcon={<FaBriefcase />}
@@ -24,7 +24,7 @@ const index = () => {
             </Link>
           </li>
           <li>
-            <Link to={"/admin/usuarios"}>
+            <Link to={"usuarios"}>
               <ListItem
                 className={page === "usuarios" ? "active" : ""}
                 startIcon={<FaUsers />}
@@ -35,7 +35,7 @@ const index = () => {
             </Link>
           </li>
           <li>
-            <Link to={"/admin/produtos"}>
+            <Link to={"produtos"}>
               <ListItem
                 className={page === "produtos" ? "active" : ""}
                 startIcon={<BsBagFill />}
@@ -46,7 +46,7 @@ const index = () => {
             </Link>
           </li>
           <li>
-            <Link to={"/admin/encomendas"}>
+            <Link to={"encomendas"}>
               <ListItem
                 className={page === "encomendas" ? "active" : ""}
                 startIcon={<FaShoppingCart />}

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Container } from "./style";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { FaShoppingCart, FaUsers } from "react-icons/fa";
-import { BsBagFill } from "react-icons/bs";
-import api from "../../../assets/api";
+import { BsBagFill, BsFillChatDotsFill } from "react-icons/bs";
+import { Container } from "./style";
+import { selectUsers } from "../../../store/Users/users.reducer";
 
 interface UsersData {
   _id: string;
@@ -17,17 +19,7 @@ const index = () => {
     AOS.init();
   }, []);
 
-  const [Users, setUsers] = useState<UsersData[]>([]);
-
-  useEffect(() => {
-    const getUsers = async () => {
-      const users = await api.GetUsers();
-
-      setUsers(users);
-    };
-
-    getUsers();
-  }, []);
+  const Users: UsersData[] = useSelector(selectUsers)
 
   return (
     <Container>
@@ -45,11 +37,11 @@ const index = () => {
       </div>
       <div className="statistic-container">
         <div className="statistic-item" data-aos="zoom-in" data-aos-delay="100">
-          <div className="title">
+          <Link to={"/admin/usuarios"} className="title">
             <FaUsers />
             <p>Usuarios</p>
-          </div>
-          <span>{Users.length}</span>
+          </Link>
+          <span>{Users.length > 10 ? Users.length : "0"+Users.length}</span>
         </div>
         <div className="statistic-item" data-aos="zoom-in" data-aos-delay="200">
           <div className="title">
@@ -67,10 +59,10 @@ const index = () => {
         </div>
         <div className="statistic-item" data-aos="zoom-in" data-aos-delay="400">
           <div className="title">
-            <FaUsers />
-            <p>Usuarios</p>
+            <BsFillChatDotsFill />
+            <p>Mensagens</p>
           </div>
-          <span>900</span>
+          <span>04</span>
         </div>
       </div>
     </Container>

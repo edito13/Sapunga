@@ -53,9 +53,10 @@ export const Container = styled.div`
       cursor: pointer;
 
       .title {
+        color: #333;
+
         svg {
           font-size: 2.3em;
-          color: #333;
         }
 
         p {

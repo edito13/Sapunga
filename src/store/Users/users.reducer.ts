@@ -1,24 +1,25 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 interface UsersData {
   _id: string;
   name: string;
   email: string;
 }
 
-interface a {
-  type: string;
-  payload: UsersData | UsersData[];
-}
+const InitialState: UsersData[] = localStorage.estado ? JSON.parse(localStorage.estado) : [];
 
-const InitialState = localStorage.estado ? JSON.parse(localStorage.estado) : [];
-
-export default (state: UsersData[] = InitialState, { type, payload }: a) => {
-  switch (type) {
-    case "ADICIONAR_USUARIOS":
-      return [...(payload as UsersData[])];
-      break;
-
-    default:
-      return state;
-      break;
+const Users = createSlice({
+  name: "Users",
+  initialState: InitialState,
+  reducers: {
+    adicionarUsuarios(state, { payload }: PayloadAction<UsersData | UsersData[]>) {
+      return [...payload as UsersData[]]
+    }
   }
-};
+})
+
+export default Users.reducer
+
+export const { adicionarUsuarios } = Users.actions
+
+export const selectUsers = (state: any) => state.users as UsersData[];

@@ -4,7 +4,7 @@ import Routes from "./Routes";
 import Login2 from "./pages/Login2";
 import api from "./assets/api";
 import { useDispatch } from "react-redux";
-import { adicionarUsuarios } from "./store/Users/users.action";
+import { adicionarUsuarios } from "./store/Users/users.reducer";
 
 const App = () => {
   const dispatch = useDispatch();
