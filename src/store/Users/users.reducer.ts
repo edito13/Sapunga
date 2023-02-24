@@ -12,8 +12,8 @@ const Users = createSlice({
   name: "Users",
   initialState: InitialState,
   reducers: {
-    adicionarUsuarios(state, { payload }: PayloadAction<UsersData | UsersData[]>) {
-      return [...payload as UsersData[]]
+    adicionarUsuarios(state, { payload }: PayloadAction<UsersData[]>) {
+      return [...payload]
     }
   }
 })

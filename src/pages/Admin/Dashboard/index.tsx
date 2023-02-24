@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useSelector } from "react-redux";
@@ -36,34 +36,34 @@ const index = () => {
         </div>
       </div>
       <div className="statistic-container">
-        <div className="statistic-item" data-aos="zoom-in" data-aos-delay="100">
-          <Link to={"/admin/usuarios"} className="title">
+        <Link to={"/admin/usuarios"} className="statistic-item" data-aos="zoom-in" data-aos-delay="100">
+          <div className="title">
             <FaUsers />
             <p>Usuarios</p>
-          </Link>
+          </div>
           <span>{Users.length > 10 ? Users.length : "0"+Users.length}</span>
-        </div>
-        <div className="statistic-item" data-aos="zoom-in" data-aos-delay="200">
+        </Link>
+        <Link to={"/admin/produtos"} className="statistic-item" data-aos="zoom-in" data-aos-delay="200">
           <div className="title">
             <BsBagFill />
             <p>Produtos</p>
           </div>
           <span>09</span>
-        </div>
-        <div className="statistic-item" data-aos="zoom-in" data-aos-delay="300">
+        </Link>
+        <Link to={"/admin/encomendas"} className="statistic-item" data-aos="zoom-in" data-aos-delay="300">
           <div className="title">
             <FaShoppingCart />
             <p>Encomendas</p>
           </div>
           <span>20</span>
-        </div>
-        <div className="statistic-item" data-aos="zoom-in" data-aos-delay="400">
+        </Link>
+        <Link to={"/admin/mensagens"} className="statistic-item" data-aos="zoom-in" data-aos-delay="400">
           <div className="title">
             <BsFillChatDotsFill />
             <p>Mensagens</p>
           </div>
           <span>04</span>
-        </div>
+        </Link>
       </div>
     </Container>
   );

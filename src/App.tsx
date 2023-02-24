@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
-import { UserType } from "./types";
-import Routes from "./Routes";
-import Login2 from "./pages/Login2";
-import api from "./assets/api";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import api from "./assets/api";
+import Routes from "./Routes";
 import { adicionarUsuarios } from "./store/Users/users.reducer";
 
 const App = () => {
