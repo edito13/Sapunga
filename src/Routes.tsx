@@ -12,6 +12,7 @@ import Dashboard from "./pages/Admin/Dashboard";
 import Productos from "./pages/Admin/Produtos";
 import Encomendas from "./pages/Admin/Encomendas";
 import Usuarios from "./pages/Admin/Usuarios";
+import LoginAdmin from "./pages/Admin/Login";
 
 export default () => {
   return (
@@ -29,6 +30,7 @@ export default () => {
           <Route path="encomendas" element={<Encomendas />} />
           <Route path="usuarios" element={<Usuarios />} />
         </Route>
+        <Route path="/admin/login" element={<LoginAdmin />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
