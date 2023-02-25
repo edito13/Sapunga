@@ -1,12 +1,8 @@
 import styled from "styled-components";
 
 export const Menu = styled.nav`
-  background: #ffffff6f;
-  backdrop-filter: blur(5px);
-  padding: 7px 15px;
-  max-width: 90%;
-  margin: auto;
-  border-radius: 40px;
+  background: #ffff;
+  padding: 1em 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,7 +22,7 @@ export const Menu = styled.nav`
 
     svg {
       font-size: 1.5em;
-      color: #fff;
+      color: #000;
     }
   }
 
@@ -35,8 +31,6 @@ export const Menu = styled.nav`
   }
 
   @media (min-width: 600px) {
-    max-width: 80%;
-
     button {
       display: none;
     }
@@ -50,22 +44,27 @@ export const Menu = styled.nav`
         a {
           display: block;
           font-size: 1.1em;
-          color: #fff;
+          color: #000;
           padding: 5px 20px;
           transition: 0.4s ease-in-out;
         }
 
-        &::after {
-          content: "";
-          display: block;
-          height: 2px;
-          width: 0;
-          margin: auto;
-          background: #000066;
-          transition: 0.5s ease-in-out;
+        svg {
+          color: #000;
         }
       }
+    }
 
+    ul:nth-child(3) {
+      li::after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 0;
+        margin: auto;
+        background: #000066;
+        transition: 0.5s ease-in-out;
+      }
       li:hover,
       li.active {
         a {

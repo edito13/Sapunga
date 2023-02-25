@@ -4,6 +4,8 @@ import { IconButton } from "@mui/material/";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Menu } from "./style";
 import { Link, useLocation } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import { BsHeartFill } from "react-icons/bs";
 
 const index = () => {
   const itemAtivo = useLocation().pathname.substring(1);
@@ -37,7 +39,22 @@ const index = () => {
             <Link to="/servicos">Serviços</Link>
           </li>
           <li className={itemAtivo === "contactos" ? "active" : ""}>
-            <Link to="/contact">Contacto</Link>
+            <Link to="/contactos">Contacto</Link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <IconButton>
+              <FaShoppingCart />
+            </IconButton>
+          </li>
+          <li>
+            <IconButton>
+              <BsHeartFill />
+            </IconButton>
+          </li>
+          <li>
+            <a href="">Edito</a>
           </li>
         </ul>
       </Menu>

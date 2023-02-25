@@ -44,7 +44,7 @@ const index = () => {
                 <Link to={"/servicos"}>Serviços</Link>
               </li>
               <li>
-                <Link to={"/contact"}>Contacto</Link>
+                <Link to={"/contactos"}>Contacto</Link>
               </li>
               <li>
                 <Link to={"/login"}>Login</Link>

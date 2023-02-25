@@ -11,11 +11,10 @@ export const Header = styled.header`
     background: linear-gradient(to bottom, #000000af 80%, transparent);
     height: 100%;
     width: 100%;
-    padding: 3em 0;
     color: #fff;
 
     & > h1 {
-      font-family: "Century Gothic";
+      font-family: "Nunito";
       font-size: 4em;
       letter-spacing: 5px;
       font-weight: 600;

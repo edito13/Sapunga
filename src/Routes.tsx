@@ -25,7 +25,7 @@ const Rotas: React.FC<Props> = ({ token }) => {
         <Route path="/quem_somos" element={<Quem_somos />} />
         <Route path="/produtos" element={<Produtos />} />
         <Route path="/servicos" element={<Services />} />
-        <Route path="/contact" element={<Contactos />} />
+        <Route path="/contactos" element={<Contactos />} />
         <Route path="/login" element={<Login token={token} />} />
         <Route path="/criar_conta" element={<Criar_conta />} />
         <Route path="/admin" element={<Admin />}>
