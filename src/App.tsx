@@ -8,9 +8,9 @@ import { adicionarUsuarios, logarUsuario } from "./store/Users/users.reducer";
 const App = () => {
   const dispatch = useDispatch();
   const [cookies] = useCookies(["user"]);
+  const token = cookies.user;
 
   useEffect(() => {
-    const token = cookies.user;
     if (token) {
       const user = JSON.parse(localStorage.user);
       dispatch(logarUsuario({ user, token }));
@@ -49,7 +49,7 @@ const App = () => {
   //   return <Login2 onReceiveGoogle={GetLoginUserData} />;
   // }
 
-  return <Routes />;
+  return <Routes token={token} />;
 };
 
 export default App;

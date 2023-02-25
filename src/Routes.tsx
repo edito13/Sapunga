@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -14,7 +14,11 @@ import Encomendas from "./pages/Admin/Encomendas";
 import Usuarios from "./pages/Admin/Usuarios";
 import LoginAdmin from "./pages/Admin/Login";
 
-export default () => {
+interface Props {
+  token: string;
+}
+
+const Rotas: React.FC<Props> = ({ token }) => {
   return (
     <Router>
       <Routes>
@@ -22,7 +26,7 @@ export default () => {
         <Route path="/produtos" element={<Produtos />} />
         <Route path="/servicos" element={<Services />} />
         <Route path="/contact" element={<Contactos />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login token={token} />} />
         <Route path="/criar_conta" element={<Criar_conta />} />
         <Route path="/admin" element={<Admin />}>
           <Route path="dashboard" element={<Dashboard />} />
@@ -37,3 +41,5 @@ export default () => {
     </Router>
   );
 };
+
+export default Rotas;
