@@ -14,8 +14,6 @@ const App = () => {
       if (users) {
         dispatch(adicionarUsuarios(users));
         localStorage.setItem("estado", JSON.stringify(users));
-        console.log(users);
-        console.log("Feitooo");
       }
     };
 

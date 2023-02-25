@@ -66,7 +66,7 @@ export const Container = styled.div`
       }
 
       span {
-        font-size: 1.8em;
+        font-size: 2em;
         color: #000066;
         font-family: Arial, Helvetica, sans-serif;
       }

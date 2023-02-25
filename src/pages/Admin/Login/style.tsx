@@ -28,10 +28,10 @@ export const Container = styled.div`
 
       input {
         width: 100%;
-        padding: 0.6em 10em;
         border: none;
+        font-size: 1.2em;
+        padding: 0.6em 0.3em;
         border-radius: 4px;
-        font-size: 1.1em;
         box-shadow: 0px 0px 3px #0000006c;
         color: #000;
       }
