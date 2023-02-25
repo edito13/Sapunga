@@ -14,9 +14,10 @@ const index: React.FC<Props> = ({ erro, open, onClose }) => {
   const [LoadingStatus, setLoadingStatus] = useState(false);
 
   useEffect(() => {
-    const time = setInterval(() => {
-      setLoadingCounter((count) => count + 1);
-    }, 1000);
+    const time = setInterval(
+      () => setLoadingCounter((count) => count + 1),
+      1000
+    );
 
     return () => clearInterval(time);
   }, [LoadingCounter]);
@@ -29,7 +30,11 @@ const index: React.FC<Props> = ({ erro, open, onClose }) => {
   return (
     <MainModal open={open} onClose={onClose}>
       <Container>
-        {LoadingStatus ? <LoadingProgress /> : <p>O Login parou</p>}
+        {LoadingStatus ? (
+          <LoadingProgress />
+        ) : (
+          <p>{erro ? erro : "Seu login foi feito com sucesso"}</p>
+        )}
       </Container>
     </MainModal>
   );

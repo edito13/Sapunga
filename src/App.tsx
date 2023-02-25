@@ -1,11 +1,21 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 import api from "./assets/api";
 import Routes from "./Routes";
-import { adicionarUsuarios } from "./store/Users/users.reducer";
+import { adicionarUsuarios, logarUsuario } from "./store/Users/users.reducer";
 
 const App = () => {
   const dispatch = useDispatch();
+  const [cookies] = useCookies(["user"]);
+
+  useEffect(() => {
+    const token = cookies.user;
+    if (token) {
+      const user = JSON.parse(localStorage.user);
+      dispatch(logarUsuario({ user, token }));
+    }
+  }, []);
 
   useEffect(() => {
     const getUsers = async () => {

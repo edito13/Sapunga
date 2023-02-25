@@ -8,6 +8,7 @@ export interface UsersData {
   _id: string;
   name: string;
   email: string;
+  password?: string
 }
 
 export interface InitialStateI {
@@ -15,4 +16,9 @@ export interface InitialStateI {
   users: UsersData[];
   token: string | null;
   userLogado: UsersData | null
+}
+
+export interface logarUsuarioI {
+  user: UsersData;
+  token: string;
 }

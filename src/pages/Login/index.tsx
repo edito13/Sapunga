@@ -1,27 +1,66 @@
-import React, { FormEvent, useCallback, useEffect, useState } from "react";
+import React, {
+  FormEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useCookies } from "react-cookie";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
+import { FaFacebook, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { Container } from "./style";
 import { BlueButton } from "../../Components/BlueButton/style";
-import { FaFacebook, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import ModalCheckLogin from "../../Components/ModalCheckLogin";
+import api from "../../assets/api";
+import { logarUsuario } from "../../store/Users/users.reducer";
 
 const Login = () => {
   useEffect(() => {
     AOS.init();
   }, []);
 
+  const dispatch = useDispatch();
+  const [cookies, setCookie] = useCookies(["user"]);
   const [OpenModal, setOpenModal] = useState<boolean>(false);
   const [Error, setError] = useState<string>("");
 
   const onClose = useCallback(() => setOpenModal(false), [OpenModal]);
 
-  const Logar = (e: FormEvent) => {
+  const emailFill = useRef<HTMLInputElement>(null);
+  const passwordFill = useRef<HTMLInputElement>(null);
+
+  const Logar = async (e: FormEvent) => {
     e.preventDefault();
 
-    setOpenModal(true);
+    const email = emailFill.current?.value;
+    const password = passwordFill.current?.value;
+
+    try {
+      if (!email) throw "Preencha o email correctamente.";
+      else if (!password) throw "Preencha a senha correctamente.";
+
+      const login = await api.VerifyLogin({ email, password });
+
+      if (login.status === 500) setError(login.erro);
+      else if (login.status === 200) {
+        setError("");
+        const user = login.user;
+        const token = login.token;
+
+        dispatch(logarUsuario({ user, token }));
+        setCookie("user", token, { path: "/" });
+        localStorage.setItem("user", JSON.stringify(user));
+        console.log(login);
+      }
+    } catch (error) {
+      setError(error as string);
+    } finally {
+      setOpenModal(true);
+    }
   };
 
   return (
@@ -65,11 +104,23 @@ const Login = () => {
             <form onSubmit={Logar}>
               <div data-aos="fade-right" data-aos-delay="50">
                 <label htmlFor="email">E-mail ou Telefone</label>
-                <input type="text" id="email" placeholder="email@gmail.com" />
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="email@gmail.com"
+                  ref={emailFill}
+                  required
+                />
               </div>
               <div data-aos="fade-left" data-aos-delay="100">
                 <label htmlFor="senha">Senha</label>
-                <input type="password" id="senha" placeholder="Senha" />
+                <input
+                  type="password"
+                  id="senha"
+                  placeholder="Senha"
+                  ref={passwordFill}
+                  required
+                />
               </div>
               <BlueButton
                 type="submit"

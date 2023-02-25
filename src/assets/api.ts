@@ -1,7 +1,7 @@
 import axios from "axios";
 
 interface data {
-  name: string;
+  name?: string;
   email: string;
   password: string;
 }
@@ -16,6 +16,10 @@ const api = {
     const response = await axios(`${BaseUrl}/selecionarUsuarios`);
     return response.data;
   },
+  async VerifyLogin(data: data) {
+    const response = await axios.post(`${BaseUrl}/verificar_login`, data)
+    return response.data
+  }
 };
 
 export default api;
