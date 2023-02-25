@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-interface data {
+interface dataI {
   name?: string;
   email: string;
   password: string;
@@ -16,9 +16,14 @@ const api = {
     const response = await axios(`${BaseUrl}/selecionarUsuarios`);
     return response.data;
   },
-  async VerifyLogin(data: data) {
+  async VerifyLogin(data: dataI) {
     const response = await axios.post(`${BaseUrl}/verificar_login`, data)
     return response.data
+  },
+  async DeleteUser(data: AxiosRequestConfig) {
+    const response = await axios.delete(`${BaseUrl}/deletar_usuario`, data)
+    return response.data
+
   }
 };
 
