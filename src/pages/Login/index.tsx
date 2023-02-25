@@ -14,14 +14,14 @@ const Login = () => {
   }, []);
 
   const [OpenModal, setOpenModal] = useState<boolean>(false);
-  const [Error, setError] = useState<string | null>(null);
+  const [Error, setError] = useState<string>("");
 
   const onClose = useCallback(() => setOpenModal(false), [OpenModal]);
 
   const Logar = (e: FormEvent) => {
     e.preventDefault();
 
-    alert("Logando...");
+    setOpenModal(true);
   };
 
   return (
@@ -110,7 +110,9 @@ const Login = () => {
           </div>
         </div>
       </Container>
-      {OpenModal && <ModalCheckLogin open={OpenModal} onClose={onClose} />}
+      {OpenModal && (
+        <ModalCheckLogin erro={Error} open={OpenModal} onClose={onClose} />
+      )}
     </>
   );
 };
