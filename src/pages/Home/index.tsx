@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaShoppingCart } from "react-icons/fa";
 import Header from "../../Components/Header";
 import VioletButton from "../../Components/BlueButton";
 import TitleSections from "../../Components/TitleSections";
@@ -8,7 +9,6 @@ import MobilePost from "../../Components/MobilePost";
 import Slogan from "../../Components/Slogan";
 import Footer from "../../Components/Footer";
 import { Container, ImageContainer, ImgDescribe } from "./style";
-import { FaShoppingCart } from "react-icons/fa";
 
 const Home = () => {
   useEffect(() => {
