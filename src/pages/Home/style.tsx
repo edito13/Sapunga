@@ -39,7 +39,7 @@ export const Container = styled.main`
     margin-bottom: 12em;
 
     .content div:first-child {
-      background: #fff;
+      background: #fdfdfd;
       padding: 2em 2em 8em;
       box-shadow: 0px 0px 3px #0000002e;
 

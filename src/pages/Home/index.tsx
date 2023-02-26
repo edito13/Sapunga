@@ -9,6 +9,7 @@ import MobilePost from "../../Components/MobilePost";
 import Slogan from "../../Components/Slogan";
 import Footer from "../../Components/Footer";
 import { Container, ImageContainer, ImgDescribe } from "./style";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   useEffect(() => {
@@ -32,8 +33,12 @@ const Home = () => {
                 <span className="Green">desconto</span>.
               </p>
               <div>
-                <VioletButton Icon={<FaShoppingCart />}>Produtos</VioletButton>
-                <a href="">CRIAR CONTA?</a>
+                <Link to={"/produtos"}>
+                  <VioletButton Icon={<FaShoppingCart />}>
+                    Produtos
+                  </VioletButton>
+                </Link>
+                <Link to={"/criar_conta"}>CRIAR CONTA?</Link>
               </div>
             </div>
           </section>

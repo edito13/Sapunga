@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Menu = styled.nav`
-  background: #ffff;
-  padding: 1em 15px;
+  background: #fff;
+  padding: 1em 2em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,7 +15,7 @@ export const Menu = styled.nav`
     }
   }
 
-  button {
+  & > button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,7 @@ export const Menu = styled.nav`
   }
 
   @media (min-width: 600px) {
-    button {
+    & > button {
       display: none;
     }
 
@@ -48,14 +48,8 @@ export const Menu = styled.nav`
           padding: 5px 20px;
           transition: 0.4s ease-in-out;
         }
-
-        svg {
-          color: #000;
-        }
       }
-    }
 
-    ul:nth-child(3) {
       li::after {
         content: "";
         display: block;
@@ -74,6 +68,12 @@ export const Menu = styled.nav`
         &::after {
           width: 50%;
         }
+      }
+    }
+
+    div {
+      svg {
+        color: #000;
       }
     }
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavItem from "../NavItem";
-import { IconButton } from "@mui/material/";
+import { Badge, IconButton } from "@mui/material/";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Menu } from "./style";
 import { Link, useLocation } from "react-router-dom";
@@ -42,21 +42,18 @@ const index = () => {
             <Link to="/contactos">Contacto</Link>
           </li>
         </ul>
-        <ul>
-          <li>
-            <IconButton>
+        <div>
+          <IconButton>
+            <Badge badgeContent={4} color="primary">
               <FaShoppingCart />
-            </IconButton>
-          </li>
-          <li>
-            <IconButton>
+            </Badge>
+          </IconButton>
+          <IconButton>
+            <Badge badgeContent={4} color="primary">
               <BsHeartFill />
-            </IconButton>
-          </li>
-          <li>
-            <a href="">Edito</a>
-          </li>
-        </ul>
+            </Badge>
+          </IconButton>
+        </div>
       </Menu>
     </>
   );
