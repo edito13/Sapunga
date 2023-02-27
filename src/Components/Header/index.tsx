@@ -14,20 +14,22 @@ const index = () => {
 
   return (
     <Header>
-      <div>
-        <Menu />
-        <h1 data-aos="zoom-in-down">SAPUNGA</h1>
-        <p data-aos="zoom-in-down" data-aos-delay="150">
-          Comércio & Serviços, Lda.
-        </p>
-        <div data-aos="zoom-in-down" data-aos-delay="250">
-          <Link to={"/quem_somos"}>
-            <BlueButton Icon={<FaUsers style={{ fontSize: "1.3em" }} />}>
-              Quem somos?
-            </BlueButton>
-          </Link>
+      <Menu />
+      <main>
+        <div>
+          <h1 data-aos="zoom-in-down">SAPUNGA</h1>
+          <p data-aos="zoom-in-down" data-aos-delay="150">
+            Comércio & Serviços, Lda.
+          </p>
+          <div data-aos="zoom-in-down" data-aos-delay="250">
+            <Link to={"/quem_somos"}>
+              <BlueButton Icon={<FaUsers style={{ fontSize: "1.3em" }} />}>
+                Quem somos?
+              </BlueButton>
+            </Link>
+          </div>
         </div>
-      </div>
+      </main>
     </Header>
   );
 };

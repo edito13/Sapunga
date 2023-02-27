@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 2em;
+  padding: 0 1.3em;
   gap: 3em;
   margin-top: 3em;
 
@@ -19,7 +19,6 @@ export const Container = styled.div`
     p {
       width: 100%;
       max-width: 520px;
-      text-align: center;
       font-size: 1.1em;
       line-height: 1.6em;
     }
@@ -41,6 +40,10 @@ export const Container = styled.div`
       p {
         text-align: left;
       }
+    }
+    .text p {
+      text-align: left;
+      max-width: 520px;
     }
   }
 

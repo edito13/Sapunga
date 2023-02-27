@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Menu = styled.nav`
   background: #fff;
-  padding: 1em 2em;
+  padding: 1em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,6 +16,7 @@ export const Menu = styled.nav`
   }
 
   & > button {
+    order: 3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,6 +32,8 @@ export const Menu = styled.nav`
   }
 
   @media (min-width: 600px) {
+    padding: 1em 2em;
+
     & > button {
       display: none;
     }

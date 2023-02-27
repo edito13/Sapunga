@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Text = styled.section`
-  max-width: 80%;
   margin: 3em auto 5em;
-  padding: 0 2em;
+  padding: 0 1.3em;
 
   p {
     font-size: 1.2em;
@@ -16,5 +15,6 @@ export const Text = styled.section`
 
   @media (min-width: 1100px) {
     padding: 0;
+    max-width: 80%;
   }
 `;
