@@ -6,7 +6,7 @@ interface props {
 
 export const Container = styled.div`
   overflow-x: hidden;
-  box-shadow: 0px 0px 4px #000000b1;
+  box-shadow: 0px 0px 3px #000000b1;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ export const Container = styled.div`
 
     div:last-child {
       background: linear-gradient(#1f1faf, #000066);
-      border-radius: 5px 0 10px 5px;
+      border-radius: 10px 0 10px 0px;
       padding: 0.8em;
       align-self: flex-end;
       cursor: pointer;
@@ -57,5 +57,4 @@ export const Imagem = styled.div`
   background-position: center;
   min-height: 220px;
   border-radius: 10px 10px 0 0;
-  border-bottom: 5px solid #000066;
 `;

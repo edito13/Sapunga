@@ -148,6 +148,7 @@ export const FooterContainer = styled.div`
           background: #fff;
           padding: 8px;
           cursor: pointer;
+          transition: 0.4s ease-in-out;
 
           svg {
             font-size: 1.2em;

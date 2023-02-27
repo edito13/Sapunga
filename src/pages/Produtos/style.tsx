@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-wrap: wrap;
   gap: 4em 5%;
   padding: 0 2em;
