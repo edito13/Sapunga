@@ -3,6 +3,7 @@ import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 import api from "./assets/api";
 import Routes from "./Routes";
+import { addProducts } from "./store/Products/products.reducer";
 import { adicionarUsuarios, logarUsuario } from "./store/Users/users.reducer";
 
 const App = () => {
@@ -28,6 +29,19 @@ const App = () => {
     };
 
     getUsers();
+  }, []);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const products = await api.GeProducts();
+
+      if (products) {
+        dispatch(addProducts(products));
+        localStorage.setItem("products", JSON.stringify(products));
+      }
+    };
+
+    getProducts();
   }, []);
 
   // const [User, setUser] = useState<UserType>();

@@ -13,7 +13,6 @@ export const Container = styled.div`
     align-items: center;
     width: 100%;
     padding-bottom: 0.5em;
-    /* border-bottom: 2px solid #ccc; */
 
     img {
       max-width: 220px;
@@ -22,12 +21,12 @@ export const Container = styled.div`
     .text {
       h3 {
         font-weight: 400;
-        font-size: 1.7em;
+        font-size: 1.9em;
         color: #000066;
       }
 
       p {
-        font-size: 1.1em;
+        font-size: 1.2em;
       }
     }
   }
