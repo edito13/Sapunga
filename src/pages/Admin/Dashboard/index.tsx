@@ -26,7 +26,7 @@ const index = () => {
           alt="Black man"
         />
         <div data-aos="zoom-in-left" data-aos-delay="150" className="text">
-          <h3>Olá Edito</h3>
+          <h3>Sapunga</h3>
           <p>Bem-vindo ao seu Painel Administrador</p>
         </div>
       </div>

@@ -1,7 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaBriefcase, FaShoppingCart, FaUsers } from "react-icons/fa";
-import { BsBagFill } from "react-icons/bs";
+import {
+  FaBriefcase,
+  FaCartPlus,
+  FaShoppingCart,
+  FaUsers,
+} from "react-icons/fa";
+import { BsBagFill, BsFillChatDotsFill } from "react-icons/bs";
 import { Container, ListItem } from "./style";
 
 const index = () => {
@@ -49,10 +54,21 @@ const index = () => {
             <Link to={"encomendas"}>
               <ListItem
                 className={page === "encomendas" ? "active" : ""}
-                startIcon={<FaShoppingCart />}
+                startIcon={<FaCartPlus />}
                 fullWidth
               >
-                Pedidos
+                Encomendas
+              </ListItem>
+            </Link>
+          </li>
+          <li>
+            <Link to={"mensagens"}>
+              <ListItem
+                className={page === "mensagens" ? "active" : ""}
+                startIcon={<BsFillChatDotsFill />}
+                fullWidth
+              >
+                Mensagens
               </ListItem>
             </Link>
           </li>
