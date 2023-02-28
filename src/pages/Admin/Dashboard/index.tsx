@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaShoppingCart, FaUsers } from "react-icons/fa";
 import { BsBagFill, BsFillChatDotsFill } from "react-icons/bs";
-import { selectUsers } from "../../../store/Users/users.reducer";
-import { UsersData } from "../../../interfaces";
+import { ProductsData, UsersData } from "../../../interfaces";
 import { Container } from "./style";
+import { selectUsers } from "../../../store/Users/users.reducer";
+import { selectAllProducts } from "../../../store/Products/products.reducer";
 import "aos/dist/aos.css";
 
 const index = () => {
@@ -15,6 +16,7 @@ const index = () => {
   }, []);
 
   const Users: UsersData[] = useSelector(selectUsers);
+  const Products: ProductsData[] = useSelector(selectAllProducts);
 
   return (
     <Container>
@@ -53,7 +55,9 @@ const index = () => {
             <BsBagFill />
             <p>Produtos</p>
           </div>
-          <span>09</span>
+          <span>
+            {Products.length > 10 ? Products.length : "0" + Products.length}
+          </span>
         </Link>
         <Link
           to={"/admin/encomendas"}

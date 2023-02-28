@@ -4,22 +4,29 @@ import "aos/dist/aos.css";
 import { IconButton } from "@mui/material";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { Container, Imagem } from "./style";
+import { ProductsData } from "../../interfaces";
+import { BaseUrl } from "../../assets/api";
+import { Money } from "../../assets/ConvertMoney";
 
 interface Props {
   index: number;
+  product: ProductsData;
 }
 
-const index: React.FC<Props> = ({ index }) => {
+const index: React.FC<Props> = ({ index, product }) => {
   useEffect(() => {
     AOS.init();
   }, []);
 
   return (
     <Container data-aos="zoom-in" data-aos-delay={`${(index + 1) * 100}`}>
-      <Imagem data-aos="slide-down" src={`./assets/Images/${index}.jpg`} />
+      <Imagem
+        data-aos="slide-down"
+        src={`${BaseUrl}/Images/${product.urlPhoto}`}
+      />
       <div>
-        <p>Planta</p>
-        <span>40.000,00kz</span>
+        <p>{product.name}</p>
+        <span>{Money(product.preco)}</span>
       </div>
       <div className="btns">
         <IconButton data-aos="slide-right">
