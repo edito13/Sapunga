@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import NavItem from "../NavItem";
-import { Badge, IconButton } from "@mui/material/";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Menu } from "./style";
-import { Link, useLocation } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { Badge, IconButton } from "@mui/material/";
+import NavItem from "../NavItem";
+import { Menu } from "./style";
 import { BsHeartFill } from "react-icons/bs";
+import { selectAllProducts } from "../../store/Products/products.reducer";
+import MenuItems from "../MenuItems";
 
 const index = () => {
-  const itemAtivo = useLocation().pathname.substring(1);
-
   const [isActive, setIsActive] = useState(false);
 
   const OpenMenu = () => setIsActive(true);
   const CloseMenu = () => setIsActive(false);
+
+  const Products = useSelector(selectAllProducts);
 
   return (
     <>
@@ -25,31 +27,21 @@ const index = () => {
         <IconButton onClick={OpenMenu}>
           <GiHamburgerMenu />
         </IconButton>
-        <ul>
-          <li className={itemAtivo === "" ? "active" : ""}>
-            <Link to="/">Home</Link>
-          </li>
-          <li className={itemAtivo === "quem_somos" ? "active" : ""}>
-            <Link to="/quem_somos">Quem somos?</Link>
-          </li>
-          <li className={itemAtivo === "produtos" ? "active" : ""}>
-            <Link to="/produtos">Produtos</Link>
-          </li>
-          <li className={itemAtivo === "servicos" ? "active" : ""}>
-            <Link to="/servicos">Serviços</Link>
-          </li>
-          <li className={itemAtivo === "contactos" ? "active" : ""}>
-            <Link to="/contactos">Contacto</Link>
-          </li>
-        </ul>
+        <MenuItems />
         <div>
           <IconButton>
-            <Badge badgeContent={4} color="primary">
+            <Badge
+              badgeContent={Products.length === 0 ? "0" : Products.length}
+              color="primary"
+            >
               <FaShoppingCart />
             </Badge>
           </IconButton>
           <IconButton>
-            <Badge badgeContent={4} color="primary">
+            <Badge
+              badgeContent={Products.length === 0 ? "0" : Products.length}
+              color="primary"
+            >
               <BsHeartFill />
             </Badge>
           </IconButton>

@@ -1,0 +1,29 @@
+.swiper {
+    padding: 32px;
+    cursor: pointer;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-pagination-bullet-active {
+    background: #000066;
+}
+
+.swiper-button-prev {
+    padding: 30px 20px;
+    border-radius: 5px;   
+    background: #fff;
+    box-shadow: 0px 0px 3px #0000003c;
+    color: #000066;
+}
+
+.swiper-button-next {
+    padding: 30px 20px;
+    border-radius: 5px;   
+    background:#fff;
+    box-shadow: 0px 0px 3px #0000003c;
+    color: #000066;
+}

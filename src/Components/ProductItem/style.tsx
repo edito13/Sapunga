@@ -5,6 +5,9 @@ interface props {
 }
 
 export const Container = styled.div`
+  flex: 1;
+  max-width: 270px;
+  min-width: 200px;
   overflow-x: hidden;
   box-shadow: 0px 0px 3px #000000b1;
   border-radius: 10px;
