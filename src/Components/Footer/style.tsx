@@ -110,6 +110,7 @@ export const FooterContainer = styled.div`
           padding: 0.4em 0.8em;
           font-size: 1em;
           border: none;
+          flex: 1;
         }
 
         button {
@@ -117,27 +118,9 @@ export const FooterContainer = styled.div`
         }
       }
 
-      .Contacts {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5em;
-        margin-top: 1em;
-
-        div {
-          display: flex;
-          align-items: center;
-          gap: 0.2em;
-
-          svg {
-            font-size: 1.2em;
-          }
-        }
-      }
-
       .social-media {
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
         align-items: center;
         gap: 1em;
         margin-top: 1.5em;

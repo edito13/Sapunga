@@ -114,18 +114,8 @@ const index = () => {
               <span>mídias sociais.</span>
             </p>
             <div className="Newslatter">
-              <input type="text" placeholder="email@gmail.com" />
+              <input type="text" value={"sapungaservicos@gmail.com"} />
               <SendButton startIcon={<FaPaperPlane />}>Enviar</SendButton>
-            </div>
-            <div className="Contacts">
-              <div>
-                <ImPhone />
-                <p>+244 941 059 086</p>
-              </div>
-              <div>
-                <BiAt />
-                <p>sapungaservicos@gmail.com</p>
-              </div>
             </div>
             <div className="social-media">
               <div>
