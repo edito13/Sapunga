@@ -6,7 +6,7 @@ interface props {
 
 export const Container = styled.div`
   flex: 1;
-  max-width: 270px;
+  max-width: 260px;
   min-width: 200px;
   overflow-x: hidden;
   box-shadow: 0px 0px 3px #000000b1;
@@ -58,6 +58,6 @@ export const Imagem = styled.div`
   background: url("${({ src }: props) => src}") no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 220px;
+  min-height: 200px;
   border-radius: 10px 10px 0 0;
 `;
