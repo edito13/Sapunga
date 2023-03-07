@@ -18,15 +18,9 @@ import ModalCheckLogin from "../../Components/ModalCheckLogin";
 import api from "../../assets/api";
 import { logarUsuario } from "../../store/Users/users.reducer";
 
-interface Props {
-  token: string;
-}
+interface Props {}
 
-const Login: React.FC<Props> = ({ token }) => {
-  useEffect(() => {
-    if (token) navigate("/");
-  }, []);
-
+const Login: React.FC<Props> = () => {
   const [cookies, setCookie] = useCookies(["user"]);
   const dispatch = useDispatch();
   const [OpenModal, setOpenModal] = useState<boolean>(false);

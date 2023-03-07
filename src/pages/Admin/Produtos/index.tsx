@@ -10,6 +10,7 @@ import { BaseUrl } from "../../../assets/api";
 
 const index = () => {
   const Products: ProductsData[] = useSelector(selectAllProducts);
+  
 
   const rows = Products.map((product, index) => (
     <tr key={product._id}>

@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Quem_somos from "./pages/Quem_somos";
@@ -19,6 +24,8 @@ interface Props {
 }
 
 const Rotas: React.FC<Props> = ({ token }) => {
+  const isAuthenticed = true;
+
   return (
     <Router>
       <Routes>
@@ -26,7 +33,10 @@ const Rotas: React.FC<Props> = ({ token }) => {
         <Route path="/produtos" element={<Produtos />} />
         <Route path="/servicos" element={<Services />} />
         <Route path="/contactos" element={<Contactos />} />
-        <Route path="/login" element={<Login token={token} />} />
+        <Route
+          path="/login"
+          element={isAuthenticed ? <Navigate to={"/"} /> : <Login />}
+        />
         <Route path="/criar_conta" element={<Criar_conta />} />
         <Route path="/admin" element={<Admin />}>
           <Route path="dashboard" element={<Dashboard />} />
