@@ -4,6 +4,7 @@ import {
   Navigate,
   Route,
   Routes,
+  useNavigate,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -37,7 +38,10 @@ const Rotas: React.FC<Props> = ({ token }) => {
           path="/login"
           element={isAuthenticed ? <Navigate to={"/"} /> : <Login />}
         />
-        <Route path="/criar_conta" element={<Criar_conta />} />
+        <Route
+          path="/criar_conta"
+          element={isAuthenticed ? <Navigate to={"/"} /> : <Criar_conta />}
+        />
         <Route path="/admin" element={<Admin />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="produtos" element={<Productos />} />

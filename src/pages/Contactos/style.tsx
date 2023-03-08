@@ -41,9 +41,10 @@ export const Container = styled.main`
         max-width: 500px;
         margin: auto;
 
-        caption {
+        legend {
           padding-bottom: 0.5em;
           display: block;
+          width: 100%;
           text-align: left;
           font-size: 1.3em;
           color: #444;

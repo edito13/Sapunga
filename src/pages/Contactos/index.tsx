@@ -42,7 +42,7 @@ const index = () => {
           <form>
             <div className="content">
               <fieldset data-aos="zoom-in-right" data-aos-delay="200">
-                <caption>Dados Pessoais</caption>
+                <legend>Dados Pessoais</legend>
                 <input
                   type="text"
                   placeholder="Nome Completo"
@@ -63,7 +63,7 @@ const index = () => {
                 />
               </fieldset>
               <fieldset data-aos="zoom-in-left" data-aos-delay="200">
-                <caption>Mensagem</caption>
+                <legend>Mensagem</legend>
                 <textarea
                   placeholder="Escreva alguma coisa para nós!"
                   data-aos="zoom-in"
