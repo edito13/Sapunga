@@ -6,16 +6,30 @@ import { Link } from "react-router-dom";
 import { FaUsers } from "react-icons/fa";
 import { Header } from "./style";
 import BlueButton from "../BlueButton";
+import { SwiperProps } from "swiper/react";
+import Slider from "../../Components/Slider Header";
+import CarrosselItem from "../CarrosselItem";
 
 const index = () => {
   useEffect(() => {
     AOS.init();
   }, []);
 
+  const settings: SwiperProps = {
+    spaceBetween: 50,
+    slidesPerView: 1,
+    pagination: {
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3000,
+    },
+  };
+
   return (
     <Header>
       <Menu />
-      <main>
+      {/* <main>
         <div>
           <h1 data-aos="zoom-in-down">SAPUNGA</h1>
           <p data-aos="zoom-in-down" data-aos-delay="150">
@@ -29,7 +43,12 @@ const index = () => {
             </Link>
           </div>
         </div>
-      </main>
+      </main> */}
+      <Slider settings={settings}>
+        <CarrosselItem image={1} />
+        <CarrosselItem image={2} />
+        <CarrosselItem image={4} />
+      </Slider>
     </Header>
   );
 };

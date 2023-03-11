@@ -63,7 +63,7 @@ const App = () => {
   //   return <Login2 onReceiveGoogle={GetLoginUserData} />;
   // }
 
-  return <Routes token={token} />;
+  return <Routes />;
 };
 
 export default App;

@@ -4,7 +4,6 @@ import {
   Navigate,
   Route,
   Routes,
-  useNavigate,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -19,13 +18,13 @@ import Productos from "./pages/Admin/Produtos";
 import Encomendas from "./pages/Admin/Encomendas";
 import Usuarios from "./pages/Admin/Usuarios";
 import LoginAdmin from "./pages/Admin/Login";
+import { useSelector } from "react-redux";
+import { IsAuthenticed } from "./store/Users/users.reducer";
 
-interface Props {
-  token: string;
-}
+interface Props {}
 
-const Rotas: React.FC<Props> = ({ token }) => {
-  const isAuthenticed = true;
+const Rotas: React.FC<Props> = () => {
+  const isAuthenticed = useSelector(IsAuthenticed);
 
   return (
     <Router>

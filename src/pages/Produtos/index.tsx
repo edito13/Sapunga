@@ -31,7 +31,7 @@ const index = () => {
       </TitlePages>
       <Slider settings={settings}>
         {Products.map((item, index) => (
-          <SwiperSlide>
+          <SwiperSlide key={item._id}>
             <ProductItem key={index} product={item} index={index + 1} />
           </SwiperSlide>
         ))}
