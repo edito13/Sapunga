@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
+import { Table } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaShoppingCart, FaUsers } from "react-icons/fa";
@@ -17,6 +18,15 @@ const index = () => {
 
   const Users: UsersData[] = useSelector(selectUsers);
   const Products: ProductsData[] = useSelector(selectAllProducts);
+
+  const rows = Users.map((user, index) => (
+    <tr key={user._id}>
+      <td>{index + 1}</td>
+      <td>{user.name}</td>
+      <td>{user.email}</td>
+      <td>{user.password?.substring(0, 10) + "..."}</td>
+    </tr>
+  ));
 
   return (
     <Container>
@@ -83,6 +93,20 @@ const index = () => {
           </div>
           <span>04</span>
         </Link>
+      </div>
+      <div className="RecentUsers">
+        <p>Recentes usuarios...</p>
+        <Table style={{ background: "#fdfdfd", borderRadius: "8px" }}>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Senha</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </Table>
       </div>
     </Container>
   );

@@ -76,4 +76,12 @@ export const Container = styled.div`
       transform: scale(1.1);
     }
   }
+
+  .RecentUsers {
+    p {
+      color: #333;
+      font-size: 1.1em;
+      margin: 3em 0 0.5em;
+    }
+  }
 `;
