@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaPeopleCarry } from "react-icons/fa";
 import Header from "../../Components/Header";
 import Slogan from "../../Components/Slogan";
 import Footer from "../../Components/Footer";
 import TitlePages from "../../Components/TitlePages";
 import { Container, ImgService } from "./style";
-import { FaPeopleCarry } from "react-icons/fa";
+import ToTop from "../../Components/ToTop";
 
 const index = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const index = () => {
   return (
     <>
       <Header />
+      <ToTop />
       <Container>
         <TitlePages Icon={<FaPeopleCarry />}>Serviços</TitlePages>
         <div className="services">

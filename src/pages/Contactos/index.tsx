@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaPaperPlane, FaPhoneAlt } from "react-icons/fa";
+import { Container } from "./style";
 import Header from "../../Components/Header";
 import TitlePages from "../../Components/TitlePages";
 import Footer from "../../Components/Footer";
-import { Container } from "./style";
+import ToTop from "../../Components/ToTop";
 import BlueButton from "../../Components/BlueButton";
-import { FaPaperPlane, FaPhoneAlt } from "react-icons/fa";
 
 const index = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const index = () => {
   return (
     <>
       <Header />
+      <ToTop />
       <Container>
         <TitlePages Icon={<FaPhoneAlt style={{ fontSize: "1.6em" }} />}>
           Contactos

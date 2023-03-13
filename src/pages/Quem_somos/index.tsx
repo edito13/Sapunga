@@ -7,6 +7,7 @@ import TitlePages from "../../Components/TitlePages";
 import MobilePost from "../../Components/MobilePost";
 import Footer from "../../Components/Footer";
 import { Text } from "./style";
+import ToTop from "../../Components/ToTop";
 
 const index = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const index = () => {
   return (
     <>
       <Header />
+      <ToTop />
       <TitlePages Icon={<FaUsers />}>Quem somos</TitlePages>
       <MobilePost />
       <Text>

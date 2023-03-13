@@ -11,7 +11,7 @@ const index = () => {
     function handleScroll() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-      if (scrollTop >= 20) setIsActive(true);
+      if (scrollTop >= 15) setIsActive(true);
       else setIsActive(false);
       console.log("Scroll Top:", scrollTop);
     }

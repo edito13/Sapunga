@@ -9,6 +9,7 @@ import TitlePages from "../../Components/TitlePages";
 import Slider from "../../Components/Slider";
 import Footer from "../../Components/Footer";
 import { selectAllProducts } from "../../store/Products/products.reducer";
+import ToTop from "../../Components/ToTop";
 
 const index = () => {
   const Products = useSelector(selectAllProducts);
@@ -26,6 +27,7 @@ const index = () => {
   return (
     <>
       <Header />
+      <ToTop />
       <TitlePages Icon={<FaShoppingBag style={{ fontSize: "1.6em" }} />}>
         Produtos
       </TitlePages>
