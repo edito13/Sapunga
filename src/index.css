@@ -40,7 +40,7 @@ span {
 
 ::-webkit-scrollbar-thumb {
   background-color: #4a4ac9;
-  border-radius: 0.4rem;
+  border-radius: 5px;
   transition: 0.4s ease-in-out;
 }
 

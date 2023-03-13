@@ -24,7 +24,7 @@ const index = () => {
   };
 
   return (
-    <Header>
+    <Header id="header">
       <Menu />
       <Slider settings={settings}>
         <SwiperSlide>

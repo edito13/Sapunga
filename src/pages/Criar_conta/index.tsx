@@ -83,8 +83,8 @@ const Login = () => {
                 <label htmlFor="nome">Nome de usuário</label>
                 <input
                   type="text"
-                  ref={nameFill}
                   id="nome"
+                  ref={nameFill}
                   placeholder="Digite seu nome"
                 />
               </div>
@@ -92,8 +92,8 @@ const Login = () => {
                 <label htmlFor="email">E-mail ou Telefone</label>
                 <input
                   type="text"
-                  ref={emailFill}
                   id="email"
+                  ref={emailFill}
                   placeholder="email@gmail.com"
                 />
               </div>
@@ -102,8 +102,8 @@ const Login = () => {
                   <label htmlFor="senha">Senha</label>
                   <input
                     type="password"
-                    ref={passwordFill}
                     id="senha"
+                    ref={passwordFill}
                     placeholder="Digite sua senha"
                   />
                 </div>
@@ -111,8 +111,8 @@ const Login = () => {
                   <label htmlFor="confsenha">Confirmar</label>
                   <input
                     type="password"
-                    ref={confirmPasswordFill}
                     id="confsenha"
+                    ref={confirmPasswordFill}
                     placeholder="Cofirme sua senha"
                   />
                 </div>

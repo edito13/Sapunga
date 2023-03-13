@@ -1,28 +1,27 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsHeartFill } from "react-icons/bs";
+import { ImExit } from "react-icons/im";
 import { useSelector } from "react-redux";
 import { Popover } from "@mantine/core";
-import { Badge, Button, IconButton } from "@mui/material/";
+import { Badge, IconButton } from "@mui/material/";
 import NavItem from "../NavItem";
 import MenuItems from "../MenuItems";
 import { BtnLogout, Menu } from "./style";
 import { selectAllProducts } from "../../store/Products/products.reducer";
 import { selectUserLogado } from "../../store/Users/users.reducer";
 import ModalCheckLogout from "../ModalCheckLogout";
-import { ImExit } from "react-icons/im";
 
 const index = () => {
+  const Products = useSelector(selectAllProducts);
+  const user = useSelector(selectUserLogado);
   const [isActive, setIsActive] = useState(false);
-
   const [OpenModal, setOpenModal] = useState(false);
 
   const OpenMenu = () => setIsActive(true);
-  const CloseMenu = () => setIsActive(false);
-
-  const Products = useSelector(selectAllProducts);
-  const user = useSelector(selectUserLogado);
+  const CloseMenu = useCallback(() => setIsActive(false), [isActive]);
+  const CloseModal = useCallback(() => setOpenModal(false), [OpenModal]);
 
   return (
     <>
@@ -35,7 +34,7 @@ const index = () => {
           <GiHamburgerMenu />
         </IconButton>
         <MenuItems />
-        {user && (
+        {user ? (
           <div>
             <div className="btns">
               <IconButton>
@@ -70,14 +69,11 @@ const index = () => {
               </Popover.Dropdown>
             </Popover>
           </div>
+        ) : (
+          <span>Logar</span>
         )}
       </Menu>
-      {OpenModal && (
-        <ModalCheckLogout
-          open={OpenModal}
-          onClose={() => setOpenModal(false)}
-        />
-      )}
+      {OpenModal && <ModalCheckLogout open={OpenModal} onClose={CloseModal} />}
     </>
   );
 };

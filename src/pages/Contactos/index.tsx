@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Header from "../../Components/Header";
@@ -12,6 +12,10 @@ const index = () => {
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const nameFill = useRef<HTMLInputElement>(null);
+  const emailFill = useRef<HTMLInputElement>(null);
+  const phoneNumberFill = useRef<HTMLInputElement>(null);
 
   return (
     <>
@@ -32,10 +36,13 @@ const index = () => {
                 Estamos acompanhando <span className="DarkViolet">tudo!</span>
               </h3>
               <p data-aos="zoom-in-left" data-aos-delay="150">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
-                in repellendus veritatis nemo placeat consequatur mollitia eum,
-                totam aperiam libero ad consequuntur aliquid laudantium sapiente
-                aliquam soluta incidunt, minima itaque?
+                Fique descançado que estamos aqui do outro lado, aguardando e
+                fornecendo tudo que possas precisar, no caso de alguma dúvida,
+                por favor não exite. Submeta ao formulário e envia uma mensagem
+                para nós que será um grande prazer ajuda-lo.
+              </p>
+              <p data-aos="zoom-in-left" data-aos-delay="200">
+                A Sapunga agradece!
               </p>
             </div>
           </div>
@@ -45,18 +52,21 @@ const index = () => {
                 <legend>Dados Pessoais</legend>
                 <input
                   type="text"
+                  ref={nameFill}
                   placeholder="Nome Completo"
                   data-aos="zoom-in"
                   data-aos-delay="150"
                 />
                 <input
                   type="email"
+                  ref={emailFill}
                   placeholder="exemplo@gmail.com"
                   data-aos="zoom-in"
                   data-aos-delay="200"
                 />
                 <input
                   type="number"
+                  ref={phoneNumberFill}
                   placeholder="Número de Telefone"
                   data-aos="zoom-in"
                   data-aos-delay="250"

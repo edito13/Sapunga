@@ -16,22 +16,34 @@ export const Menu = styled.nav`
     }
   }
 
+  & > button {
+    order: 4;
+
+    svg {
+      color: #333;
+      font-size: 1.4em;
+    }
+  }
+
   & > div {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.6em;
-  }
 
-  & > .btns {
-    order: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    svg {
-      font-size: 1.5em;
-      color: #000;
+      svg {
+        font-size: 1em;
+        color: #333;
+      }
+    }
+
+    .btns + p {
+      display: none;
     }
   }
 
@@ -82,9 +94,9 @@ export const Menu = styled.nav`
       }
     }
 
-    div {
-      svg {
-        color: #000;
+    & > div {
+      .btns + p {
+        display: block;
       }
     }
 

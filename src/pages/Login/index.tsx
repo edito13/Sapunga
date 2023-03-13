@@ -55,17 +55,16 @@ const Login: React.FC<Props> = () => {
 
       const login = await api.VerifyLogin({ email, password });
 
-      if (login.status === 500) setError(login.erro);
-      else if (login.status === 200) {
-        setError("");
-        const user = login.user;
-        const token = login.token;
+      if (login.error) return setError(login.error);
 
-        dispatch(logarUsuario({ user, token }));
-        setCookie("user", token, { path: "/" });
-        localStorage.setItem("user", JSON.stringify(user));
-        console.log(login);
-      }
+      // if not error is catched, so all is okay.
+      setError("");
+      const user = login.user;
+      const token = login.token;
+
+      dispatch(logarUsuario({ user, token }));
+      setCookie("user", token, { path: "/" });
+      localStorage.setItem("user", JSON.stringify(user));
     } catch (error) {
       setError(error as string);
     } finally {

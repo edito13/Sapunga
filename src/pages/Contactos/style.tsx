@@ -23,11 +23,11 @@ export const Container = styled.main`
         color: #444;
         font-size: 1.5em;
         text-align: center;
-        margin-bottom: 0.5em;
       }
 
       p {
-        font-size: 1.1em;
+        margin-top: 0.5em;
+        font-size: 0.5em;
         line-height: 1.6em;
         text-align: center;
       }

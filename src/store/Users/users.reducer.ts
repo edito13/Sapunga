@@ -24,7 +24,7 @@ const Users = createSlice({
       };
     },
     logoutUser(state) {
-      return { ...state, userLogado: null };
+      return { ...state, authenticed: false, userLogado: null, token: null };
     },
   },
 });
@@ -33,7 +33,6 @@ export default Users.reducer;
 
 export const { adicionarUsuarios, logarUsuario, logoutUser } = Users.actions;
 
-export const selectUsers = (state: any) => state.users.users as UsersData[];
-export const selectUserLogado = (state: any) =>
-  state.users.userLogado as UsersData;
-export const IsAuthenticed = (state: any) => state.users.authenticed as boolean;
+export const selectUsers = (state: any) => state.users.users;
+export const selectUserLogado = (state: any) => state.users.userLogado;
+export const IsAuthenticed = (state: any) => state.users.authenticed;

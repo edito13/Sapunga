@@ -28,15 +28,16 @@ const index: React.FC<Props> = ({ open, onClose }) => {
   }, [LoadingCounter]);
 
   useEffect(() => {
-    if (LoadingCounter <= 1) setLoadingStatus(true);
+    if (LoadingCounter <= 2) setLoadingStatus(true);
     else setLoadingStatus(false);
   }, [LoadingCounter]);
 
   const ToLogout = () => {
+    dispatch(logoutUser);
     removeCookie("user");
     localStorage.removeItem("user");
-    dispatch(logoutUser);
-    setTimeout(() => onClose(), 1000);
+    setLoadingStatus(true);
+    setTimeout(() => onClose(), 700);
   };
 
   return (

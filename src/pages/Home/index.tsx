@@ -10,6 +10,7 @@ import Slogan from "../../Components/Slogan";
 import Footer from "../../Components/Footer";
 import { Container, ImageContainer, ImgDescribe } from "./style";
 import { Link } from "react-router-dom";
+import ToTop from "../../Components/ToTop";
 
 const Home = () => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const Home = () => {
   return (
     <>
       <Header />
+      <ToTop />
       <Container>
         <div className="main">
           <section className="Introduce-banner">
