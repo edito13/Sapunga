@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "@mui/material";
 
 export const Menu = styled.nav`
   background: #fff;
@@ -15,7 +16,14 @@ export const Menu = styled.nav`
     }
   }
 
-  & > button {
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6em;
+  }
+
+  & > .btns {
     order: 3;
     display: flex;
     justify-content: center;
@@ -82,6 +90,16 @@ export const Menu = styled.nav`
 
     h1 img {
       max-width: 170px;
+    }
+  }
+`;
+
+export const BtnLogout = styled(Button)`
+  && {
+    color: #333;
+
+    &:hover {
+      background: none;
     }
   }
 `;

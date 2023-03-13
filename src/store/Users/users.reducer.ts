@@ -23,12 +23,15 @@ const Users = createSlice({
         token: payload.token,
       };
     },
+    logoutUser(state) {
+      return { ...state, userLogado: null };
+    },
   },
 });
 
 export default Users.reducer;
 
-export const { adicionarUsuarios, logarUsuario } = Users.actions;
+export const { adicionarUsuarios, logarUsuario, logoutUser } = Users.actions;
 
 export const selectUsers = (state: any) => state.users.users as UsersData[];
 export const selectUserLogado = (state: any) =>

@@ -34,13 +34,13 @@ span {
 }
 
 ::-webkit-scrollbar {
-  width: 0.8rem;
-  background-color: #1d1e20;
+  width: 0.7rem;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #4a4ac9;
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   transition: 0.4s ease-in-out;
 }
 
