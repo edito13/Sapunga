@@ -28,7 +28,7 @@ const Login = () => {
     const confirmPassword = confirmPasswordFill.current?.value;
 
     try {
-      const response = await api.GetUsers();
+      const response = await api.SelectUsers();
       console.log(response);
 
       setOpenModal(true);

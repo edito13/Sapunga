@@ -12,20 +12,32 @@ export const BaseUrl =
     : "https://sapunga-back-end.vercel.app";
 
 const api = {
-  async GetUsers() {
-    const response = await axios(`${BaseUrl}/selecionar_usuarios`);
+  async SelectUsers() {
+    const response = await axios(`${BaseUrl}/user/selectAll`);
     return response.data;
   },
-  async VerifyLogin(data: dataI) {
-    const response = await axios.post(`${BaseUrl}/verificar_login`, data);
+  async SelectUser({ id, token }: { id: string; token: string }) {
+    const response = await axios(`${BaseUrl}/user/selectOne/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  },
+  async CheckLogin(data: dataI) {
+    const response = await axios.post(`${BaseUrl}/user/checkLogin`, data);
     return response.data;
   },
   async DeleteUser(data: AxiosRequestConfig) {
-    const response = await axios.delete(`${BaseUrl}/deletar_usuario`, data);
+    const response = await axios.delete(`${BaseUrl}/user/deleteUser`, data);
     return response.data;
   },
-  async GeProducts() {
-    const response = await axios(`${BaseUrl}/selecionar_produtos`);
+  async SelectProducts() {
+    const response = await axios(`${BaseUrl}/product/selectProducts`);
+    return response.data;
+  },
+  async SelectProduct({ id }: { id: string }) {
+    const response = await axios(`${BaseUrl}/product/selectProduct/${id}`);
     return response.data;
   },
 };

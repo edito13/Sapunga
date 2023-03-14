@@ -53,7 +53,7 @@ const Login: React.FC<Props> = () => {
       if (!email) throw "Preencha o email correctamente.";
       else if (!password) throw "Preencha a senha correctamente.";
 
-      const login = await api.VerifyLogin({ email, password });
+      const login = await api.CheckLogin({ email, password });
 
       if (login.error) return setError(login.error);
 
