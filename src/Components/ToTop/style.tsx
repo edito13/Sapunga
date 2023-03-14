@@ -21,7 +21,7 @@ export const Container = styled.div`
     svg {
       padding: 5px;
       color: #fff;
-      font-size: 4em;
+      font-size: 3.2em;
     }
   }
 

@@ -20,10 +20,7 @@ const index: React.FC<Props> = ({ index, product }) => {
 
   return (
     <Container data-aos="zoom-in" data-aos-delay={`${(index + 1) * 100}`}>
-      <Imagem
-        data-aos="slide-down"
-        src={`${BaseUrl}/Images/${product.urlPhoto}`}
-      />
+      <Imagem data-aos="slide-down" src={`${BaseUrl}${product.urlPhoto}`} />
       <div>
         <p>{product.name}</p>
         <span>{Money(product.preco)}</span>
