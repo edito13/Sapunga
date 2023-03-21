@@ -10,7 +10,6 @@ import { BaseUrl } from "../../../assets/api";
 
 const index = () => {
   const Products: ProductsData[] = useSelector(selectAllProducts);
-  
 
   const rows = Products.map((product, index) => (
     <tr key={product._id}>
@@ -21,7 +20,7 @@ const index = () => {
       <td style={{ margin: "0px" }}>
         <img
           style={{ maxWidth: "50px", maxHeight: "50px" }}
-          src={`${BaseUrl}/Images/${product.urlPhoto}`}
+          src={`${BaseUrl}${product.urlPhoto}`}
           alt=""
         />
       </td>

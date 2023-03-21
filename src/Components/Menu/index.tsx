@@ -10,12 +10,12 @@ import NavItem from "../NavItem";
 import MenuItems from "../MenuItems";
 import { BtnLogout, Menu } from "./style";
 import { selectAllProducts } from "../../store/Products/products.reducer";
-import { selectUserLogado } from "../../store/Users/users.reducer";
+import { selectUserSigned } from "../../store/Users/users.reducer";
 import ModalCheckLogout from "../ModalCheckLogout";
 
 const index = () => {
   const Products = useSelector(selectAllProducts);
-  const user = useSelector(selectUserLogado);
+  const user = useSelector(selectUserSigned);
   const [isActive, setIsActive] = useState(false);
   const [OpenModal, setOpenModal] = useState(false);
 

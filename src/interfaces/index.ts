@@ -8,7 +8,7 @@ export interface UsersData {
   _id: string;
   name: string;
   email: string;
-  password?: string
+  password?: string;
 }
 
 export interface ProductsData {
@@ -16,14 +16,14 @@ export interface ProductsData {
   urlPhoto: string;
   name: string;
   descricao: string;
-  preco: number
+  preco: number;
 }
 
 export interface InitialStateUserI {
   authenticed: boolean;
   users: UsersData[];
   token: string | null;
-  userLogado: UsersData | null
+  userSigned: UsersData | null;
 }
 
 export interface InitialStateProductI {

@@ -19,7 +19,7 @@ export const Header = styled.header`
       color: #fff;
 
       & > h1 {
-        font-family: "Nunito";
+        font-family: "Century Gothic, Nunito";
         font-size: 4em;
         letter-spacing: 5px;
         font-weight: 600;

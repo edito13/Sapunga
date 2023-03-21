@@ -16,7 +16,7 @@ import { Container } from "./style";
 import { BlueButton } from "../../Components/BlueButton/style";
 import ModalCheckLogin from "../../Components/ModalCheckLogin";
 import api from "../../assets/api";
-import { logarUsuario } from "../../store/Users/users.reducer";
+import { SignUser } from "../../store/Users/users.reducer";
 
 interface Props {}
 
@@ -62,7 +62,7 @@ const Login: React.FC<Props> = () => {
       const user = login.user;
       const token = login.token;
 
-      dispatch(logarUsuario({ user, token }));
+      dispatch(SignUser({ user, token }));
       setCookie("user", token, { path: "/" });
       localStorage.setItem("user", JSON.stringify(user));
     } catch (error) {

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import api from "./assets/api";
 import Routes from "./Routes";
 import { addProducts } from "./store/Products/products.reducer";
-import { adicionarUsuarios, logarUsuario } from "./store/Users/users.reducer";
+import { addUsers, SignUser } from "./store/Users/users.reducer";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -14,16 +14,18 @@ const App = () => {
   useEffect(() => {
     if (token) {
       const user = JSON.parse(localStorage.user);
-      dispatch(logarUsuario({ user, token }));
+      dispatch(SignUser({ user, token }));
     }
   }, []);
 
   useEffect(() => {
+    localStorage.removeItem("estado");
+
     const getUsers = async () => {
-      const users = await api.GetUsers();
+      const users = await api.SelectUsers();
 
       if (users) {
-        dispatch(adicionarUsuarios(users));
+        dispatch(addUsers(users));
         localStorage.setItem("estado", JSON.stringify(users));
       }
     };
@@ -32,8 +34,10 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    localStorage.removeItem("products");
+
     const getProducts = async () => {
-      const products = await api.GeProducts();
+      const products = await api.SelectProducts();
 
       if (products) {
         dispatch(addProducts(products));

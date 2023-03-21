@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
-import { Table } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Table } from "@mantine/core";
 import { FaShoppingCart, FaUsers } from "react-icons/fa";
 import { BsBagFill, BsFillChatDotsFill } from "react-icons/bs";
 import { ProductsData, UsersData } from "../../../interfaces";

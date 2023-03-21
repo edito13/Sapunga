@@ -29,15 +29,15 @@ const api = {
     return response.data;
   },
   async DeleteUser(data: AxiosRequestConfig) {
-    const response = await axios.delete(`${BaseUrl}/user/deleteUser`, data);
+    const response = await axios.delete(`${BaseUrl}/user/delete`, data);
     return response.data;
   },
   async SelectProducts() {
-    const response = await axios(`${BaseUrl}/product/selectProducts`);
+    const response = await axios(`${BaseUrl}/product/selectAll`);
     return response.data;
   },
   async SelectProduct({ id }: { id: string }) {
-    const response = await axios(`${BaseUrl}/product/selectProduct/${id}`);
+    const response = await axios(`${BaseUrl}/product/selectOne/${id}`);
     return response.data;
   },
 };

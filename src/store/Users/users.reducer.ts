@@ -5,17 +5,17 @@ const InitialState: InitialStateUserI = {
   authenticed: localStorage.user ? true : false,
   users: localStorage.estado ? JSON.parse(localStorage.estado) : [],
   token: null,
-  userLogado: localStorage.user ? JSON.parse(localStorage.user) : null,
+  userSigned: localStorage.user ? JSON.parse(localStorage.user) : null,
 };
 
 const Users = createSlice({
   name: "Users",
   initialState: InitialState,
   reducers: {
-    adicionarUsuarios(state, { payload }: PayloadAction<UsersData[]>) {
+    addUsers(state, { payload }: PayloadAction<UsersData[]>) {
       return { ...state, users: payload };
     },
-    logarUsuario(state, { payload }: PayloadAction<logarUsuarioI>) {
+    SignUser(state, { payload }: PayloadAction<logarUsuarioI>) {
       return {
         ...state,
         authenticed: true,
@@ -24,15 +24,20 @@ const Users = createSlice({
       };
     },
     logoutUser(state) {
-      return { ...state, authenticed: false, userLogado: null, token: null };
+      return {
+        ...state,
+        authenticed: false,
+        userLouserSigned: null,
+        token: null,
+      };
     },
   },
 });
 
 export default Users.reducer;
 
-export const { adicionarUsuarios, logarUsuario, logoutUser } = Users.actions;
+export const { addUsers, SignUser, logoutUser } = Users.actions;
 
 export const selectUsers = (state: any) => state.users.users;
-export const selectUserLogado = (state: any) => state.users.userLogado;
+export const selectUserSigned = (state: any) => state.users.userSigned;
 export const IsAuthenticed = (state: any) => state.users.authenticed;
