@@ -23,7 +23,7 @@ const index: React.FC<Props> = ({ index, product }) => {
       <Imagem data-aos="slide-down" src={`${BaseUrl}${product.urlPhoto}`} />
       <div>
         <p>{product.name}</p>
-        <span>{Money(product.preco)}</span>
+        <span>{Money(product.price)}</span>
       </div>
       <div className="btns">
         <IconButton data-aos="slide-right">

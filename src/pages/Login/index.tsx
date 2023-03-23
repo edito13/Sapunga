@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useCookies } from "react-cookie";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
@@ -25,7 +25,6 @@ const Login: React.FC<Props> = () => {
   const dispatch = useDispatch();
   const [OpenModal, setOpenModal] = useState<boolean>(false);
   const [Error, setError] = useState<string>("");
-  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init();
@@ -34,7 +33,7 @@ const Login: React.FC<Props> = () => {
   useEffect(() => {
     if (!OpenModal) {
       const token = cookies.user;
-      if (token) navigate("/");
+      if (token) setTimeout(() => window.location.reload(), 700)  
     }
   }, [OpenModal]);
 
@@ -61,7 +60,6 @@ const Login: React.FC<Props> = () => {
       setError("");
       const user = login.user;
       const token = login.token;
-
       dispatch(SignUser({ user, token }));
       setCookie("user", token, { path: "/" });
       localStorage.setItem("user", JSON.stringify(user));

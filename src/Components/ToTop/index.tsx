@@ -10,10 +10,8 @@ const index = () => {
   useEffect(() => {
     function handleScroll() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      if (scrollTop >= 15) setIsActive(true);
-      else setIsActive(false);
-      console.log("Scroll Top:", scrollTop);
+      const IsATthePoint = scrollTop >= 15
+      setIsActive(IsATthePoint ? true : false)
     }
 
     window.addEventListener("scroll", handleScroll);

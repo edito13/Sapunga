@@ -12,6 +12,7 @@ import { BtnLogout, Menu } from "./style";
 import { selectAllProducts } from "../../store/Products/products.reducer";
 import { selectUserSigned } from "../../store/Users/users.reducer";
 import ModalCheckLogout from "../ModalCheckLogout";
+import { Link } from "react-router-dom";
 
 const index = () => {
   const Products = useSelector(selectAllProducts);
@@ -70,7 +71,9 @@ const index = () => {
             </Popover>
           </div>
         ) : (
+          <Link to={'/login'}>
           <span>Logar</span>
+          </Link>
         )}
       </Menu>
       {OpenModal && <ModalCheckLogout open={OpenModal} onClose={CloseModal} />}

@@ -37,7 +37,10 @@ const index: React.FC<Props> = ({ open, onClose }) => {
     removeCookie("user");
     localStorage.removeItem("user");
     setLoadingStatus(true);
-    setTimeout(() => onClose(), 700);
+    setTimeout(() => {
+      onClose()
+      setTimeout(() => window.location.reload(),500)
+    }, 700);
   };
 
   return (

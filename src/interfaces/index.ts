@@ -15,8 +15,8 @@ export interface ProductsData {
   _id: string;
   urlPhoto: string;
   name: string;
-  descricao: string;
-  preco: number;
+  describe: string;
+  price: number;
 }
 
 export interface InitialStateUserI {

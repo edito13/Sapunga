@@ -15,8 +15,8 @@ const index = () => {
     <tr key={product._id}>
       <td>{index + 1}</td>
       <td>{product.name}</td>
-      <td>{product.descricao.substring(10) + "..."}</td>
-      <td>{Money(product.preco)}</td>
+      <td>{product.describe.substring(10) + "..."}</td>
+      <td>{Money(product.price)}</td>
       <td style={{ margin: "0px" }}>
         <img
           style={{ maxWidth: "50px", maxHeight: "50px" }}
