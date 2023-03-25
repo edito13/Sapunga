@@ -1,6 +1,5 @@
 import React from "react";
 import LoadingProgress from "../LoadingProgress";
-import { BlueButton } from "../BlueButton/style";
 import { Container, MainModal } from "./style";
 
 interface Props {

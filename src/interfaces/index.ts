@@ -17,6 +17,10 @@ export interface ProductsData {
   name: string;
   describe: string;
   price: number;
+  category: {
+    _id: string;
+    name: string;
+  }
 }
 
 export interface InitialStateUserI {

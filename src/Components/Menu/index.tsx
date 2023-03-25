@@ -1,28 +1,37 @@
 import React, { useCallback, useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { FaShoppingCart } from "react-icons/fa";
-import { BsHeartFill } from "react-icons/bs";
-import { ImExit } from "react-icons/im";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Popover } from "@mantine/core";
 import { Badge, IconButton } from "@mui/material/";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
+import { BsHeartFill } from "react-icons/bs";
+import { ImExit } from "react-icons/im";
 import NavItem from "../NavItem";
 import MenuItems from "../MenuItems";
-import { BtnLogout, Menu } from "./style";
+import { BtnLogout, BtnSignin, Menu } from "./style";
 import { selectAllProducts } from "../../store/Products/products.reducer";
 import { selectUserSigned } from "../../store/Users/users.reducer";
 import ModalCheckLogout from "../ModalCheckLogout";
-import { Link } from "react-router-dom";
+import ModalOrders from "../ModalOrders";
 
 const index = () => {
   const Products = useSelector(selectAllProducts);
   const user = useSelector(selectUserSigned);
   const [isActive, setIsActive] = useState(false);
-  const [OpenModal, setOpenModal] = useState(false);
+  const [OpenLogoutModal, setOpenLogoutModal] = useState(false);
+  const [OpenOrderModal, setOpenOrderModal] = useState(false);
 
   const OpenMenu = () => setIsActive(true);
   const CloseMenu = useCallback(() => setIsActive(false), [isActive]);
-  const CloseModal = useCallback(() => setOpenModal(false), [OpenModal]);
+  const CloseLogoutModal = useCallback(
+    () => setOpenLogoutModal(false),
+    [OpenLogoutModal]
+  );
+  const CloseOrderModal = useCallback(
+    () => setOpenOrderModal(false),
+    [OpenOrderModal]
+  );
 
   return (
     <>
@@ -38,7 +47,7 @@ const index = () => {
         {user ? (
           <div>
             <div className="btns">
-              <IconButton>
+              <IconButton onClick={() => setOpenOrderModal(true)}>
                 <Badge
                   badgeContent={Products.length === 0 ? "0" : Products.length}
                   color="primary"
@@ -62,7 +71,7 @@ const index = () => {
               <Popover.Dropdown>
                 <BtnLogout
                   startIcon={<ImExit />}
-                  onClick={() => setOpenModal(true)}
+                  onClick={() => setOpenLogoutModal(true)}
                   fullWidth
                 >
                   Terminar sessão
@@ -71,12 +80,19 @@ const index = () => {
             </Popover>
           </div>
         ) : (
-          <Link to={'/login'}>
-          <span>Logar</span>
+          <Link to={"/login"}>
+            <BtnSignin startIcon={<FaUserCircle />}>
+              <span>Iniciar Sessão</span>
+            </BtnSignin>
           </Link>
         )}
       </Menu>
-      {OpenModal && <ModalCheckLogout open={OpenModal} onClose={CloseModal} />}
+      {OpenLogoutModal && (
+        <ModalCheckLogout open={OpenLogoutModal} onClose={CloseLogoutModal} />
+      )}
+      {OpenOrderModal && (
+        <ModalOrders open={OpenOrderModal} onClose={CloseOrderModal} />
+      )}
     </>
   );
 };

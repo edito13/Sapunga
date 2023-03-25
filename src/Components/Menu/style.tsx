@@ -115,3 +115,11 @@ export const BtnLogout = styled(Button)`
     }
   }
 `;
+
+export const BtnSignin = styled(Button)`
+  && {
+    padding: .5em;
+    text-transform: capitalize;
+    font-size: 1.1em;
+  }
+`;
