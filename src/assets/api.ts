@@ -40,6 +40,18 @@ const api = {
     const response = await axios(`${BaseUrl}/product/selectOne/${id}`);
     return response.data;
   },
+  async SelectOrders() {
+    const response = await axios(`${BaseUrl}/order/selectAll`);
+    return response.data;
+  },
+  async SelectOrdersUser(token: { token: string }) {
+    const response = await axios(`${BaseUrl}/order/selectOrdersUser`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  },
 };
 
 export default api;

@@ -3,6 +3,7 @@ import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 import api from "./assets/api";
 import Routes from "./Routes";
+import { addOrders, addOrdersUser } from "./store/Orders/orders.reducer";
 import { addProducts } from "./store/Products/products.reducer";
 import { addUsers, SignUser } from "./store/Users/users.reducer";
 
@@ -46,6 +47,36 @@ const App = () => {
     };
 
     getProducts();
+  }, []);
+
+  useEffect(() => {
+    localStorage.removeItem("orders");
+
+    const getOrders = async () => {
+      const orders = await api.SelectOrders();
+
+      if (orders) {
+        dispatch(addOrders(orders));
+        localStorage.setItem("orders", JSON.stringify(orders));
+      }
+    };
+
+    getOrders();
+  }, []);
+
+  useEffect(() => {
+    localStorage.removeItem("ordersUser");
+
+    const getOrdersUser = async () => {
+      const ordersUser = await api.SelectOrdersUser(token);
+
+      if (ordersUser) {
+        dispatch(addOrdersUser(ordersUser));
+        localStorage.setItem("ordersUser", JSON.stringify(ordersUser));
+      }
+    };
+
+    getOrdersUser();
   }, []);
 
   // const [User, setUser] = useState<UserType>();

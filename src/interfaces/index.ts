@@ -20,7 +20,22 @@ export interface ProductsData {
   category: {
     _id: string;
     name: string;
-  }
+  };
+  createdAt: Date;
+}
+
+export interface OrdersData {
+  _id: string;
+  user: UsersData | null;
+  product: ProductsData | null;
+  createdAt: Date;
+}
+
+export interface FavouritesData {
+  _id: string;
+  user: UsersData | null;
+  product: ProductsData | null;
+  createdAt: Date;
 }
 
 export interface InitialStateUserI {
@@ -33,6 +48,11 @@ export interface InitialStateUserI {
 export interface InitialStateProductI {
   products: ProductsData[];
   products_loved: ProductsData[];
+}
+
+export interface InitialStateOrderI {
+  orders: OrdersData[];
+  ordersUser: OrdersData[];
 }
 
 export interface logarUsuarioI {

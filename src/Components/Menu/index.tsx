@@ -14,13 +14,16 @@ import { selectAllProducts } from "../../store/Products/products.reducer";
 import { selectUserSigned } from "../../store/Users/users.reducer";
 import ModalCheckLogout from "../ModalCheckLogout";
 import ModalOrders from "../ModalOrders";
+import { selectOrdersUser } from "../../store/Orders/orders.reducer";
 
 const index = () => {
-  const Products = useSelector(selectAllProducts);
   const user = useSelector(selectUserSigned);
+  const Products = useSelector(selectAllProducts);
+  const ordersUser = useSelector(selectOrdersUser);
+  // console.log(ordersUser);
   const [isActive, setIsActive] = useState(false);
   const [OpenLogoutModal, setOpenLogoutModal] = useState(false);
-  const [OpenOrderModal, setOpenOrderModal] = useState(false);
+  const [OpenOrderModal, setOpenOrderModal] = useState(true);
 
   const OpenMenu = () => setIsActive(true);
   const CloseMenu = useCallback(() => setIsActive(false), [isActive]);
@@ -49,7 +52,9 @@ const index = () => {
             <div className="btns">
               <IconButton onClick={() => setOpenOrderModal(true)}>
                 <Badge
-                  badgeContent={Products.length === 0 ? "0" : Products.length}
+                  badgeContent={
+                    ordersUser.length === 0 ? "0" : ordersUser.length
+                  }
                   color="primary"
                 >
                   <FaShoppingCart />

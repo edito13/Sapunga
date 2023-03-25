@@ -5,10 +5,11 @@ import { useSelector } from "react-redux";
 import { Table } from "@mantine/core";
 import { FaShoppingCart, FaUsers } from "react-icons/fa";
 import { BsBagFill, BsFillChatDotsFill } from "react-icons/bs";
-import { ProductsData, UsersData } from "../../../interfaces";
+import { OrdersData, ProductsData, UsersData } from "../../../interfaces";
 import { Container } from "./style";
 import { selectUsers } from "../../../store/Users/users.reducer";
 import { selectAllProducts } from "../../../store/Products/products.reducer";
+import { selectAllOrders } from "../../../store/Orders/orders.reducer";
 import "aos/dist/aos.css";
 
 const index = () => {
@@ -18,6 +19,7 @@ const index = () => {
 
   const Users: UsersData[] = useSelector(selectUsers);
   const Products: ProductsData[] = useSelector(selectAllProducts);
+  const Orders: OrdersData[] = useSelector(selectAllOrders);
 
   const rows = Users.map((user, index) => (
     <tr key={user._id}>
@@ -79,7 +81,9 @@ const index = () => {
             <FaShoppingCart />
             <p>Encomendas</p>
           </div>
-          <span>20</span>
+          <span>
+            {Orders.length > 10 ? Orders.length : "0" + Orders.length}
+          </span>
         </Link>
         <Link
           to={"/admin/mensagens"}
