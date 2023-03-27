@@ -7,7 +7,10 @@ import LoadingProgress from "../LoadingProgress";
 import { selectOrdersUser } from "../../store/Orders/orders.reducer";
 import { Container, ImgProduct, MainModal } from "./style";
 import { Money } from "../../assets/ConvertMoney";
-import { BaseUrl } from "../../assets/api";
+import api, { BaseUrl } from "../../assets/api";
+import { selectUserSigned } from "../../store/Users/users.reducer";
+import { UsersData } from "../../interfaces";
+import { useCookies } from "react-cookie";
 
 interface Props {
   open: boolean;
@@ -15,6 +18,8 @@ interface Props {
 }
 
 const index: React.FC<Props> = ({ open, onClose }) => {
+  const [cookies] = useCookies(["user"]);
+  const user: UsersData = useSelector(selectUserSigned);
   const ordersUser = useSelector(selectOrdersUser);
   const ordersTotal = useMemo(
     () =>
@@ -43,6 +48,11 @@ const index: React.FC<Props> = ({ open, onClose }) => {
     else setLoadingStatus(false);
   }, [LoadingCounter]);
 
+  const DeleteOrder = async (id: string) => {
+    const response = await api.DeleteOrder({ id, token: cookies.user });
+    console.log(response);
+  };
+
   return (
     <MainModal open={open} onClose={onClose}>
       <Container>
@@ -69,7 +79,7 @@ const index: React.FC<Props> = ({ open, onClose }) => {
                         <p>{Money(order.product?.price as number)}</p>
                       </div>
                     </div>
-                    <IconButton>
+                    <IconButton onClick={() => DeleteOrder(order._id)}>
                       <ImBin />
                     </IconButton>
                   </div>

@@ -36,7 +36,7 @@ const api = {
     const response = await axios(`${BaseUrl}/product/selectAll`);
     return response.data;
   },
-  async SelectProduct({ id }: { id: string }) {
+  async SelectProduct(id: string) {
     const response = await axios(`${BaseUrl}/product/selectOne/${id}`);
     return response.data;
   },
@@ -44,8 +44,17 @@ const api = {
     const response = await axios(`${BaseUrl}/order/selectAll`);
     return response.data;
   },
-  async SelectOrdersUser(token: { token: string }) {
+  async SelectOrdersUser(token: string) {
     const response = await axios(`${BaseUrl}/order/selectOrdersUser`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  },
+  async DeleteOrder({ id, token }: { id: string; token: string }) {
+    const response = await axios.delete(`${BaseUrl}/order/delete`, {
+      data: { id },
       headers: {
         Authorization: `Bearer ${token}`,
       },
