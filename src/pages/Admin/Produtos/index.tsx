@@ -17,6 +17,7 @@ const index = () => {
       <td>{index + 1}</td>
       <td>{product.name}</td>
       <td>{product.describe.substring(10) + "..."}</td>
+      <td>{product.category.name}</td>
       <td>{Money(product.price)}</td>
       <td style={{ margin: "0px" }}>
         <img
@@ -39,7 +40,8 @@ const index = () => {
           <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Desc</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
             <th>Preço</th>
             <th>Imagem</th>
           </tr>

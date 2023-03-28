@@ -34,7 +34,14 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
   font-size: 2em;
   color: #000066;
+  margin-bottom: 1em;
+
+  h1 {
+    font-weight: 500;
+  }
 `;
