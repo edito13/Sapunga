@@ -3,33 +3,8 @@ import styled from "styled-components";
 interface Props {}
 
 export const Container = styled.div`
-  padding: 2em;
+  padding: 0 2em;
   width: 100%;
-  background: #f2f2f2;
-
-  .introduce {
-    display: flex;
-    gap: 1em;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 0.5em;
-
-    img {
-      max-width: 220px;
-    }
-
-    .text {
-      h3 {
-        font-weight: 400;
-        font-size: 1.9em;
-        color: #000066;
-      }
-
-      p {
-        font-size: 1.2em;
-      }
-    }
-  }
 
   .statistic-container {
     display: flex;
