@@ -36,12 +36,16 @@ export const Container = styled.div`
 export const Title = styled.h1`
   display: flex;
   align-items: center;
-  gap: 0.3em;
-  font-size: 2em;
+  gap: 0.4em;
   color: #000066;
   margin-bottom: 1em;
 
+  svg {
+    font-size: 1.8em;
+  }
+
   h1 {
     font-weight: 500;
+    font-size: 1.7em;
   }
 `;
