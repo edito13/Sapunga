@@ -86,7 +86,7 @@ const index = () => {
           <span>04</span>
         </Link>
       </div>
-      <div className="RecentUsers">
+      <div className="RecentUsers" data-aos="zoom-in-up" data-aos-delay="500">
         <p>Recentes usuarios...</p>
         <Table style={{ background: "#fdfdfd", borderRadius: "8px" }}>
           <thead>

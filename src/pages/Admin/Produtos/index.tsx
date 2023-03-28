@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
 import { useSelector } from "react-redux";
 import { Table } from "@mantine/core";
 import { BsBagFill } from "react-icons/bs";
@@ -8,8 +9,13 @@ import { Container } from "./style";
 import { Money } from "../../../assets/ConvertMoney";
 import { ProductsData } from "../../../interfaces";
 import { selectAllProducts } from "../../../store/Products/products.reducer";
+import "aos/dist/aos.css";
 
 const index = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const Products: ProductsData[] = useSelector(selectAllProducts);
 
   const rows = Products.map((product, index) => (
@@ -31,11 +37,15 @@ const index = () => {
 
   return (
     <Container>
-      <Title>
+      <Title data-aos="fade-right" data-aos-delay="100">
         <BsBagFill />
         <h1>Produtos</h1>
       </Title>
-      <Table style={{ background: "#fdfdfd", borderRadius: "8px" }}>
+      <Table
+        data-aos="zoom-in-up"
+        data-aos-delay="150"
+        style={{ background: "#fdfdfd", borderRadius: "8px" }}
+      >
         <thead>
           <tr>
             <th>Id</th>

@@ -1,13 +1,19 @@
+import React, { useEffect } from "react";
+import AOS from "aos";
 import { Table } from "@mantine/core";
-import React from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { OrdersData } from "../../../interfaces";
 import { selectAllOrders } from "../../../store/Orders/orders.reducer";
 import { Title } from "../style";
 import { Container } from "./style";
+import "aos/dist/aos.css";
 
 const index = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const Orders: OrdersData[] = useSelector(selectAllOrders);
 
   const rows = Orders.map((order, index) => (
@@ -22,11 +28,15 @@ const index = () => {
 
   return (
     <Container>
-      <Title>
+      <Title data-aos="fade-right" data-aos-delay="100">
         <FaCartPlus />
         <h1>Encomendas</h1>
       </Title>
-      <Table style={{ background: "#fdfdfd", borderRadius: "8px" }}>
+      <Table
+        data-aos="zoom-in-up"
+        data-aos-delay="150"
+        style={{ background: "#fdfdfd", borderRadius: "8px" }}
+      >
         <thead>
           <tr>
             <th>Id</th>
