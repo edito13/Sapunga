@@ -28,6 +28,7 @@ export interface OrdersData {
   _id: string;
   user: UsersData | null;
   product: ProductsData | null;
+  quantity: number;
   createdAt: Date;
 }
 
