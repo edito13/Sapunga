@@ -1,12 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Table } from "@mantine/core";
-import { ProductsData } from "../../../interfaces";
-import { selectAllProducts } from "../../../store/Products/products.reducer";
+import { BsBagFill } from "react-icons/bs";
+import { BaseUrl } from "../../../assets/api";
 import { Title } from "../style";
 import { Container } from "./style";
 import { Money } from "../../../assets/ConvertMoney";
-import { BaseUrl } from "../../../assets/api";
+import { ProductsData } from "../../../interfaces";
+import { selectAllProducts } from "../../../store/Products/products.reducer";
 
 const index = () => {
   const Products: ProductsData[] = useSelector(selectAllProducts);
@@ -29,7 +30,10 @@ const index = () => {
 
   return (
     <Container>
-      <Title>Produtos</Title>
+      <Title>
+        <BsBagFill />
+        <h1>Produtos</h1>
+      </Title>
       <Table style={{ background: "#fdfdfd", borderRadius: "8px" }}>
         <thead>
           <tr>
