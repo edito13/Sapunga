@@ -4,13 +4,18 @@ import { IconButton } from "@mui/material";
 import { FaShoppingCart } from "react-icons/fa";
 import { ImBin } from "react-icons/im";
 import LoadingProgress from "../LoadingProgress";
-import { selectOrdersUser } from "../../store/Orders/orders.reducer";
+import {
+  selectOrdersUser,
+  addOrders,
+  addOrdersUser,
+} from "../../store/Orders/orders.reducer";
 import { Container, ImgProduct, MainModal } from "./style";
 import { Money } from "../../assets/ConvertMoney";
 import api, { BaseUrl } from "../../assets/api";
 import { selectUserSigned } from "../../store/Users/users.reducer";
 import { UsersData } from "../../interfaces";
 import { useCookies } from "react-cookie";
+import { useDispatch } from "react-redux";
 
 interface Props {
   open: boolean;
@@ -18,6 +23,7 @@ interface Props {
 }
 
 const index: React.FC<Props> = ({ open, onClose }) => {
+  const dispatch = useDispatch();
   const [cookies] = useCookies(["user"]);
   const user: UsersData = useSelector(selectUserSigned);
   const ordersUser = useSelector(selectOrdersUser);
@@ -41,7 +47,7 @@ const index: React.FC<Props> = ({ open, onClose }) => {
     );
 
     return () => clearInterval(time);
-  }, [LoadingCounter]);
+  }, [LoadingStatus]);
 
   useEffect(() => {
     if (LoadingCounter <= 3) setLoadingStatus(true);
@@ -50,7 +56,9 @@ const index: React.FC<Props> = ({ open, onClose }) => {
 
   const DeleteOrder = async (id: string) => {
     const response = await api.DeleteOrder({ id, token: cookies.user });
-    console.log(response);
+    dispatch(addOrders(response));
+    dispatch(addOrdersUser(response));
+    setLoadingStatus(true);
   };
 
   return (
@@ -67,7 +75,7 @@ const index: React.FC<Props> = ({ open, onClose }) => {
               </div>
             </div>
             <div className="items">
-              {ordersUser ? (
+              {ordersUser.length ? (
                 ordersUser.map((order) => (
                   <div key={order._id}>
                     <div>
@@ -85,10 +93,12 @@ const index: React.FC<Props> = ({ open, onClose }) => {
                   </div>
                 ))
               ) : (
-                <p>Nenhum produto foi encomendado ainda.</p>
+                <p style={{ textAlign: "center" }}>
+                  Nenhum produto foi encomendado ainda.
+                </p>
               )}
             </div>
-            {ordersUser ? (
+            {ordersUser.length ? (
               <footer>
                 <div className="total">
                   <p>Total:</p>
@@ -99,7 +109,7 @@ const index: React.FC<Props> = ({ open, onClose }) => {
                 </p>
               </footer>
             ) : (
-              ""
+              <span></span>
             )}
           </>
         )}
