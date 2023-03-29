@@ -37,10 +37,10 @@ const index = () => {
           nossas colocações.
         </p>
         <p data-aos="zoom-in-up" data-aos-delay="300">
-          Nossos produtos e serviços são feitos especialmente para que busca
+          Nossos produtos e serviços são feitos especialmente para quem busca
           conforto, qualidade e segurança. Desenvolvidos com a mais alta
           tecnologia, sendo eles destinados para instituições/entidades
-          empresariais ou até mesmo pessoas em particular, que sempre está em
+          empresariais ou até mesmo pessoas em particular, que sempre estão em
           busca de melhores produtos e serviços com os melhores preços.
         </p>
       </Text>
