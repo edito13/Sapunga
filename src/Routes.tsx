@@ -12,6 +12,7 @@ import Produtos from "./pages/Produtos";
 import Services from "./pages/Services";
 import Contactos from "./pages/Contactos";
 import Criar_conta from "./pages/Criar_conta";
+import Order from "./pages/Order/Order";
 import Admin from "./pages/Admin";
 import Dashboard from "./pages/Admin/Dashboard";
 import Productos from "./pages/Admin/Produtos";
@@ -33,6 +34,7 @@ const Rotas: React.FC<Props> = () => {
         <Route path="/produtos" element={<Produtos />} />
         <Route path="/servicos" element={<Services />} />
         <Route path="/contactos" element={<Contactos />} />
+        <Route path="/encomendar" element={<Order />} />
         <Route
           path="/login"
           element={isAuthenticed ? <Navigate to={"/"} /> : <Login />}
