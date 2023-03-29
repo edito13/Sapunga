@@ -41,6 +41,9 @@ export default ({}: Props) => {
           <SwiperSlide>
             <img src="../assets/Images/buy2.png" alt="" />
           </SwiperSlide>
+          <SwiperSlide>
+            <img src="../assets/Images/buy3.png" alt="" />
+          </SwiperSlide>
         </Slider>
         <h1>Hello World: {Product?.name}</h1>
       </div>
