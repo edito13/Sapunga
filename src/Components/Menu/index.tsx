@@ -23,7 +23,7 @@ const index = () => {
   // console.log(ordersUser);
   const [isActive, setIsActive] = useState(false);
   const [OpenLogoutModal, setOpenLogoutModal] = useState(false);
-  const [OpenOrderModal, setOpenOrderModal] = useState(true);
+  const [OpenOrderModal, setOpenOrderModal] = useState(false);
 
   const OpenMenu = () => setIsActive(true);
   const CloseMenu = useCallback(() => setIsActive(false), [isActive]);

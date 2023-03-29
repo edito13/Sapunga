@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import styled from "styled-components";
 
 interface props {
@@ -38,19 +39,6 @@ export const Container = styled.div`
     button svg {
       font-size: 1.3em;
     }
-
-    div:last-child {
-      background: linear-gradient(#1f1faf, #000066);
-      border-radius: 10px 0 10px 0px;
-      padding: 0.8em;
-      align-self: flex-end;
-      cursor: pointer;
-
-      svg {
-        font-size: 1.3em;
-        color: #fff;
-      }
-    }
   }
 `;
 
@@ -60,4 +48,23 @@ export const Imagem = styled.div`
   background-position: center;
   min-height: 200px;
   border-radius: 10px 10px 0 0;
+`;
+
+export const ButtonOrder = styled(Button)`
+  && {
+    background: linear-gradient(#1f1faf, #000066);
+    border-radius: 10px 0 10px 0px;
+    padding: 0.5em;
+    padding-right: 0.2em;
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5em;
+
+    svg {
+      color: #fff;
+    }
+  }
 `;
