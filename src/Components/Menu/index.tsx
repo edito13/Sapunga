@@ -10,20 +10,22 @@ import { ImExit } from "react-icons/im";
 import NavItem from "../NavItem";
 import MenuItems from "../MenuItems";
 import { BtnLogout, BtnSignin, Menu } from "./style";
-import { selectAllProducts } from "../../store/Products/products.reducer";
 import { selectUserSigned } from "../../store/Users/users.reducer";
 import ModalCheckLogout from "../ModalCheckLogout";
 import ModalOrders from "../ModalOrders";
+import ModalFavourites from "../ModalFavourites";
 import { selectOrdersUser } from "../../store/Orders/orders.reducer";
+import { selectAllFavourites } from "../../store/Favorites/favorites.reducer";
 
 const index = () => {
   const user = useSelector(selectUserSigned);
-  const Products = useSelector(selectAllProducts);
+  const Favourites = useSelector(selectAllFavourites);
   const ordersUser = useSelector(selectOrdersUser);
   // console.log(ordersUser);
   const [isActive, setIsActive] = useState(false);
   const [OpenLogoutModal, setOpenLogoutModal] = useState(false);
   const [OpenOrderModal, setOpenOrderModal] = useState(false);
+  const [OpenFavouriteModal, setOpenFavouriteModal] = useState(false);
 
   const OpenMenu = () => setIsActive(true);
   const CloseMenu = useCallback(() => setIsActive(false), [isActive]);
@@ -34,6 +36,11 @@ const index = () => {
   const CloseOrderModal = useCallback(
     () => setOpenOrderModal(false),
     [OpenOrderModal]
+  );
+
+  const CloseFavouriteModal = useCallback(
+    () => setOpenFavouriteModal(false),
+    [OpenFavouriteModal]
   );
 
   return (
@@ -60,9 +67,11 @@ const index = () => {
                   <FaShoppingCart />
                 </Badge>
               </IconButton>
-              <IconButton>
+              <IconButton onClick={() => setOpenFavouriteModal(true)}>
                 <Badge
-                  badgeContent={Products.length === 0 ? "0" : Products.length}
+                  badgeContent={
+                    Favourites.length === 0 ? "0" : Favourites.length
+                  }
                   color="primary"
                 >
                   <BsHeartFill />
@@ -97,6 +106,12 @@ const index = () => {
       )}
       {OpenOrderModal && (
         <ModalOrders open={OpenOrderModal} onClose={CloseOrderModal} />
+      )}
+      {OpenFavouriteModal && (
+        <ModalFavourites
+          open={OpenFavouriteModal}
+          onClose={CloseFavouriteModal}
+        />
       )}
     </>
   );

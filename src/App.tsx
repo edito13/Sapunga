@@ -3,6 +3,7 @@ import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 import api from "./assets/api";
 import Routes from "./Routes";
+import { addFavourites } from "./store/Favorites/favorites.reducer";
 import { addOrders, addOrdersUser } from "./store/Orders/orders.reducer";
 import { addProducts } from "./store/Products/products.reducer";
 import { addUsers, SignUser } from "./store/Users/users.reducer";
@@ -77,6 +78,21 @@ const App = () => {
     };
 
     getOrdersUser();
+  }, []);
+
+  useEffect(() => {
+    localStorage.removeItem("favourites");
+
+    const getFavourites = async () => {
+      const favourites = await api.SelectFavourites(token);
+
+      if (favourites) {
+        dispatch(addFavourites(favourites));
+        localStorage.setItem("favourites", JSON.stringify(favourites));
+      }
+    };
+
+    getFavourites();
   }, []);
 
   // const [User, setUser] = useState<UserType>();

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { InitialStateOrderI, OrdersData } from "../../interfaces";
+import { InitialStateOrdersI, OrdersData } from "../../interfaces";
 
-const InitialState: InitialStateOrderI = {
+const InitialState: InitialStateOrdersI = {
   orders: localStorage.orders ? JSON.parse(localStorage.orders) : [],
   ordersUser: localStorage.ordersUser
     ? JSON.parse(localStorage.ordersUser)

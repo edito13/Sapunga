@@ -39,21 +39,24 @@ export interface FavouritesData {
   createdAt: Date;
 }
 
-export interface InitialStateUserI {
+export interface InitialStateUsersI {
   authenticed: boolean;
   users: UsersData[];
   token: string | null;
   userSigned: UsersData | null;
 }
 
-export interface InitialStateProductI {
+export interface InitialStateProductsI {
   products: ProductsData[];
-  products_loved: ProductsData[];
 }
 
-export interface InitialStateOrderI {
+export interface InitialStateOrdersI {
   orders: OrdersData[];
   ordersUser: OrdersData[];
+}
+
+export interface InitialStateFavouritesI {
+  favourites: FavouritesData[];
 }
 
 export interface logarUsuarioI {

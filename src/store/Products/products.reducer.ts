@@ -1,24 +1,23 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { InitialStateProductI, ProductsData } from '../../interfaces'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { InitialStateProductsI, ProductsData } from "../../interfaces";
 
-
-const InitialState: InitialStateProductI = {
+const InitialState: InitialStateProductsI = {
   products: localStorage.products ? JSON.parse(localStorage.products) : [],
-  products_loved: localStorage.products_loved ? JSON.parse(localStorage.products_loved) : []
-}
+};
 
 const Products = createSlice({
-  name: 'Products',
+  name: "Products",
   initialState: InitialState,
   reducers: {
     addProducts(state, { payload }: PayloadAction<ProductsData[]>) {
-      return { ...state, products: payload }
-    }
-  }
-})
+      return { ...state, products: payload };
+    },
+  },
+});
 
-export default Products.reducer
+export default Products.reducer;
 
-export const { addProducts } = Products.actions
+export const { addProducts } = Products.actions;
 
-export const selectAllProducts = (state: any) => state.products.products as ProductsData[]
+export const selectAllProducts = (state: any) =>
+  state.products.products as ProductsData[];

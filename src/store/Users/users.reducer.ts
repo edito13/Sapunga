@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { InitialStateUserI, logarUsuarioI, UsersData } from "../../interfaces";
+import { InitialStateUsersI, logarUsuarioI, UsersData } from "../../interfaces";
 
-const InitialState: InitialStateUserI = {
+const InitialState: InitialStateUsersI = {
   authenticed: localStorage.user ? true : false,
   users: localStorage.estado ? JSON.parse(localStorage.estado) : [],
   token: null,

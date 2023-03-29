@@ -52,8 +52,25 @@ const api = {
     });
     return response.data;
   },
+  async SelectFavourites(token: string) {
+    const response = await axios(`${BaseUrl}/react/selectUserReacts`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  },
   async DeleteOrder({ id, token }: { id: string; token: string }) {
     const response = await axios.delete(`${BaseUrl}/order/delete`, {
+      data: { id },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  },
+  async DeleteFavourite({ id, token }: { id: string; token: string }) {
+    const response = await axios.delete(`${BaseUrl}/react/unReact`, {
       data: { id },
       headers: {
         Authorization: `Bearer ${token}`,
