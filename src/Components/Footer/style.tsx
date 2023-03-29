@@ -22,6 +22,34 @@ export const FooterContainer = styled.div`
     border-bottom: 1px solid #eee;
     color: #fff;
 
+    .title {
+      margin-bottom: 1em;
+
+      div {
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
+        margin-bottom: 0.5em;
+
+        svg {
+          font-size: 1.5em;
+        }
+
+        h4 {
+          font-size: 1.3em;
+          font-weight: 500;
+        }
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        height: 1px;
+        background: #fff;
+      }
+    }
+
     p {
       font-family: "Roboto Light";
       line-height: 1.5em;
@@ -31,20 +59,6 @@ export const FooterContainer = styled.div`
       color: #fff;
       font-family: "Roboto Light";
       cursor: pointer;
-    }
-
-    h4 {
-      font-size: 1.3em;
-      font-weight: 500;
-      margin-bottom: 1em;
-
-      &::after {
-        content: "";
-        display: block;
-        margin-top: 4px;
-        height: 1px;
-        background: currentColor;
-      }
     }
 
     ul li {

@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import { Link } from "react-router-dom";
 import { ImPhone } from "react-icons/im";
-import { BiAt, BiMapPin } from "react-icons/bi";
-import { FaPaperPlane } from "react-icons/fa";
+import { BiAt, BiLink, BiMapPin } from "react-icons/bi";
+import { FaPaperPlane, FaPeopleCarry } from "react-icons/fa";
 import { Link as LinkScroll } from "react-scroll";
 import { FooterContainer, SendButton } from "./style";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
@@ -29,7 +29,12 @@ const index = () => {
             </div>
           </div>
           <div data-aos="zoom-in-up" data-aos-delay="50">
-            <h4>Links rápidos</h4>
+            <div className="title">
+              <div>
+                <BiLink />
+                <h4>Links rápidos</h4>
+              </div>
+            </div>
             <ul>
               <li>
                 <Link to={"/"}>Home</Link>
@@ -55,7 +60,12 @@ const index = () => {
             </ul>
           </div>
           <div data-aos="zoom-in-up" data-aos-delay="100">
-            <h4>Serviços</h4>
+            <div className="title">
+              <div>
+                <FaPeopleCarry />
+                <h4>Serviços</h4>
+              </div>
+            </div>
             <ul>
               <li>
                 <LinkScroll
@@ -108,7 +118,12 @@ const index = () => {
             data-aos="zoom-in-up"
             data-aos-delay="150"
           >
-            <h4>Contacte-nos</h4>
+            <div className="title">
+              <div>
+                <ImPhone />
+                <h4>Contacte-nos</h4>
+              </div>
+            </div>
             <p>
               Entre em contacto connosco escrevendo ou acessando as nossas{" "}
               <span>mídias sociais.</span>
