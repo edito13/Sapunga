@@ -23,7 +23,7 @@ const index: React.FC<Props> = ({ erro, open, onClose }) => {
   }, [LoadingCounter]);
 
   useEffect(() => {
-    if (LoadingCounter <= 5) setLoadingStatus(true);
+    if (LoadingCounter <= 2) setLoadingStatus(true);
     else setLoadingStatus(false);
   }, [LoadingCounter]);
 

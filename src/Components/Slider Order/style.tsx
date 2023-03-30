@@ -4,7 +4,8 @@ import { Swiper } from "swiper/react";
 export const CarrosselContainer = styled(Swiper)`
   &.swiper {
     padding: 0;
-    max-width: 500px;
+    margin-left: 0;
+    max-width: 305px;
   }
 
   .swiper-slide {
@@ -12,8 +13,8 @@ export const CarrosselContainer = styled(Swiper)`
   }
 
   .swiper-pagination-bullet {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background: #000066;
   }
 

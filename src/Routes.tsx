@@ -34,7 +34,10 @@ const Rotas: React.FC<Props> = () => {
         <Route path="/produtos" element={<Produtos />} />
         <Route path="/servicos" element={<Services />} />
         <Route path="/contactos" element={<Contactos />} />
-        <Route path="/encomendar/:id" element={<Order />} />
+        <Route
+          path="/encomendar/:id"
+          element={!isAuthenticed ? <Navigate to={"/produtos"} /> : <Order />}
+        />
         <Route
           path="/login"
           element={isAuthenticed ? <Navigate to={"/"} /> : <Login />}

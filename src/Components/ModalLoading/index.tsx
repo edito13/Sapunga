@@ -20,7 +20,7 @@ const index: React.FC<Props> = ({ open, onClose }) => {
   }, [LoadingCounter]);
 
   useEffect(() => {
-    if (LoadingCounter >= 3) onClose();
+    if (LoadingCounter >= 2) onClose();
   }, [LoadingCounter]);
   return (
     <MainModal open={open} onClose={onClose}>

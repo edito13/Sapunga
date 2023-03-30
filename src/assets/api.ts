@@ -6,30 +6,49 @@ interface dataI {
   password: string;
 }
 
+interface orderDataI {
+  token: string;
+  productID: string;
+  quantity: number;
+}
+
+interface authDataI {
+  id: string;
+  token: string;
+}
+
 export const BaseUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
     : "https://sapunga-back-end.vercel.app";
 
 const api = {
+  async CheckLogin(data: dataI) {
+    const response = await axios.post(`${BaseUrl}/user/checkLogin`, data);
+    return response.data;
+  },
+  async OrderProduct({ token, productID, quantity }: orderDataI) {
+    const response = await axios.post(
+      `${BaseUrl}/order/orderProduct`,
+      { productID, quantity },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  },
   async SelectUsers() {
     const response = await axios(`${BaseUrl}/user/selectAll`);
     return response.data;
   },
-  async SelectUser({ id, token }: { id: string; token: string }) {
+  async SelectUser({ id, token }: authDataI) {
     const response = await axios(`${BaseUrl}/user/selectOne/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    return response.data;
-  },
-  async CheckLogin(data: dataI) {
-    const response = await axios.post(`${BaseUrl}/user/checkLogin`, data);
-    return response.data;
-  },
-  async DeleteUser(data: AxiosRequestConfig) {
-    const response = await axios.delete(`${BaseUrl}/user/delete`, data);
     return response.data;
   },
   async SelectProducts() {
@@ -60,7 +79,11 @@ const api = {
     });
     return response.data;
   },
-  async DeleteOrder({ id, token }: { id: string; token: string }) {
+  async DeleteUser(data: AxiosRequestConfig) {
+    const response = await axios.delete(`${BaseUrl}/user/delete`, data);
+    return response.data;
+  },
+  async DeleteOrder({ id, token }: authDataI) {
     const response = await axios.delete(`${BaseUrl}/order/delete`, {
       data: { id },
       headers: {
@@ -69,7 +92,7 @@ const api = {
     });
     return response.data;
   },
-  async DeleteFavourite({ id, token }: { id: string; token: string }) {
+  async DeleteFavourite({ id, token }: authDataI) {
     const response = await axios.delete(`${BaseUrl}/react/unReact`, {
       data: { id },
       headers: {
