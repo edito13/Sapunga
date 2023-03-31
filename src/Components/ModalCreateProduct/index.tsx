@@ -1,21 +1,14 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useSelector } from "react-redux";
-import { IconButton } from "@mui/material";
-import { FaShoppingCart } from "react-icons/fa";
-import { ImBin } from "react-icons/im";
-import LoadingProgress from "../LoadingProgress";
-import {
-  selectOrdersUser,
-  addOrders,
-  addOrdersUser,
-} from "../../store/Orders/orders.reducer";
-import { Container, ImgProduct, MainModal } from "./style";
-import { Money } from "../../assets/ConvertMoney";
-import api, { BaseUrl } from "../../assets/api";
-import { selectUserSigned } from "../../store/Users/users.reducer";
-import { UsersData } from "../../interfaces";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { UsersData } from "../../interfaces";
+import LoadingProgress from "../LoadingProgress";
+import { Container, ImgProduct, MainModal } from "./style";
+import { selectUserSigned } from "../../store/Users/users.reducer";
+import { BaseUrl } from "../../assets/api";
+import { BlueButton } from "../BlueButton/style";
+import { BsBagPlusFill } from "react-icons/bs";
+import { Button } from "@mui/material";
 
 interface Props {
   open: boolean;
@@ -26,19 +19,11 @@ const index: React.FC<Props> = ({ open, onClose }) => {
   const dispatch = useDispatch();
   const [cookies] = useCookies(["user"]);
   const user: UsersData = useSelector(selectUserSigned);
-  const ordersUser = useSelector(selectOrdersUser);
-  const ordersTotal = useMemo(
-    () =>
-      Money(
-        ordersUser.reduce((previousPrice, current) => {
-          const currentPrice = current.product?.price as number;
-          return previousPrice + currentPrice;
-        }, 0)
-      ),
-    [ordersUser]
-  );
   const [LoadingCounter, setLoadingCounter] = useState(1);
   const [LoadingStatus, setLoadingStatus] = useState(false);
+  const [UrlImage, setUrlImage] = useState<string>("");
+  const FILE = useRef<HTMLInputElement>(null);
+  const defaultURL = "../assets/Images/addFoto.png";
 
   useEffect(() => {
     const time = setInterval(
@@ -50,15 +35,29 @@ const index: React.FC<Props> = ({ open, onClose }) => {
   }, [LoadingStatus]);
 
   useEffect(() => {
-    if (LoadingCounter <= 2) setLoadingStatus(true);
+    if (LoadingCounter <= 1) setLoadingStatus(true);
     else setLoadingStatus(false);
   }, [LoadingCounter]);
 
-  const DeleteOrder = async (id: string) => {
-    const response = await api.DeleteOrder({ id, token: cookies.user });
-    dispatch(addOrders(response));
-    dispatch(addOrdersUser(response));
-    setLoadingStatus(true);
+  const UploadIMG = async () => {
+    alert("Uploading image...");
+
+    const FD = new FormData();
+
+    const Img = FILE.current?.files;
+
+    try {
+      if (!Img) throw "Imagem não enviada";
+
+      console.log(Img);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const CreateProduct = async (event: FormEvent) => {
+    event.preventDefault();
+    alert("Creating Product...");
   };
 
   return (
@@ -67,51 +66,44 @@ const index: React.FC<Props> = ({ open, onClose }) => {
         {LoadingStatus ? (
           <LoadingProgress />
         ) : (
-          <>
-            <div className="title">
+          <main>
+            <form onSubmit={CreateProduct}>
               <div>
-                <FaShoppingCart />
-                <h1>Carrinho de Encomendas</h1>
+                <label htmlFor="photo">
+                  <ImgProduct
+                    url={UrlImage ? `${BaseUrl}${UrlImage}` : defaultURL}
+                  />
+                </label>
+                <input
+                  type="file"
+                  id="photo"
+                  name="file"
+                  ref={FILE}
+                  accept=".jpg, .jpeg, .png, .gif"
+                  hidden
+                  onChange={UploadIMG}
+                />
               </div>
-            </div>
-            <div className="items">
-              {ordersUser.length ? (
-                ordersUser.map((order) => (
-                  <div key={order._id}>
-                    <div>
-                      <ImgProduct
-                        url={`${BaseUrl}${order.product?.urlPhoto}`}
-                      />
-                      <div>
-                        <p>{order.product?.name}</p>
-                        <p>{Money(order.product?.price as number)}</p>
-                      </div>
-                    </div>
-                    <IconButton onClick={() => DeleteOrder(order._id)}>
-                      <ImBin />
-                    </IconButton>
-                  </div>
-                ))
-              ) : (
-                <p style={{ textAlign: "center" }}>
-                  Nenhum produto foi encomendado ainda.
-                </p>
-              )}
-            </div>
-            {ordersUser.length ? (
-              <footer>
-                <div className="total">
-                  <p>Total:</p>
-                  <p>{ordersTotal}</p>
-                </div>
-                <p>
-                  {ordersUser.length} Ite{ordersUser.length > 1 ? "ns" : "m"}
-                </p>
-              </footer>
-            ) : (
-              <span></span>
-            )}
-          </>
+              <div>
+                <label htmlFor="name">Nome do Produto:</label>
+                <input type="text" id="name" />
+              </div>
+              <div>
+                <label htmlFor="price">Preço:</label>
+                <input type="number" id="price" />
+              </div>
+              <div>
+                <label htmlFor="desc">Descrição:</label>
+                <textarea id="desc"></textarea>
+              </div>
+              <div>
+                <BlueButton type="submit" startIcon={<BsBagPlusFill />}>
+                  Criar Produto
+                </BlueButton>
+                <Button disableElevation>Cancelar</Button>
+              </div>
+            </form>
+          </main>
         )}
       </Container>
     </MainModal>
