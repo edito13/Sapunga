@@ -23,6 +23,10 @@ export const BaseUrl =
     : "https://sapunga-back-end.vercel.app";
 
 const api = {
+  async UploadFile(data: FormData) {
+    const response = await axios.post(`${BaseUrl}/uploads`, data);
+    return response.data;
+  },
   async CheckLogin(data: dataI) {
     const response = await axios.post(`${BaseUrl}/user/checkLogin`, data);
     return response.data;

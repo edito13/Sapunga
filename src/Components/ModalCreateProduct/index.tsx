@@ -5,7 +5,7 @@ import { UsersData } from "../../interfaces";
 import LoadingProgress from "../LoadingProgress";
 import { Container, ImgProduct, MainModal } from "./style";
 import { selectUserSigned } from "../../store/Users/users.reducer";
-import { BaseUrl } from "../../assets/api";
+import api, { BaseUrl } from "../../assets/api";
 import { BlueButton } from "../BlueButton/style";
 import { BsBagPlusFill } from "react-icons/bs";
 import { Button } from "@mui/material";
@@ -43,13 +43,18 @@ const index: React.FC<Props> = ({ open, onClose }) => {
     alert("Uploading image...");
 
     const FD = new FormData();
-
-    const Img = FILE.current?.files;
-
     try {
-      if (!Img) throw "Imagem não enviada";
+      if (!FILE.current?.files) throw "Imagem não enviada";
 
-      console.log(Img);
+      // Uploading the file
+      const Filename = FILE.current.name;
+      const File = FILE.current.files[0];
+
+      FD.append(Filename, File);
+
+      const response = await api.UploadFile(FD);
+      const { url } = response;
+      setUrlImage(url);
     } catch (error) {
       console.log(error);
     }
@@ -100,7 +105,9 @@ const index: React.FC<Props> = ({ open, onClose }) => {
                 <BlueButton type="submit" startIcon={<BsBagPlusFill />}>
                   Criar Produto
                 </BlueButton>
-                <Button disableElevation>Cancelar</Button>
+                <Button onClick={onClose} disableElevation>
+                  Cancelar
+                </Button>
               </div>
             </form>
           </main>
