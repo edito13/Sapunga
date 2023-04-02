@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import AOS from "aos";
 import { useSelector } from "react-redux";
-import { Table } from "@mantine/core";
+import { Input, Table } from "@mantine/core";
 import { BsBagFill } from "react-icons/bs";
 import { BaseUrl } from "../../../assets/api";
 import { Title } from "../style";
@@ -11,6 +11,8 @@ import { ProductsData } from "../../../interfaces";
 import { selectAllProducts } from "../../../store/Products/products.reducer";
 import ModalCreateProduct from "../../../Components/ModalCreateProduct";
 import "aos/dist/aos.css";
+import { BiSearch } from "react-icons/bi";
+import { BlueButton } from "../../../Components/BlueButton/style";
 
 const index = () => {
   useEffect(() => {
@@ -43,10 +45,19 @@ const index = () => {
   return (
     <>
       <Container>
-        <Title data-aos="fade-right" data-aos-delay="100">
-          <BsBagFill />
-          <h1>Produtos</h1>
-        </Title>
+        <div className="Header">
+          <Title data-aos="fade-right" data-aos-delay="100">
+            <BsBagFill />
+            <h1>Produtos</h1>
+          </Title>
+          <div>
+            <label htmlFor="search">
+              <BiSearch />
+            </label>
+            <input type="text" id="search" />
+          </div>
+          <BlueButton>Novo Produto</BlueButton>
+        </div>
         <Table
           data-aos="zoom-in-up"
           data-aos-delay="150"
