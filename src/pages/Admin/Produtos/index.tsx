@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 import AOS from "aos";
 import { useSelector } from "react-redux";
-import { Input, Table } from "@mantine/core";
-import { BsBagFill } from "react-icons/bs";
+import { Table } from "@mantine/core";
+import { BiSearch } from "react-icons/bi";
+import { BsBagFill, BsFillPlusCircleFill } from "react-icons/bs";
 import { BaseUrl } from "../../../assets/api";
 import { Title } from "../style";
 import { Container } from "./style";
@@ -10,20 +11,38 @@ import { Money } from "../../../assets/ConvertMoney";
 import { ProductsData } from "../../../interfaces";
 import { selectAllProducts } from "../../../store/Products/products.reducer";
 import ModalCreateProduct from "../../../Components/ModalCreateProduct";
-import "aos/dist/aos.css";
-import { BiSearch } from "react-icons/bi";
 import { BlueButton } from "../../../Components/BlueButton/style";
+import "aos/dist/aos.css";
 
 const index = () => {
   useEffect(() => {
     AOS.init();
   }, []);
 
-  const [OpenModal, setOpenModal] = useState(true);
+  // const [IsActive, setIsActive] = useState(false);
+  const [OpenModal, setOpenModal] = useState(false);
 
   const CloseModal = useCallback(() => setOpenModal(false), [OpenModal]);
 
-  const Products: ProductsData[] = useSelector(selectAllProducts);
+  const [Products, setProducts] = useState<ProductsData[]>(
+    useSelector(selectAllProducts)
+  );
+  const [Search, setSearch] = useState<string>("");
+
+  const SearchProducts = (event: ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    setSearch(newValue);
+
+    const FilteredProducts = Products.filter((product) => {
+      const productItem = product.name.toLocaleLowerCase();
+      const value = newValue.toLocaleLowerCase();
+      if (newValue === "") return productItem;
+      return productItem.includes(value);
+    });
+    setProducts(FilteredProducts);
+    console.log(newValue);
+    console.log(FilteredProducts);
+  };
 
   const rows = Products.map((product, index) => (
     <tr key={product._id}>
@@ -50,13 +69,24 @@ const index = () => {
             <BsBagFill />
             <h1>Produtos</h1>
           </Title>
-          <div>
+          <div className="SearchButton">
             <label htmlFor="search">
               <BiSearch />
             </label>
-            <input type="text" id="search" />
+            <input
+              type="text"
+              id="search"
+              value={Search}
+              onChange={SearchProducts}
+              placeholder="Pesquise um produto"
+            />
           </div>
-          <BlueButton>Novo Produto</BlueButton>
+          <BlueButton
+            onClick={() => setOpenModal(true)}
+            startIcon={<BsFillPlusCircleFill />}
+          >
+            Novo Produto
+          </BlueButton>
         </div>
         <Table
           data-aos="zoom-in-up"

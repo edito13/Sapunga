@@ -27,21 +27,22 @@ export const Container = styled.div`
         label {
           display: block;
           font-size: 1.1em;
-          margin-bottom: 0.2em;
+          margin-bottom: 0.1em;
         }
 
         input,
-        textarea {
+        textarea,
+        select {
           width: 100%;
           border: none;
           border: 1px solid #ccc;
           border-radius: 4px;
           font-size: 1em;
-          padding: 0.4em 0.7em;
+          padding: 0.3em 0.6em;
         }
 
         & + div {
-          margin-top: 1em;
+          margin-top: 0.8em;
         }
       }
 
@@ -57,7 +58,7 @@ export const Container = styled.div`
         }
       }
 
-      div:nth-child(5) {
+      div:nth-child(6) {
         padding: 1em;
         display: flex;
         align-items: center;
@@ -81,5 +82,5 @@ export const ImgProduct = styled.div`
   background: url("${({ url }: Props) => url}") no-repeat;
   background-position: center;
   background-size: cover;
-  min-height: 200px;
+  min-height: 180px;
 `;

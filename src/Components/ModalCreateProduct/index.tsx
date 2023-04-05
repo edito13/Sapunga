@@ -1,4 +1,11 @@
-import React, { FormEvent, useEffect, useRef, useState } from "react";
+import React, {
+  ChangeEvent,
+  FormEvent,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useCookies } from "react-cookie";
 import { useSelector, useDispatch } from "react-redux";
 import { UsersData } from "../../interfaces";
@@ -8,7 +15,14 @@ import { selectUserSigned } from "../../store/Users/users.reducer";
 import api, { BaseUrl } from "../../assets/api";
 import { BlueButton } from "../BlueButton/style";
 import { BsBagPlusFill } from "react-icons/bs";
-import { Button } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 
 interface Props {
   open: boolean;
@@ -60,6 +74,11 @@ const index: React.FC<Props> = ({ open, onClose }) => {
     }
   };
 
+  const [age, setage] = useState();
+  const [Category, setCategory] = useState("");
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) =>
+    setCategory(event.target.value);
+
   const CreateProduct = async (event: FormEvent) => {
     event.preventDefault();
     alert("Creating Product...");
@@ -91,15 +110,43 @@ const index: React.FC<Props> = ({ open, onClose }) => {
               </div>
               <div>
                 <label htmlFor="name">Nome do Produto:</label>
-                <input type="text" id="name" />
+                <input type="text" id="name" placeholder="Nome do Produto" />
               </div>
               <div>
                 <label htmlFor="price">Preço:</label>
-                <input type="number" id="price" />
+                <input type="number" id="price" placeholder="1000" />
+              </div>
+              <div>
+                {/* <FormControl variant="outlined">
+                  <InputLabel id="demo-simple-select-outlined-label">
+                    Age
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-outlined-label"
+                    id="demo-simple-select-outlined"
+                    // value={age}
+                    // onChange={handleChange}
+                    label="Age"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                  </Select>
+                </FormControl> */}
+                <label htmlFor="category">Categoria:</label>
+                <select id="category" value={Category} onChange={handleChange}>
+                  <option value="Electrônicos">Electrônicos</option>
+                  <option value="Medicamentos">Medicamentos</option>
+                  <option value="Automôveis">Automôveis</option>
+                  <option value="Casas">Casas</option>
+                </select>
               </div>
               <div>
                 <label htmlFor="desc">Descrição:</label>
-                <textarea id="desc"></textarea>
+                <textarea id="desc" placeholder="Descreva o Produto"></textarea>
               </div>
               <div>
                 <BlueButton type="submit" startIcon={<BsBagPlusFill />}>

@@ -38,7 +38,6 @@ export const Title = styled.h1`
   align-items: center;
   gap: 0.4em;
   color: #000066;
-  margin-bottom: 1em;
 
   svg {
     font-size: 1.8em;

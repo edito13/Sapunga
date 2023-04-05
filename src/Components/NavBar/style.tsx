@@ -23,7 +23,7 @@ export const ListItem = styled(Button)`
     gap: 0.3em;
     justify-content: flex-start;
     padding: 0.5em 0 0.5em 1em;
-    transition: all.0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
     border-left: 5px solid transparent;
   }
 
