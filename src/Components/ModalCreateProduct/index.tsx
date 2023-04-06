@@ -1,7 +1,6 @@
 import React, {
   ChangeEvent,
   FormEvent,
-  ReactNode,
   useEffect,
   useRef,
   useState,
@@ -23,6 +22,7 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
+import { SelectCategories } from "../../store/Categories/categories.reducer";
 
 interface Props {
   open: boolean;
@@ -33,11 +33,12 @@ const index: React.FC<Props> = ({ open, onClose }) => {
   const dispatch = useDispatch();
   const [cookies] = useCookies(["user"]);
   const user: UsersData = useSelector(selectUserSigned);
+  const categories = useSelector(SelectCategories);
   const [LoadingCounter, setLoadingCounter] = useState(1);
   const [LoadingStatus, setLoadingStatus] = useState(false);
   const [UrlImage, setUrlImage] = useState<string>("");
-  const FILE = useRef<HTMLInputElement>(null);
   const defaultURL = "../assets/Images/addFoto.png";
+  const FILE = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const time = setInterval(
@@ -74,7 +75,6 @@ const index: React.FC<Props> = ({ open, onClose }) => {
     }
   };
 
-  const [age, setage] = useState();
   const [Category, setCategory] = useState("");
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) =>
     setCategory(event.target.value);
@@ -110,11 +110,11 @@ const index: React.FC<Props> = ({ open, onClose }) => {
               </div>
               <div>
                 <label htmlFor="name">Nome do Produto:</label>
-                <input type="text" id="name" placeholder="Nome do Produto" />
+                <input type="text" id="name" />
               </div>
               <div>
                 <label htmlFor="price">Preço:</label>
-                <input type="number" id="price" placeholder="1000" />
+                <input type="number" id="price" />
               </div>
               <div>
                 {/* <FormControl variant="outlined">
@@ -138,15 +138,16 @@ const index: React.FC<Props> = ({ open, onClose }) => {
                 </FormControl> */}
                 <label htmlFor="category">Categoria:</label>
                 <select id="category" value={Category} onChange={handleChange}>
-                  <option value="Electrônicos">Electrônicos</option>
-                  <option value="Medicamentos">Medicamentos</option>
-                  <option value="Automôveis">Automôveis</option>
-                  <option value="Casas">Casas</option>
+                  {categories.map((category) => (
+                    <option key={category._id} value={category._id}>
+                      {category.name}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div>
                 <label htmlFor="desc">Descrição:</label>
-                <textarea id="desc" placeholder="Descreva o Produto"></textarea>
+                <textarea id="desc"></textarea>
               </div>
               <div>
                 <BlueButton type="submit" startIcon={<BsBagPlusFill />}>

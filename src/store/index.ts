@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import favoritesReducer from "./Favorites/favorites.reducer";
-import ordersReducer from "./Orders/orders.reducer";
-import productsReducer from "./Products/products.reducer";
 import usersReducer from "./Users/users.reducer";
+import productsReducer from "./Products/products.reducer";
+import ordersReducer from "./Orders/orders.reducer";
+import favoritesReducer from "./Favorites/favorites.reducer";
+import categoriesReducer from "./Categories/categories.reducer";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     products: productsReducer,
     orders: ordersReducer,
     favourites: favoritesReducer,
+    categories: categoriesReducer,
   },
 });
 

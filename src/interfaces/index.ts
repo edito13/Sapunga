@@ -39,6 +39,11 @@ export interface FavouritesData {
   createdAt: Date;
 }
 
+export interface CategoriesData {
+  _id: string;
+  name: string;
+}
+
 export interface InitialStateUsersI {
   authenticed: boolean;
   users: UsersData[];
@@ -57,6 +62,10 @@ export interface InitialStateOrdersI {
 
 export interface InitialStateFavouritesI {
   favourites: FavouritesData[];
+}
+
+export interface InitialStateCategoriesI {
+  categories: CategoriesData[];
 }
 
 export interface logarUsuarioI {
