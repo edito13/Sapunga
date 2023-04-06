@@ -84,7 +84,7 @@ const api = {
     return response.data;
   },
   async SelectCategories() {
-    const response = await axios(`${BaseUrl}/category/selectAll`);
+    const response = await axios(`${BaseUrl}/category/`);
     return response.data;
   },
   async DeleteUser(data: AxiosRequestConfig) {

@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Quem_somos from "./pages/Quem_somos";
@@ -19,7 +20,6 @@ import Productos from "./pages/Admin/Produtos";
 import Encomendas from "./pages/Admin/Encomendas";
 import Usuarios from "./pages/Admin/Usuarios";
 import LoginAdmin from "./pages/Admin/Login";
-import { useSelector } from "react-redux";
 import { IsAuthenticed } from "./store/Users/users.reducer";
 
 interface Props {}
@@ -46,7 +46,10 @@ const Rotas: React.FC<Props> = () => {
           path="/criar_conta"
           element={isAuthenticed ? <Navigate to={"/"} /> : <Criar_conta />}
         />
-        <Route path="/admin" element={<Admin />}>
+        <Route
+          path="/admin"
+          element={true ? <Navigate to={"/admin/login"} /> : <Admin />}
+        >
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="produtos" element={<Productos />} />
           <Route path="encomendas" element={<Encomendas />} />
