@@ -27,7 +27,7 @@ const Users = createSlice({
       return {
         ...state,
         authenticed: false,
-        userLouserSigned: null,
+        userSigned: null,
         token: null,
       };
     },

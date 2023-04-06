@@ -44,6 +44,11 @@ export interface CategoriesData {
   name: string;
 }
 
+export interface AdminsData {
+  _id: string;
+  name: string;
+}
+
 export interface InitialStateUsersI {
   authenticed: boolean;
   users: UsersData[];
@@ -68,7 +73,19 @@ export interface InitialStateCategoriesI {
   categories: CategoriesData[];
 }
 
+export interface InitialStateAdminsI {
+  authenticed: boolean;
+  admins: AdminsData[];
+  token: string | null;
+  adminSigned: AdminsData | null;
+}
+
 export interface logarUsuarioI {
   user: UsersData;
+  token: string;
+}
+
+export interface SignInAdminI {
+  admin: AdminsData;
   token: string;
 }
