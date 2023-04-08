@@ -1,15 +1,33 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-interface dataI {
+interface UserDataI {
   name?: string;
   email: string;
   password: string;
+}
+
+interface ProductDataI {
+  urlPhoto: string;
+  name: string;
+  price: number;
+  describe: string;
+  categoryID: string;
+}
+
+interface AdminDataI {
+  name: string;
+  code: string;
 }
 
 interface orderDataI {
   token: string;
   productID: string;
   quantity: number;
+}
+
+interface FavouriteDataI {
+  token: string;
+  productID: string;
 }
 
 interface authDataI {
@@ -27,14 +45,42 @@ const api = {
     const response = await axios.post(`${BaseUrl}/uploads`, data);
     return response.data;
   },
-  async CheckLogin(data: dataI) {
+  async CheckLogin(data: UserDataI) {
     const response = await axios.post(`${BaseUrl}/user/checkLogin`, data);
+    return response.data;
+  },
+  async CheckLoginAdmin(data: AdminDataI) {
+    const response = await axios.post(`${BaseUrl}/admin/checkLogin`, data);
     return response.data;
   },
   async OrderProduct({ token, productID, quantity }: orderDataI) {
     const response = await axios.post(
       `${BaseUrl}/order/orderProduct`,
       { productID, quantity },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  },
+  async CreateProduct(data: ProductDataI) {
+    const response = await axios.post(
+      `${BaseUrl}/product/regist`,
+      data
+      // {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`,
+      //   },
+      // }
+    );
+    return response.data;
+  },
+  async FavouriteProduct({ token, productID }: FavouriteDataI) {
+    const response = await axios.post(
+      `${BaseUrl}/react/`,
+      { productID },
       {
         headers: {
           Authorization: `Bearer ${token}`,

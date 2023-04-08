@@ -19,6 +19,10 @@ const index = () => {
     AOS.init();
   }, []);
 
+  useEffect(() => {
+    document.title = "Painel Admin - Produtos";
+  }, []);
+
   // const [IsActive, setIsActive] = useState(false);
   const [OpenModal, setOpenModal] = useState(false);
 

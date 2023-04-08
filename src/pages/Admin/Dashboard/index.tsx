@@ -17,6 +17,10 @@ const index = () => {
     AOS.init();
   }, []);
 
+  useEffect(() => {
+    document.title = "Painel Admin - Dashboard";
+  }, []);
+
   const Users: UsersData[] = useSelector(selectUsers);
   const Products: ProductsData[] = useSelector(selectAllProducts);
   const Orders: OrdersData[] = useSelector(selectAllOrders);

@@ -23,6 +23,7 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 import { SelectCategories } from "../../store/Categories/categories.reducer";
+import { addProducts } from "../../store/Products/products.reducer";
 
 interface Props {
   open: boolean;
@@ -39,6 +40,10 @@ const index: React.FC<Props> = ({ open, onClose }) => {
   const [UrlImage, setUrlImage] = useState<string>("");
   const defaultURL = "../assets/Images/addFoto.png";
   const FILE = useRef<HTMLInputElement>(null);
+  const nameFill = useRef<HTMLInputElement>(null);
+  const precoFill = useRef<HTMLInputElement>(null);
+  const describeFill = useRef<HTMLTextAreaElement>(null);
+  const categoryFill = useRef<HTMLSelectElement>(null);
 
   useEffect(() => {
     const time = setInterval(
@@ -75,13 +80,36 @@ const index: React.FC<Props> = ({ open, onClose }) => {
     }
   };
 
-  const [Category, setCategory] = useState("");
-  const handleChange = (event: ChangeEvent<HTMLSelectElement>) =>
-    setCategory(event.target.value);
-
   const CreateProduct = async (event: FormEvent) => {
     event.preventDefault();
-    alert("Creating Product...");
+
+    const name = nameFill.current?.value;
+    const preco = precoFill.current?.value;
+    const categoryID = categoryFill.current?.value;
+    const urlPhoto = UrlImage ? UrlImage : "";
+    const describe = describeFill.current?.value;
+
+    try {
+      if (!name) throw "Você precisa enviar um nome";
+      else if (!preco) throw "Você precisa enviar um preço";
+      else if (!describe) throw "Você precisa enviar uma descrição";
+      else if (!categoryID) throw "Você escolher uma categoria";
+      else if (!urlPhoto) throw "O produto precisa ter uma foto";
+
+      const response = await api.CreateProduct({
+        name,
+        price: +preco,
+        categoryID,
+        urlPhoto,
+        describe,
+      });
+
+      dispatch(addProducts(response));
+      setLoadingStatus(true);
+      setTimeout(() => onClose(), 800);
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (
@@ -110,11 +138,11 @@ const index: React.FC<Props> = ({ open, onClose }) => {
               </div>
               <div>
                 <label htmlFor="name">Nome do Produto:</label>
-                <input type="text" id="name" />
+                <input type="text" ref={nameFill} id="name" />
               </div>
               <div>
                 <label htmlFor="price">Preço:</label>
-                <input type="number" id="price" />
+                <input type="number" ref={precoFill} id="price" />
               </div>
               <div>
                 {/* <FormControl variant="outlined">
@@ -137,7 +165,7 @@ const index: React.FC<Props> = ({ open, onClose }) => {
                   </Select>
                 </FormControl> */}
                 <label htmlFor="category">Categoria:</label>
-                <select id="category" value={Category} onChange={handleChange}>
+                <select id="category" ref={categoryFill}>
                   {categories.map((category) => (
                     <option key={category._id} value={category._id}>
                       {category.name}
@@ -147,7 +175,7 @@ const index: React.FC<Props> = ({ open, onClose }) => {
               </div>
               <div>
                 <label htmlFor="desc">Descrição:</label>
-                <textarea id="desc"></textarea>
+                <textarea id="desc" ref={describeFill}></textarea>
               </div>
               <div>
                 <BlueButton type="submit" startIcon={<BsBagPlusFill />}>

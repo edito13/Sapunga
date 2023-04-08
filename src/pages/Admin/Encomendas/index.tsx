@@ -14,6 +14,10 @@ const index = () => {
     AOS.init();
   }, []);
 
+  useEffect(() => {
+    document.title = "Painel Admin - Encomendas";
+  }, []);
+
   const Orders: OrdersData[] = useSelector(selectAllOrders);
 
   const rows = Orders.map((order, index) => (
@@ -28,10 +32,12 @@ const index = () => {
 
   return (
     <Container>
-      <Title data-aos="fade-right" data-aos-delay="100">
-        <FaCartPlus />
-        <h1>Encomendas</h1>
-      </Title>
+      <div className="Header">
+        <Title data-aos="fade-right" data-aos-delay="100">
+          <FaCartPlus />
+          <h1>Encomendas</h1>
+        </Title>
+      </div>
       <Table
         data-aos="zoom-in-up"
         data-aos-delay="150"

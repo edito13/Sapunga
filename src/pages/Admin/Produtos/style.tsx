@@ -8,11 +8,6 @@ export const Container = styled.div`
   background: #f2f2f2;
 
   .Header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5em;
-
     .SearchButton {
       display: flex;
       align-items: center;

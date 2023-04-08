@@ -30,6 +30,13 @@ export const Container = styled.div`
         }
       }
     }
+
+    .Header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.1em;
+    }
   }
 `;
 

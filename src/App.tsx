@@ -3,21 +3,30 @@ import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 import api from "./assets/api";
 import Routes from "./Routes";
+import { SignInAdmin } from "./store/Admins/admins.reducer";
 import { addCategories } from "./store/Categories/categories.reducer";
-import { addFavourites } from "./store/Favorites/favorites.reducer";
+import { addFavourites } from "./store/Favourites/favourites.reducer";
 import { addOrders, addOrdersUser } from "./store/Orders/orders.reducer";
 import { addProducts } from "./store/Products/products.reducer";
 import { addUsers, SignUser } from "./store/Users/users.reducer";
 
 const App = () => {
   const dispatch = useDispatch();
-  const [cookies] = useCookies(["user"]);
+  const [cookies] = useCookies(["user", "admin"]);
   const token = cookies.user;
+  const token_admin = cookies.admin;
 
   useEffect(() => {
     if (token) {
       const user = JSON.parse(localStorage.user);
       dispatch(SignUser({ user, token }));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (token_admin) {
+      const admin = JSON.parse(localStorage.admin);
+      dispatch(SignInAdmin({ admin, token: token_admin }));
     }
   }, []);
 

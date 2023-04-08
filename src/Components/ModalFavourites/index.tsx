@@ -1,5 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useCookies } from "react-cookie";
 import { IconButton } from "@mui/material";
 import { ImBin } from "react-icons/im";
 import LoadingProgress from "../LoadingProgress";
@@ -8,13 +9,10 @@ import { Money } from "../../assets/ConvertMoney";
 import api, { BaseUrl } from "../../assets/api";
 import { selectUserSigned } from "../../store/Users/users.reducer";
 import { FavouritesData, UsersData } from "../../interfaces";
-import { useCookies } from "react-cookie";
-import { useDispatch } from "react-redux";
 import {
   addFavourites,
-  addNewFavourite,
   selectAllFavourites,
-} from "../../store/Favorites/favorites.reducer";
+} from "../../store/Favourites/favourites.reducer";
 import { BsHeartFill } from "react-icons/bs";
 
 interface Props {
@@ -46,7 +44,6 @@ const index: React.FC<Props> = ({ open, onClose }) => {
 
   const DeleteFavourite = async (id: string) => {
     const response = await api.DeleteFavourite({ id, token: cookies.user });
-    dispatch(addNewFavourite(response));
     dispatch(addFavourites(response));
     setLoadingStatus(true);
   };

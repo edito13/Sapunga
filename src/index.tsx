@@ -4,7 +4,6 @@ import { CookiesProvider } from "react-cookie";
 import { Provider } from "react-redux";
 import App from "./App";
 import store from "./store";
-import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

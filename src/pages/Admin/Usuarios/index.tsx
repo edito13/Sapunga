@@ -14,6 +14,10 @@ const index = () => {
     AOS.init();
   }, []);
 
+  useEffect(() => {
+    document.title = "Painel Admin - Usuários";
+  }, []);
+
   const Users: UsersData[] = useSelector(selectUsers);
 
   const rows = Users.map((user, index) => (
@@ -27,10 +31,12 @@ const index = () => {
 
   return (
     <Container>
-      <Title data-aos="fade-right" data-aos-delay="100">
-        <FaUsers />
-        <h1>Usuarios</h1>
-      </Title>
+      <div className="Header">
+        <Title data-aos="fade-right" data-aos-delay="100">
+          <FaUsers />
+          <h1>Usuarios</h1>
+        </Title>
+      </div>
       <Table
         data-aos="zoom-in-up"
         data-aos-delay="150"

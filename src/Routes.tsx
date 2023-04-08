@@ -21,11 +21,13 @@ import Encomendas from "./pages/Admin/Encomendas";
 import Usuarios from "./pages/Admin/Usuarios";
 import LoginAdmin from "./pages/Admin/Login";
 import { IsAuthenticed } from "./store/Users/users.reducer";
+import { IsAdminAuthenticed } from "./store/Admins/admins.reducer";
 
 interface Props {}
 
 const Rotas: React.FC<Props> = () => {
   const isAuthenticed = useSelector(IsAuthenticed);
+  const isAdminAuthenticed = useSelector(IsAdminAuthenticed);
 
   return (
     <Router>
@@ -48,14 +50,25 @@ const Rotas: React.FC<Props> = () => {
         />
         <Route
           path="/admin"
-          element={true ? <Navigate to={"/admin/login"} /> : <Admin />}
+          element={
+            !isAdminAuthenticed ? <Navigate to={"/admin/login"} /> : <Admin />
+          }
         >
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="produtos" element={<Productos />} />
           <Route path="encomendas" element={<Encomendas />} />
           <Route path="usuarios" element={<Usuarios />} />
         </Route>
-        <Route path="/admin/login" element={<LoginAdmin />} />
+        <Route
+          path="/admin/login"
+          element={
+            isAdminAuthenticed ? (
+              <Navigate to={"/admin/dashboard"} />
+            ) : (
+              <LoginAdmin />
+            )
+          }
+        />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>

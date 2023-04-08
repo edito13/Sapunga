@@ -15,7 +15,7 @@ import ModalCheckLogout from "../ModalCheckLogout";
 import ModalOrders from "../ModalOrders";
 import ModalFavourites from "../ModalFavourites";
 import { selectOrdersUser } from "../../store/Orders/orders.reducer";
-import { selectAllFavourites } from "../../store/Favorites/favorites.reducer";
+import { selectAllFavourites } from "../../store/Favourites/favourites.reducer";
 
 const index = () => {
   const user = useSelector(selectUserSigned);
