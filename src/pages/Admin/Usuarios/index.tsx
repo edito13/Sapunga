@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import { Table } from "@mantine/core";
 import { FaUsers } from "react-icons/fa";
@@ -7,6 +7,7 @@ import { Title } from "../style";
 import { Container } from "./style";
 import { UsersData } from "../../../interfaces";
 import { selectUsers } from "../../../store/Users/users.reducer";
+import LoadingProgress from "../../../Components/LoadingProgress";
 import "aos/dist/aos.css";
 
 const index = () => {
@@ -17,6 +18,23 @@ const index = () => {
   useEffect(() => {
     document.title = "Painel Admin - Usuários";
   }, []);
+
+  const [LoadingCounter, setLoadingCounter] = useState(1);
+  const [LoadingStatus, setLoadingStatus] = useState(false);
+
+  useEffect(() => {
+    const time = setInterval(
+      () => setLoadingCounter((count) => count + 1),
+      700
+    );
+
+    return () => clearInterval(time);
+  }, [LoadingStatus]);
+
+  useEffect(() => {
+    if (LoadingCounter <= 1) setLoadingStatus(true);
+    else setLoadingStatus(false);
+  }, [LoadingCounter]);
 
   const Users: UsersData[] = useSelector(selectUsers);
 
@@ -37,21 +55,31 @@ const index = () => {
           <h1>Usuarios</h1>
         </Title>
       </div>
-      <Table
-        data-aos="zoom-in-up"
-        data-aos-delay="150"
-        style={{ background: "#fdfdfd", borderRadius: "8px" }}
-      >
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Senha</th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </Table>
+      {LoadingStatus ? (
+        <LoadingProgress />
+      ) : (
+        <>
+          {Users.length ? (
+            <Table
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              style={{ background: "#fdfdfd", borderRadius: "8px" }}
+            >
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Senha</th>
+                </tr>
+              </thead>
+              <tbody>{rows}</tbody>
+            </Table>
+          ) : (
+            <p>Nenhum usuário cadastrou-se ainda.</p>
+          )}
+        </>
+      )}
     </Container>
   );
 };

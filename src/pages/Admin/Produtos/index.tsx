@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import { useSelector } from "react-redux";
 import { Table } from "@mantine/core";
@@ -24,13 +24,15 @@ const index = () => {
     document.title = "Painel Admin - Produtos";
   }, []);
 
+  const SearchField = useRef<HTMLInputElement>(null);
+
   const [LoadingCounter, setLoadingCounter] = useState(1);
   const [LoadingStatus, setLoadingStatus] = useState(false);
 
   useEffect(() => {
     const time = setInterval(
       () => setLoadingCounter((count) => count + 1),
-      1000
+      700
     );
 
     return () => clearInterval(time);
@@ -41,7 +43,6 @@ const index = () => {
     else setLoadingStatus(false);
   }, [LoadingCounter]);
 
-  // const [IsActive, setIsActive] = useState(false);
   const [OpenModal, setOpenModal] = useState(false);
 
   const CloseModal = useCallback(() => setOpenModal(false), [OpenModal]);
@@ -49,21 +50,19 @@ const index = () => {
   const [Products, setProducts] = useState<ProductsData[]>(
     useSelector(selectAllProducts)
   );
-  const [Search, setSearch] = useState<string>("");
 
-  const SearchProducts = (event: ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value;
-    setSearch(newValue);
+  const SearchProducts = () => {
+    const SearchValue = SearchField.current?.value as string;
 
     const FilteredProducts = Products.filter((product) => {
       const productItem = product.name.toLocaleLowerCase();
-      const value = newValue.toLocaleLowerCase();
-      if (newValue === "") return productItem;
+      const value = SearchValue.toLocaleLowerCase();
+      if (value === "") return productItem;
       return productItem.includes(value);
     });
     setProducts(FilteredProducts);
-    console.log(newValue);
-    console.log(FilteredProducts);
+    setLoadingStatus(true);
+    // console.log(FilteredProducts);
   };
 
   const rows = Products.map((product, index) => (
@@ -91,21 +90,22 @@ const index = () => {
             <BsBagFill />
             <h1>Produtos</h1>
           </Title>
-          <div className="SearchButton">
-            <label htmlFor="search">
-              <BiSearch />
-            </label>
+          <div className="SearchButton" data-aos="zoom-in" data-aos-delay="150">
             <input
               type="text"
               id="search"
-              value={Search}
-              onChange={SearchProducts}
+              ref={SearchField}
               placeholder="Pesquise um produto"
             />
+            <BlueButton onClick={SearchProducts}>
+              <BiSearch />
+            </BlueButton>
           </div>
           <BlueButton
             onClick={() => setOpenModal(true)}
             startIcon={<BsFillPlusCircleFill />}
+            data-aos="zoom-in"
+            data-aos-delay="200"
           >
             Novo Produto
           </BlueButton>
