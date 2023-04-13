@@ -12,6 +12,7 @@ import { ProductsData } from "../../../interfaces";
 import { selectAllProducts } from "../../../store/Products/products.reducer";
 import ModalCreateProduct from "../../../Components/ModalCreateProduct";
 import { BlueButton } from "../../../Components/BlueButton/style";
+import LoadingProgress from "../../../Components/LoadingProgress";
 import "aos/dist/aos.css";
 
 const index = () => {
@@ -22,6 +23,23 @@ const index = () => {
   useEffect(() => {
     document.title = "Painel Admin - Produtos";
   }, []);
+
+  const [LoadingCounter, setLoadingCounter] = useState(1);
+  const [LoadingStatus, setLoadingStatus] = useState(false);
+
+  useEffect(() => {
+    const time = setInterval(
+      () => setLoadingCounter((count) => count + 1),
+      1000
+    );
+
+    return () => clearInterval(time);
+  }, [LoadingStatus]);
+
+  useEffect(() => {
+    if (LoadingCounter <= 1) setLoadingStatus(true);
+    else setLoadingStatus(false);
+  }, [LoadingCounter]);
 
   // const [IsActive, setIsActive] = useState(false);
   const [OpenModal, setOpenModal] = useState(false);
@@ -92,23 +110,27 @@ const index = () => {
             Novo Produto
           </BlueButton>
         </div>
-        <Table
-          data-aos="zoom-in-up"
-          data-aos-delay="150"
-          style={{ background: "#fdfdfd", borderRadius: "8px" }}
-        >
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Descrição</th>
-              <th>Categoria</th>
-              <th>Preço</th>
-              <th>Imagem</th>
-            </tr>
-          </thead>
-          <tbody>{rows}</tbody>
-        </Table>
+        {LoadingStatus ? (
+          <LoadingProgress />
+        ) : (
+          <Table
+            data-aos="zoom-in-up"
+            data-aos-delay="150"
+            style={{ background: "#fdfdfd", borderRadius: "8px" }}
+          >
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th>Imagem</th>
+              </tr>
+            </thead>
+            <tbody>{rows}</tbody>
+          </Table>
+        )}
       </Container>
       {OpenModal && (
         <ModalCreateProduct open={OpenModal} onClose={CloseModal} />
