@@ -19,7 +19,7 @@ const Users = createSlice({
       return {
         ...state,
         authenticed: true,
-        userLogado: payload.user,
+        userSigned: payload.user,
         token: payload.token,
       };
     },

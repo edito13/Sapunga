@@ -21,7 +21,6 @@ const index = () => {
   const user = useSelector(selectUserSigned);
   const Favourites = useSelector(selectAllFavourites);
   const ordersUser = useSelector(selectOrdersUser);
-  // console.log(ordersUser);
   const [isActive, setIsActive] = useState(false);
   const [OpenLogoutModal, setOpenLogoutModal] = useState(false);
   const [OpenOrderModal, setOpenOrderModal] = useState(false);

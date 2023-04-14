@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { useCookies } from "react-cookie";
 import { useSelector, useDispatch } from "react-redux";
-import { UsersData } from "../../interfaces";
+import { ProductsData, UsersData } from "../../interfaces";
 import LoadingProgress from "../LoadingProgress";
 import { Container, ImgProduct, MainModal } from "./style";
 import { selectUserSigned } from "../../store/Users/users.reducer";
@@ -28,9 +28,10 @@ import { addProducts } from "../../store/Products/products.reducer";
 interface Props {
   open: boolean;
   onClose: () => void;
+  getProducts: (products: ProductsData[]) => void;
 }
 
-const index: React.FC<Props> = ({ open, onClose }) => {
+const index: React.FC<Props> = ({ open, onClose, getProducts }) => {
   const dispatch = useDispatch();
   const [cookies] = useCookies(["user"]);
   const user: UsersData = useSelector(selectUserSigned);
@@ -60,8 +61,6 @@ const index: React.FC<Props> = ({ open, onClose }) => {
   }, [LoadingCounter]);
 
   const UploadIMG = async () => {
-    alert("Uploading image...");
-
     const FD = new FormData();
     try {
       if (!FILE.current?.files) throw "Imagem não enviada";
@@ -105,6 +104,7 @@ const index: React.FC<Props> = ({ open, onClose }) => {
       });
 
       dispatch(addProducts(response));
+      getProducts(response);
       setLoadingStatus(true);
       setTimeout(() => onClose(), 800);
     } catch (error) {

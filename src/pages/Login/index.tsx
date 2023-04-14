@@ -33,7 +33,7 @@ const Login: React.FC<Props> = () => {
   useEffect(() => {
     if (!OpenModal) {
       const token = cookies.user;
-      if (token) setTimeout(() => window.location.reload(), 700)  
+      if (token) setTimeout(() => window.location.reload(), 700);
     }
   }, [OpenModal]);
 
@@ -58,11 +58,12 @@ const Login: React.FC<Props> = () => {
 
       // if not error is catched, so all is okay.
       setError("");
-      const user = login.user;
-      const token = login.token;
-      dispatch(SignUser({ user, token }));
+      const { user, token } = login;
+
       setCookie("user", token, { path: "/" });
       localStorage.setItem("user", JSON.stringify(user));
+      // window.location.reload();
+      dispatch(SignUser({ user, token }));
     } catch (error) {
       setError(error as string);
     } finally {
@@ -109,7 +110,7 @@ const Login: React.FC<Props> = () => {
           >
             <h3>Iniciar Sessão</h3>
             <form onSubmit={Logar}>
-              <div data-aos="fade-right" data-aos-delay="50">
+              <div>
                 <label htmlFor="email">E-mail ou Telefone</label>
                 <input
                   type="email"
@@ -119,7 +120,7 @@ const Login: React.FC<Props> = () => {
                   required
                 />
               </div>
-              <div data-aos="fade-left" data-aos-delay="100">
+              <div>
                 <label htmlFor="senha">Senha</label>
                 <input
                   type="password"
@@ -135,8 +136,6 @@ const Login: React.FC<Props> = () => {
                 variant="contained"
                 fullWidth
                 disableElevation
-                data-aos="zoom-in"
-                data-aos-delay="150"
               >
                 Logar
               </BlueButton>

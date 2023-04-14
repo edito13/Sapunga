@@ -47,4 +47,10 @@ export const Container = styled.div`
       border-radius: 4px;
     }
   }
+
+  p {
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0.5em;
+  }
 `;

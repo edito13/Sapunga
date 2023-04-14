@@ -146,6 +146,12 @@ const api = {
     });
     return response.data;
   },
+  async DeleteProduct(id: string) {
+    const response = await axios.delete(`${BaseUrl}/product/delete`, {
+      data: { id }
+    });
+    return response.data;
+  },
   async DeleteFavourite({ id, token }: authDataI) {
     const response = await axios.delete(`${BaseUrl}/react/unReact`, {
       data: { id },

@@ -1,15 +1,20 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import AOS from "aos";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Table } from "@mantine/core";
+import { IconButton } from "@mui/material";
+import { FaTrash } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
 import { BsBagFill, BsFillPlusCircleFill } from "react-icons/bs";
-import { BaseUrl } from "../../../assets/api";
+import api, { BaseUrl } from "../../../assets/api";
 import { Title } from "../style";
 import { Container } from "./style";
 import { Money } from "../../../assets/ConvertMoney";
 import { ProductsData } from "../../../interfaces";
-import { selectAllProducts } from "../../../store/Products/products.reducer";
+import {
+  addProducts,
+  selectAllProducts,
+} from "../../../store/Products/products.reducer";
 import ModalCreateProduct from "../../../Components/ModalCreateProduct";
 import { BlueButton } from "../../../Components/BlueButton/style";
 import LoadingProgress from "../../../Components/LoadingProgress";
@@ -24,6 +29,7 @@ const index = () => {
     document.title = "Painel Admin - Produtos";
   }, []);
 
+  const dispatch = useDispatch();
   const SearchField = useRef<HTMLInputElement>(null);
 
   const [LoadingCounter, setLoadingCounter] = useState(1);
@@ -32,7 +38,7 @@ const index = () => {
   useEffect(() => {
     const time = setInterval(
       () => setLoadingCounter((count) => count + 1),
-      700
+      800
     );
 
     return () => clearInterval(time);
@@ -62,8 +68,19 @@ const index = () => {
     });
     setProducts(FilteredProducts);
     setLoadingStatus(true);
-    // console.log(FilteredProducts);
   };
+
+  const DeleteProduct = async (id: string) => {
+    const response = await api.DeleteProduct(id);
+    dispatch(addProducts(response));
+    setProducts(response);
+    setLoadingStatus(true);
+  };
+
+  const getProducts = useCallback(
+    (products: ProductsData[]) => setProducts(products),
+    [Products]
+  );
 
   const rows = Products.map((product, index) => (
     <tr key={product._id}>
@@ -78,6 +95,11 @@ const index = () => {
           src={`${BaseUrl}${product.urlPhoto}`}
           alt=""
         />
+      </td>
+      <td>
+        <IconButton onClick={() => DeleteProduct(product._id)}>
+          <FaTrash />
+        </IconButton>
       </td>
     </tr>
   ));
@@ -113,27 +135,38 @@ const index = () => {
         {LoadingStatus ? (
           <LoadingProgress />
         ) : (
-          <Table
-            data-aos="zoom-in-up"
-            data-aos-delay="150"
-            style={{ background: "#fdfdfd", borderRadius: "8px" }}
-          >
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Descrição</th>
-                <th>Categoria</th>
-                <th>Preço</th>
-                <th>Imagem</th>
-              </tr>
-            </thead>
-            <tbody>{rows}</tbody>
-          </Table>
+          <>
+            {Products.length ? (
+              <Table
+                data-aos="zoom-in-up"
+                data-aos-delay="150"
+                style={{ background: "#fdfdfd", borderRadius: "8px" }}
+              >
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Imagem</th>
+                    <th>Acções</th>
+                  </tr>
+                </thead>
+                <tbody>{rows}</tbody>
+              </Table>
+            ) : (
+              <p>Nenhum Produto foi cadastrado ainda.</p>
+            )}
+          </>
         )}
       </Container>
       {OpenModal && (
-        <ModalCreateProduct open={OpenModal} onClose={CloseModal} />
+        <ModalCreateProduct
+          open={OpenModal}
+          onClose={CloseModal}
+          getProducts={getProducts}
+        />
       )}
     </>
   );

@@ -6,6 +6,7 @@ export const Container = styled.main`
   background-position: bottom;
   background-size: cover;
   height: 100vh;
+  margin: 0;
   overflow-x: hidden;
 
   & > div {
@@ -28,6 +29,7 @@ export const Container = styled.main`
       backdrop-filter: blur(15px);
       background: #00000061;
       padding: 2em;
+      min-height: 100vh;
       height: 100%;
       width: 100%;
       max-width: 500px;
@@ -144,6 +146,7 @@ export const Container = styled.main`
 
     @media (min-width: 510px) {
       .content {
+        min-height: auto;
         height: auto;
         display: block;
       }

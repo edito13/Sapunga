@@ -29,6 +29,7 @@ export const Container = styled.main`
       background: #00000061;
       padding: 2em;
       gap: 1.5em;
+      min-height: 100vh;
       height: 100%;
       width: 100%;
       max-width: 500px;
@@ -159,7 +160,7 @@ export const Container = styled.main`
 
     @media (min-width: 500px) {
       .content {
-        height: auto;
+        min-height: fit-content;
         display: block;
       }
     }
