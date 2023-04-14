@@ -62,7 +62,6 @@ const Login: React.FC<Props> = () => {
 
       setCookie("user", token, { path: "/" });
       localStorage.setItem("user", JSON.stringify(user));
-      // window.location.reload();
       dispatch(SignUser({ user, token }));
     } catch (error) {
       setError(error as string);

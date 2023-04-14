@@ -18,12 +18,15 @@ const Orders = createSlice({
     addOrdersUser(state, { payload }: PayloadAction<OrdersData[]>) {
       return { ...state, ordersUser: payload };
     },
+    addNewOrderUser(state, { payload }: PayloadAction<OrdersData>) {
+      return { ...state, ordersUser: [...state.ordersUser, payload] };
+    },
   },
 });
 
 export default Orders.reducer;
 
-export const { addOrders, addOrdersUser } = Orders.actions;
+export const { addOrders, addOrdersUser, addNewOrderUser } = Orders.actions;
 
 export const selectAllOrders = (state: any) =>
   state.orders.orders as OrdersData[];

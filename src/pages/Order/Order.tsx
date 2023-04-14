@@ -10,10 +10,15 @@ import { Money } from "../../assets/ConvertMoney";
 import Slider from "../../Components/Slider Order";
 import { BlueButton } from "../../Components/BlueButton/style";
 import ModalLoading from "../../Components/ModalLoading";
-import { ProductsData } from "../../interfaces";
+import { OrdersData, ProductsData } from "../../interfaces";
 import { selectAllProducts } from "../../store/Products/products.reducer";
 import { Container, ContainerProduct, ImgProduct } from "./style";
-import { addOrders, selectOrdersUser } from "../../store/Orders/orders.reducer";
+import {
+  addNewOrderUser,
+  addOrders,
+  addOrdersUser,
+  selectOrdersUser,
+} from "../../store/Orders/orders.reducer";
 
 interface Props {}
 
@@ -49,13 +54,14 @@ export default ({}: Props) => {
   }, [OpenModal]);
 
   const OrderProduct = async () => {
-    const response = await api.OrderProduct({
+    const response: OrdersData[] = await api.OrderProduct({
       productID: Product._id,
       quantity: Quantity,
       token: cookies.user,
     });
 
     dispatch(addOrders(response));
+    dispatch(addNewOrderUser(response[response.length - 1]));
     setTimeout(() => setOpenModal(true), 500);
   };
 
