@@ -22,6 +22,7 @@ export const Container = styled.div`
     h1 {
       margin-bottom: 0.5em;
       font-size: 1.8em;
+      font-weight: 500;
     }
 
     p {
@@ -30,9 +31,10 @@ export const Container = styled.div`
 
     p:nth-child(2) {
       margin-bottom: 0.3em;
-    }
 
-    p:last-child {
+      a {
+        color: #000066;
+      }
     }
   }
 `;
@@ -89,6 +91,11 @@ export const ContainerProduct = styled.div`
       display: flex;
       align-items: center;
       gap: 0.3em;
+
+      button {
+        padding: 5px 6px;
+        background: red;
+      }
     }
   }
 `;

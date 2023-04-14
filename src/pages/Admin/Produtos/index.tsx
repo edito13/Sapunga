@@ -57,7 +57,7 @@ const index = () => {
     const FilteredProducts = Products.filter((product) => {
       const productItem = product.name.toLocaleLowerCase();
       const value = SearchValue.toLocaleLowerCase();
-      if (value === "") return productItem;
+      if (value === "") return product;
       return productItem.includes(value);
     });
     setProducts(FilteredProducts);
