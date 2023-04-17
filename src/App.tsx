@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 import api from "./assets/api";
@@ -12,6 +12,8 @@ import {
   addProductsCategory,
 } from "./store/Products/products.reducer";
 import { addUsers, SignUser } from "./store/Users/users.reducer";
+import { UserType } from "./types";
+import Login2 from "./pages/Login2";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -96,31 +98,35 @@ const App = () => {
   useEffect(() => {
     localStorage.removeItem("ordersUser");
 
-    const getOrdersUser = async () => {
-      const ordersUser = await api.SelectOrdersUser(token);
+    if (token) {
+      const getOrdersUser = async () => {
+        const ordersUser = await api.SelectOrdersUser(token);
 
-      if (ordersUser) {
-        dispatch(addOrdersUser(ordersUser));
-        localStorage.setItem("ordersUser", JSON.stringify(ordersUser));
-      }
-    };
+        if (ordersUser) {
+          dispatch(addOrdersUser(ordersUser));
+          localStorage.setItem("ordersUser", JSON.stringify(ordersUser));
+        }
+      };
 
-    getOrdersUser();
+      getOrdersUser();
+    }
   }, []);
 
   useEffect(() => {
     localStorage.removeItem("favourites");
 
-    const getFavourites = async () => {
-      const favourites = await api.SelectFavourites(token);
+    if (token) {
+      const getFavourites = async () => {
+        const favourites = await api.SelectFavourites(token);
 
-      if (favourites) {
-        dispatch(addFavourites(favourites));
-        localStorage.setItem("favourites", JSON.stringify(favourites));
-      }
-    };
+        if (favourites) {
+          dispatch(addFavourites(favourites));
+          localStorage.setItem("favourites", JSON.stringify(favourites));
+        }
+      };
 
-    getFavourites();
+      getFavourites();
+    }
   }, []);
 
   useEffect(() => {
@@ -142,13 +148,15 @@ const App = () => {
 
   // const GetLoginUserData = (newData: UserType) => {
   //   if (newData) {
+  //     const { displayName, photoURL, email } = newData;
+
   //     const newUser = {
-  //       uid: newData.uid,
-  //       displayName: newData.displayName,
-  //       photoURL: newData.photoURL,
+  //       name: displayName,
+  //       photoURL,
+  //       email,
   //     };
 
-  //     setUser(newUser);
+  //     // setUser(newUser);
   //     console.log(newUser);
   //   }
   // };

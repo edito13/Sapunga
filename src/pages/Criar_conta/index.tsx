@@ -8,6 +8,7 @@ import { Container } from "./style";
 import { BlueButton } from "../../Components/BlueButton/style";
 import ModalCheckRegist from "../../Components/ModalCheckRegist";
 import api from "../../assets/api";
+import axios from "axios";
 
 const Login = () => {
   useEffect(() => {
@@ -19,7 +20,7 @@ const Login = () => {
 
   const onClose = () => setOpenModal(false);
 
-  const SendForm = async (e: FormEvent) => {
+  const CreateAcount = async (e: FormEvent) => {
     e.preventDefault();
 
     const name = nameFill.current?.value;
@@ -28,12 +29,36 @@ const Login = () => {
     const confirmPassword = confirmPasswordFill.current?.value;
 
     try {
-      const response = await api.SelectUsers();
-      console.log(response);
+      if (!name) throw "O campo de nome está vazio, preencha-o.";
+      else if (!email) throw "O campo de email está vazio, preencha-o.";
+      else if (!password) throw "O campo de senha está vazio, preencha-o.";
+      else if (!confirmPassword)
+        throw "O campo de confirmar senha está vazio, preencha-o.";
+      else if (password !== confirmPassword)
+        throw "As senhas são diferentes, use mesma senha.";
 
-      setOpenModal(true);
+      // // If all validation are ok, then we can continue
+
+      const { data } = await axios(
+        `https://api.usebouncer.com/v1.1/email/verify?email=${email}&timeout=10`,
+        {
+          headers: {
+            "x-api-key": "52Y4VdBtNhNqcdDFoI8AeG92vJAvZqeGFabYp8gf",
+          },
+        }
+      );
+
+      if (!data) throw "Este e-mail não existe, insira um e-mail existente.";
+
+      const response = await api.CreateAcount({ name, email, password });
+
+      if (response.error) return setError(response.error);
+      setError("");
+      console.log(response);
     } catch (error) {
-      alert(error);
+      setError(error as string);
+    } finally {
+      setOpenModal(true);
     }
   };
 
@@ -78,42 +103,46 @@ const Login = () => {
             data-aos-duration="1000"
           >
             <h3>Criar conta</h3>
-            <form onSubmit={SendForm}>
-              <div data-aos="fade-right" data-aos-delay="50">
+            <form onSubmit={CreateAcount}>
+              <div>
                 <label htmlFor="nome">Nome de usuário</label>
                 <input
                   type="text"
                   id="nome"
                   ref={nameFill}
                   placeholder="Digite seu nome"
+                  required
                 />
               </div>
-              <div data-aos="fade-left" data-aos-delay="100">
+              <div>
                 <label htmlFor="email">E-mail ou Telefone</label>
                 <input
                   type="text"
                   id="email"
                   ref={emailFill}
                   placeholder="email@gmail.com"
+                  required
                 />
               </div>
               <div className="senhas">
-                <div data-aos="fade-right" data-aos-delay="150">
+                <div>
                   <label htmlFor="senha">Senha</label>
                   <input
                     type="password"
                     id="senha"
                     ref={passwordFill}
                     placeholder="Digite sua senha"
+                    required
                   />
                 </div>
-                <div data-aos="fade-left" data-aos-delay="200">
+                <div>
                   <label htmlFor="confsenha">Confirmar</label>
                   <input
                     type="password"
                     id="confsenha"
                     ref={confirmPasswordFill}
                     placeholder="Cofirme sua senha"
+                    required
                   />
                 </div>
               </div>
@@ -123,8 +152,6 @@ const Login = () => {
                 variant="contained"
                 fullWidth
                 disableElevation
-                data-aos="zoom-in"
-                data-aos-delay="150"
               >
                 Registrar-se
               </BlueButton>
@@ -155,7 +182,9 @@ const Login = () => {
           </div>
         </div>
       </Container>
-      {OpenModal && <ModalCheckRegist open={OpenModal} onClose={onClose} />}
+      {OpenModal && (
+        <ModalCheckRegist open={OpenModal} erro={Error} onClose={onClose} />
+      )}
     </>
   );
 };

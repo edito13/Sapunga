@@ -160,7 +160,8 @@ export const Container = styled.main`
 
     @media (min-width: 500px) {
       .content {
-        min-height: fit-content;
+        min-height: auto;
+        height: auto;
         display: block;
       }
     }

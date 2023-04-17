@@ -66,15 +66,11 @@ const api = {
     return response.data;
   },
   async CreateProduct(data: ProductDataI) {
-    const response = await axios.post(
-      `${BaseUrl}/product/regist`,
-      data
-      // {
-      //   headers: {
-      //     Authorization: `Bearer ${token}`,
-      //   },
-      // }
-    );
+    const response = await axios.post(`${BaseUrl}/product/regist`, data);
+    return response.data;
+  },
+  async CreateAcount(data: UserDataI) {
+    const response = await axios.post(`${BaseUrl}/user/regist`, data);
     return response.data;
   },
   async FavouriteProduct({ token, productID }: FavouriteDataI) {

@@ -1,7 +1,7 @@
 export interface Data {
-  uid: string;
   displayName: string | null;
   photoURL: string | null;
+  email: string | null;
 }
 
 export interface UsersData {

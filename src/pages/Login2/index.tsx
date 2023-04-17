@@ -3,6 +3,7 @@ import { BsFacebook, BsGoogle } from "react-icons/bs";
 import { UserType } from "../../types";
 import { Container } from "./style";
 import api from "../../assets/Firebase";
+import axios from "axios";
 
 interface Props {
   onReceiveGoogle: (newData: UserType) => void;
