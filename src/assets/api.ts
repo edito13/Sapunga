@@ -105,6 +105,10 @@ const api = {
     const response = await axios(`${BaseUrl}/product/selectAll`);
     return response.data;
   },
+  async SelectProductsCategory() {
+    const response = await axios(`${BaseUrl}/product/selectAllProducts`);
+    return response.data;
+  },
   async SelectProduct(id: string) {
     const response = await axios(`${BaseUrl}/product/selectOne/${id}`);
     return response.data;
@@ -148,7 +152,7 @@ const api = {
   },
   async DeleteProduct(id: string) {
     const response = await axios.delete(`${BaseUrl}/product/delete`, {
-      data: { id }
+      data: { id },
     });
     return response.data;
   },

@@ -8,20 +8,21 @@ export const Container = styled.div`
 
   .statistic-container {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 2em;
     margin-top: 2em;
 
     .statistic-item {
       flex: 1;
-      max-width: 260px;
+      max-width: 300px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 0.3em;
       background: #fdfdfd;
       box-shadow: 0px 0px 20px 2px #00000015;
-      padding: 1.5em;
+      padding: 1.6em;
       border-radius: 8px;
       transition: 0.3s ease-in-out;
       cursor: pointer;
@@ -30,12 +31,12 @@ export const Container = styled.div`
         color: #333;
 
         svg {
-          font-size: 2.3em;
+          font-size: 2.7em;
         }
 
         p {
-          font-size: 1.2em;
-          margin-top: 0.3em;
+          font-size: 1.5em;
+          margin-top: 0.5em;
         }
       }
 

@@ -7,7 +7,10 @@ import { SignInAdmin } from "./store/Admins/admins.reducer";
 import { addCategories } from "./store/Categories/categories.reducer";
 import { addFavourites } from "./store/Favourites/favourites.reducer";
 import { addOrders, addOrdersUser } from "./store/Orders/orders.reducer";
-import { addProducts } from "./store/Products/products.reducer";
+import {
+  addProducts,
+  addProductsCategory,
+} from "./store/Products/products.reducer";
 import { addUsers, SignUser } from "./store/Users/users.reducer";
 
 const App = () => {
@@ -58,6 +61,21 @@ const App = () => {
     };
 
     getProducts();
+  }, []);
+
+  useEffect(() => {
+    localStorage.removeItem("productsCategory");
+
+    const getProductsCategory = async () => {
+      const products = await api.SelectProductsCategory();
+
+      if (products) {
+        dispatch(addProductsCategory(products));
+        localStorage.setItem("productsCategory", JSON.stringify(products));
+      }
+    };
+
+    getProductsCategory();
   }, []);
 
   useEffect(() => {

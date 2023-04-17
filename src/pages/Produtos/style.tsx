@@ -1,21 +1,27 @@
 import styled from "styled-components";
 
 export const ProductsContainer = styled.div`
-  display: flex;
-  /* justify-content: center; */
-  flex-wrap: wrap;
-  gap: 4em 5%;
   padding: 0 2em;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 97%;
   margin: 0 auto 5em;
 
-  & > div {
+  h1 {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: 400;
+  }
+
+  .Slider_products + .Slider_products {
+    margin-top: 2em;
+  }
+  /* & > div {
     flex: 1;
     min-width: 230px;
     max-width: 250px;
-  }
+  } */
 
-  @media (min-width: 550px) {
+  /* @media (min-width: 550px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -29,5 +35,5 @@ export const ProductsContainer = styled.div`
 
   @media (min-width: 1200px) {
     padding: 0;
-  }
+  } */
 `;

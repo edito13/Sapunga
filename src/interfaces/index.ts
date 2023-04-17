@@ -24,6 +24,11 @@ export interface ProductsData {
   createdAt: Date;
 }
 
+export interface ProductsCategory {
+  _id: string;
+  products: ProductsData[];
+}
+
 export interface OrdersData {
   _id: string;
   user: UsersData | null;
@@ -58,6 +63,7 @@ export interface InitialStateUsersI {
 
 export interface InitialStateProductsI {
   products: ProductsData[];
+  productsCategory: ProductsCategory[];
 }
 
 export interface InitialStateOrdersI {

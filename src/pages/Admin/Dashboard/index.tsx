@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Table } from "@mantine/core";
 import { FaShoppingCart, FaUsers } from "react-icons/fa";
-import { BsBagFill, BsFillChatDotsFill } from "react-icons/bs";
+import { BsBagFill } from "react-icons/bs";
 import { OrdersData, ProductsData, UsersData } from "../../../interfaces";
 import { Container } from "./style";
 import { selectUsers } from "../../../store/Users/users.reducer";
@@ -76,18 +76,6 @@ const index = () => {
           <span>
             {Orders.length > 10 ? Orders.length : "0" + Orders.length}
           </span>
-        </Link>
-        <Link
-          to={"/admin/mensagens"}
-          className="statistic-item"
-          data-aos="zoom-in"
-          data-aos-delay="400"
-        >
-          <div className="title">
-            <BsFillChatDotsFill />
-            <p>Mensagens</p>
-          </div>
-          <span>04</span>
         </Link>
       </div>
       <div className="RecentUsers" data-aos="zoom-in-up" data-aos-delay="500">
