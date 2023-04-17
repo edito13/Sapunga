@@ -14,21 +14,21 @@ import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaFacebook, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { Container } from "./style";
 import { BlueButton } from "../../Components/BlueButton/style";
-import ModalCheckLogin from "../../Components/ModalCheckLogin";
+import ModalCheck from "../../Components/ModalCheck";
 import api from "../../assets/api";
 import { SignUser } from "../../store/Users/users.reducer";
 
 interface Props {}
 
 const Login: React.FC<Props> = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const [cookies, setCookie] = useCookies(["user"]);
   const dispatch = useDispatch();
   const [OpenModal, setOpenModal] = useState<boolean>(false);
   const [Error, setError] = useState<string>("");
-
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   useEffect(() => {
     if (!OpenModal) {
@@ -36,6 +36,8 @@ const Login: React.FC<Props> = () => {
       if (token) setTimeout(() => window.location.reload(), 700);
     }
   }, [OpenModal]);
+
+  const successMessage = "Seu login foi feito com sucesso.";
 
   const onClose = useCallback(() => setOpenModal(false), [OpenModal]);
 
@@ -167,7 +169,12 @@ const Login: React.FC<Props> = () => {
         </div>
       </Container>
       {OpenModal && (
-        <ModalCheckLogin erro={Error} open={OpenModal} onClose={onClose} />
+        <ModalCheck
+          erro={Error}
+          successMessage={successMessage}
+          open={OpenModal}
+          onClose={onClose}
+        />
       )}
     </>
   );

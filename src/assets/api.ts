@@ -66,16 +66,16 @@ const api = {
     return response.data;
   },
   async CreateProduct(data: ProductDataI) {
-    const response = await axios.post(`${BaseUrl}/product/regist`, data);
+    const response = await axios.post(`${BaseUrl}/product/`, data);
     return response.data;
   },
   async CreateAcount(data: UserDataI) {
-    const response = await axios.post(`${BaseUrl}/user/regist`, data);
+    const response = await axios.post(`${BaseUrl}/user/`, data);
     return response.data;
   },
   async FavouriteProduct({ token, productID }: FavouriteDataI) {
     const response = await axios.post(
-      `${BaseUrl}/react/`,
+      `${BaseUrl}/favourite/`,
       { productID },
       {
         headers: {
@@ -86,11 +86,11 @@ const api = {
     return response.data;
   },
   async SelectUsers() {
-    const response = await axios(`${BaseUrl}/user/selectAll`);
+    const response = await axios(`${BaseUrl}/user/`);
     return response.data;
   },
   async SelectUser({ id, token }: authDataI) {
-    const response = await axios(`${BaseUrl}/user/selectOne/${id}`, {
+    const response = await axios(`${BaseUrl}/user/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -98,15 +98,15 @@ const api = {
     return response.data;
   },
   async SelectProducts() {
-    const response = await axios(`${BaseUrl}/product/selectAll`);
+    const response = await axios(`${BaseUrl}/product/`);
     return response.data;
   },
   async SelectProductsCategory() {
-    const response = await axios(`${BaseUrl}/product/selectAllProducts`);
+    const response = await axios(`${BaseUrl}/product/all`);
     return response.data;
   },
   async SelectProduct(id: string) {
-    const response = await axios(`${BaseUrl}/product/selectOne/${id}`);
+    const response = await axios(`${BaseUrl}/product/${id}`);
     return response.data;
   },
   async SelectOrders() {
@@ -122,7 +122,7 @@ const api = {
     return response.data;
   },
   async SelectFavourites(token: string) {
-    const response = await axios(`${BaseUrl}/react/selectUserReacts`, {
+    const response = await axios(`${BaseUrl}/favourite/userFavourites`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -138,7 +138,7 @@ const api = {
     return response.data;
   },
   async DeleteOrder({ id, token }: authDataI) {
-    const response = await axios.delete(`${BaseUrl}/order/delete`, {
+    const response = await axios.delete(`${BaseUrl}/order/`, {
       data: { id },
       headers: {
         Authorization: `Bearer ${token}`,
@@ -147,13 +147,13 @@ const api = {
     return response.data;
   },
   async DeleteProduct(id: string) {
-    const response = await axios.delete(`${BaseUrl}/product/delete`, {
+    const response = await axios.delete(`${BaseUrl}/product/`, {
       data: { id },
     });
     return response.data;
   },
   async DeleteFavourite({ id, token }: authDataI) {
-    const response = await axios.delete(`${BaseUrl}/react/unReact`, {
+    const response = await axios.delete(`${BaseUrl}/favourite/`, {
       data: { id },
       headers: {
         Authorization: `Bearer ${token}`,

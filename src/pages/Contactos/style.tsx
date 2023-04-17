@@ -33,55 +33,69 @@ export const Container = styled.main`
       }
     }
 
-    form {
-      margin: 1em auto;
+    .Introduce + div {
+      display: flex;
+      gap: 2em;
+      margin-bottom: 2em;
 
-      fieldset {
-        border: none;
+      iframe {
+        border-radius: 8px;
+        width: 100vw;
+        height: 100vh;
+        max-width: 450px;
+        max-height: 300px;
+        box-shadow: 0px 0px 3px #00000040;
+      }
+
+      form {
+        width: 100%;
         max-width: 500px;
-        margin: auto;
+        margin: 1em auto;
+        color: #444;
 
-        legend {
-          padding-bottom: 0.5em;
+        label {
           display: block;
-          width: 100%;
           text-align: left;
           font-size: 1.3em;
-          color: #444;
-          border-bottom: 1px solid #ccc;
+          margin-bottom: 0.2em;
         }
 
-        input,
+        p {
+          font-size: 1em;
+          font-family: "Roboto Light";
+        }
+
         textarea {
           border: none;
-          border: 1px solid #ccc;
+          border: 1px solid #bbbb;
           border-radius: 5px;
-          padding: 0.6em 0.8em;
+          padding: 0.4em;
           font-size: 1.2em;
           width: 100%;
-          margin-top: 1.5em;
           color: #444;
+          margin-top: 1em;
         }
 
         input::placeholder,
         textarea::placeholder {
           color: #ccc;
+          font-size: 1em;
           font-family: "Roboto Light";
         }
 
         input:last-child {
           margin-bottom: 1em;
         }
-      }
 
-      fieldset:first-child {
-        margin-bottom: 2em;
-      }
+        & > div:last-child {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 1.5em;
 
-      & > div:last-child {
-        display: flex;
-        justify-content: center;
-        margin-top: 4em;
+          button {
+            padding: 6px 40px;
+          }
+        }
       }
     }
 
@@ -96,23 +110,8 @@ export const Container = styled.main`
         }
       }
 
-      form {
+      .Introduce + div {
         margin-bottom: 5em;
-
-        .content {
-          display: flex;
-          justify-content: center;
-          gap: 10%;
-
-          fieldset {
-            max-width: 500px;
-            flex: 1;
-          }
-
-          fieldset + fieldset {
-            margin-top: 0;
-          }
-        }
       }
     }
 

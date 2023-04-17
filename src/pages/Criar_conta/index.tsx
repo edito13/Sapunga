@@ -6,7 +6,7 @@ import { FaFacebook, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { Container } from "./style";
 import { BlueButton } from "../../Components/BlueButton/style";
-import ModalCheckRegist from "../../Components/ModalCheckRegist";
+import ModalCheck from "../../Components/ModalCheck";
 import api from "../../assets/api";
 import axios from "axios";
 
@@ -15,8 +15,15 @@ const Login = () => {
     AOS.init();
   }, []);
 
+  const successMessage = "Sua conta foi criada com sucesso.";
+
+  const nameFill = useRef<HTMLInputElement>(null);
+  const emailFill = useRef<HTMLInputElement>(null);
+  const passwordFill = useRef<HTMLInputElement>(null);
+  const confirmPasswordFill = useRef<HTMLInputElement>(null);
+
   const [OpenModal, setOpenModal] = useState<boolean>(false);
-  const [Error, setError] = useState<string | null>(null);
+  const [Error, setError] = useState<string>("");
 
   const onClose = () => setOpenModal(false);
 
@@ -61,11 +68,6 @@ const Login = () => {
       setOpenModal(true);
     }
   };
-
-  const nameFill = useRef<HTMLInputElement>(null);
-  const emailFill = useRef<HTMLInputElement>(null);
-  const passwordFill = useRef<HTMLInputElement>(null);
-  const confirmPasswordFill = useRef<HTMLInputElement>(null);
 
   return (
     <>
@@ -183,7 +185,12 @@ const Login = () => {
         </div>
       </Container>
       {OpenModal && (
-        <ModalCheckRegist open={OpenModal} erro={Error} onClose={onClose} />
+        <ModalCheck
+          erro={Error}
+          successMessage={successMessage}
+          open={OpenModal}
+          onClose={onClose}
+        />
       )}
     </>
   );

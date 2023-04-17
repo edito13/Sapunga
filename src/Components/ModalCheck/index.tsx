@@ -3,12 +3,13 @@ import LoadingProgress from "../LoadingProgress";
 import { Container, MainModal } from "./style";
 
 interface Props {
+  erro: string;
+  successMessage: string;
   open: boolean;
   onClose: () => void;
-  erro: string | null;
 }
 
-const index: React.FC<Props> = ({ open, erro, onClose }) => {
+const index: React.FC<Props> = ({ erro, successMessage, open, onClose }) => {
   const [LoadingCounter, setLoadingCounter] = useState(1);
   const [LoadingStatus, setLoadingStatus] = useState(false);
 
@@ -25,13 +26,14 @@ const index: React.FC<Props> = ({ open, erro, onClose }) => {
     if (LoadingCounter <= 2) setLoadingStatus(true);
     else setLoadingStatus(false);
   }, [LoadingCounter]);
+
   return (
     <MainModal open={open} onClose={onClose}>
       <Container>
         {LoadingStatus ? (
           <LoadingProgress />
         ) : (
-          <p>{erro ? erro : "Sua conta foi criada com sucesso!"}</p>
+          <p>{erro ? erro : successMessage}</p>
         )}
       </Container>
     </MainModal>
