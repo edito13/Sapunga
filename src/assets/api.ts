@@ -6,6 +6,11 @@ interface UserDataI {
   password: string;
 }
 
+interface SendMessageI {
+  message: string;
+  token: string;
+}
+
 interface ProductDataI {
   urlPhoto: string;
   name: string;
@@ -45,6 +50,18 @@ const api = {
     const response = await axios.post(`${BaseUrl}/uploads`, data);
     return response.data;
   },
+  async SendMessage({ message, token }: SendMessageI) {
+    const response = await axios.post(
+      `${BaseUrl}/sendMessage`,
+      { message },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  },
   async CheckLogin(data: UserDataI) {
     const response = await axios.post(`${BaseUrl}/user/checkLogin`, data);
     return response.data;
@@ -55,7 +72,7 @@ const api = {
   },
   async OrderProduct({ token, productID, quantity }: orderDataI) {
     const response = await axios.post(
-      `${BaseUrl}/order/orderProduct`,
+      `${BaseUrl}/order/`,
       { productID, quantity },
       {
         headers: {
@@ -110,11 +127,11 @@ const api = {
     return response.data;
   },
   async SelectOrders() {
-    const response = await axios(`${BaseUrl}/order/selectAll`);
+    const response = await axios(`${BaseUrl}/order/`);
     return response.data;
   },
   async SelectOrdersUser(token: string) {
-    const response = await axios(`${BaseUrl}/order/selectOrdersUser`, {
+    const response = await axios(`${BaseUrl}/order/ordersUser`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -134,7 +151,7 @@ const api = {
     return response.data;
   },
   async DeleteUser(data: AxiosRequestConfig) {
-    const response = await axios.delete(`${BaseUrl}/user/delete`, data);
+    const response = await axios.delete(`${BaseUrl}/user/`, data);
     return response.data;
   },
   async DeleteOrder({ id, token }: authDataI) {

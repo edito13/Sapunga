@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useCookies } from "react-cookie";
 import { useSelector } from "react-redux";
 import { FaPaperPlane, FaPhoneAlt } from "react-icons/fa";
 import { Container } from "./style";
@@ -16,19 +17,16 @@ import Footer from "../../Components/Footer";
 import ModalCheck from "../../Components/ModalCheck";
 import ToTop from "../../Components/ToTop";
 import { BlueButton } from "../../Components/BlueButton/style";
-import {
-  IsAuthenticed,
-  selectUserSigned,
-} from "../../store/Users/users.reducer";
-import { UsersData } from "../../interfaces";
+import { IsAuthenticed } from "../../store/Users/users.reducer";
+import api from "../../assets/api";
 
 const index = () => {
   useEffect(() => {
     AOS.init();
   }, []);
 
+  const [cookies] = useCookies(["user"]);
   const isAuthenticed = useSelector(IsAuthenticed);
-  const user: UsersData = useSelector(selectUserSigned);
 
   const successMessage =
     "A mensagem foi enviada com successo, retornaremos assim que for possível.";
@@ -48,7 +46,8 @@ const index = () => {
       if (!message) throw "O campo de mensagem está vazio, preencha-o.";
 
       setError("");
-      alert(message);
+      const response = await api.SendMessage({ message, token: cookies.user });
+      console.log(response);
     } catch (error) {
       setError(error as string);
     } finally {
@@ -104,7 +103,7 @@ const index = () => {
                 placeholder="Escreva alguma coisa para nós!"
                 data-aos="zoom-in"
                 data-aos-delay="100"
-                disabled={!isAuthenticed ? false : true}
+                disabled={isAuthenticed ? false : true}
               ></textarea>
               <div data-aos="zoom-in" data-aos-delay="100">
                 <BlueButton
@@ -112,7 +111,7 @@ const index = () => {
                   type="submit"
                   startIcon={<FaPaperPlane />}
                   disableElevation
-                  disabled={!isAuthenticed ? false : true}
+                  disabled={isAuthenticed ? false : true}
                 >
                   Enviar
                 </BlueButton>
