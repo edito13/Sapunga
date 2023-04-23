@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig } from "axios";
 interface UserDataI {
   name?: string;
   email: string;
-  password: string;
+  password?: string;
 }
 
 interface SendMessageI {
@@ -66,6 +66,12 @@ const api = {
     const response = await axios.post(`${BaseUrl}/user/checkLogin`, data);
     return response.data;
   },
+  async CheckLoginGoogle(email: string) {
+    const response = await axios.post(`${BaseUrl}/user/checkLoginGoogle`, {
+      email,
+    });
+    return response.data;
+  },
   async CheckLoginAdmin(data: AdminDataI) {
     const response = await axios.post(`${BaseUrl}/admin/checkLogin`, data);
     return response.data;
@@ -74,6 +80,26 @@ const api = {
     const response = await axios.post(
       `${BaseUrl}/order/`,
       { productID, quantity },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  },
+  async UpdateOrderProduct({
+    token,
+    id,
+    quantity,
+  }: {
+    token: string;
+    id: string;
+    quantity: number;
+  }) {
+    const response = await axios.put(
+      `${BaseUrl}/order/`,
+      { id, quantity },
       {
         headers: {
           Authorization: `Bearer ${token}`,

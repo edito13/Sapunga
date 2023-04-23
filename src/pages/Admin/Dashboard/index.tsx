@@ -47,7 +47,7 @@ const index = () => {
             <FaUsers />
             <p>Usuarios</p>
           </div>
-          <span>{Users.length > 10 ? Users.length : "0" + Users.length}</span>
+          <span>{Users.length >= 10 ? Users.length : "0" + Users.length}</span>
         </Link>
         <Link
           to={"/admin/produtos"}
@@ -60,7 +60,7 @@ const index = () => {
             <p>Produtos</p>
           </div>
           <span>
-            {Products.length > 10 ? Products.length : "0" + Products.length}
+            {Products.length >= 10 ? Products.length : "0" + Products.length}
           </span>
         </Link>
         <Link

@@ -32,13 +32,15 @@ const index: React.FC<Props> = ({ open, onClose }) => {
       Money(
         ordersUser.reduce((previousPrice, current) => {
           const currentPrice = current.product?.price as number;
-          return previousPrice + currentPrice;
+          const currentQuatity = current.quantity;
+          const totalProduct = currentPrice * currentQuatity;
+          return previousPrice + totalProduct;
         }, 0)
       ),
     [ordersUser]
   );
   const [LoadingCounter, setLoadingCounter] = useState(1);
-  const [LoadingStatus, setLoadingStatus] = useState(false);
+  const [LoadingStatus, setLoadingStatus] = useState(true);
 
   useEffect(() => {
     const time = setInterval(
@@ -55,10 +57,18 @@ const index: React.FC<Props> = ({ open, onClose }) => {
   }, [LoadingCounter]);
 
   const DeleteOrder = async (id: string) => {
+    setLoadingStatus(true);
     const response = await api.DeleteOrder({ id, token: cookies.user });
     dispatch(addOrders(response));
     dispatch(addOrdersUser(response));
-    setLoadingStatus(true);
+  };
+
+  const DizerMessage = () => {
+    const message = new SpeechSynthesisUtterance();
+    message.text = "Olá, bom dia senhor Editoh.";
+    // message.text = "Bunnnnnnguiléééééé, Bannnnnnguiiii";
+    window.speechSynthesis.speak(message);
+    console.log("Passou aqui");
   };
 
   return (
@@ -83,7 +93,9 @@ const index: React.FC<Props> = ({ open, onClose }) => {
                         url={`${BaseUrl}${order.product?.urlPhoto}`}
                       />
                       <div>
-                        <p>{order.product?.name}</p>
+                        <p>
+                          {order.product?.name}({order.quantity})
+                        </p>
                         <p>{Money(order.product?.price as number)}</p>
                       </div>
                     </div>

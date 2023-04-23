@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaUsers } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import BlueButton from "../BlueButton";
@@ -9,10 +9,29 @@ interface Props {
 }
 
 const index: React.FC<Props> = ({ image }) => {
+  const text = "SAPUNGA";
+  const delay = 150;
+
+  const [currentText, setCurrentText] = useState("");
+  const [currentPosition, setCurrentPosition] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (currentPosition < text.length) {
+        setCurrentText((prev) => prev + text.charAt(currentPosition));
+        setCurrentPosition((prev) => prev + 1);
+      } else {
+        clearInterval(interval);
+      }
+    }, delay);
+
+    return () => clearInterval(interval);
+  }, [currentPosition, delay, text]);
+
   return (
     <Container image={image}>
       <div>
-        <h1 data-aos="zoom-in-down">SAPUNGA</h1>
+        <h1 data-aos="zoom-in-down">{currentText || ""}</h1>
         <p data-aos="zoom-in-down" data-aos-delay="150">
           Comércio & Serviços, Lda.
         </p>

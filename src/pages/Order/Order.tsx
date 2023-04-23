@@ -10,7 +10,7 @@ import { Money } from "../../assets/ConvertMoney";
 import Slider from "../../Components/Slider Order";
 import { BlueButton } from "../../Components/BlueButton/style";
 import ModalLoading from "../../Components/ModalLoading";
-import { OrdersData, ProductsData } from "../../interfaces";
+import { OrdersData, ProductsData, UsersData } from "../../interfaces";
 import { selectAllProducts } from "../../store/Products/products.reducer";
 import { Container, ContainerProduct, ImgProduct } from "./style";
 import {
@@ -19,12 +19,14 @@ import {
   addOrdersUser,
   selectOrdersUser,
 } from "../../store/Orders/orders.reducer";
+import { selectUserSigned } from "../../store/Users/users.reducer";
 
 interface Props {}
 
 export default ({}: Props) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const user: UsersData = useSelector(selectUserSigned);
   const [cookies] = useCookies(["user"]);
   const Product: ProductsData = useSelector(selectAllProducts).filter(
     (product) => product._id === id
@@ -54,15 +56,40 @@ export default ({}: Props) => {
   }, [OpenModal]);
 
   const OrderProduct = async () => {
-    const response: OrdersData[] = await api.OrderProduct({
-      productID: Product._id,
-      quantity: Quantity,
-      token: cookies.user,
-    });
+    const token = cookies.user;
 
-    dispatch(addOrders(response));
-    dispatch(addNewOrderUser(response[response.length - 1]));
-    setTimeout(() => setOpenModal(true), 500);
+    const Order = ordersUser.filter(
+      (order) =>
+        order.product?._id === Product._id && order.user?._id === user._id
+    );
+
+    if (Order.length) {
+      const response: OrdersData[] = await api.UpdateOrderProduct({
+        id: Order[0]._id,
+        token,
+        quantity: Quantity,
+      });
+
+      dispatch(addOrders(response));
+      dispatch(
+        addOrdersUser(response.filter((order) => order.user?._id === user._id))
+      );
+      setTimeout(() => setOpenModal(true), 500);
+
+      return true;
+    } else {
+      const response: OrdersData[] = await api.OrderProduct({
+        productID: Product._id,
+        quantity: Quantity,
+        token,
+      });
+
+      dispatch(addOrders(response));
+      dispatch(
+        addOrdersUser(response.filter((order) => order.user?._id === user._id))
+      );
+      setTimeout(() => setOpenModal(true), 500);
+    }
   };
 
   return (

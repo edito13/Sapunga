@@ -26,7 +26,7 @@ const index: React.FC<Props> = ({ open, onClose }) => {
   const user: UsersData = useSelector(selectUserSigned);
   const Favourites: FavouritesData[] = useSelector(selectAllFavourites);
   const [LoadingCounter, setLoadingCounter] = useState(1);
-  const [LoadingStatus, setLoadingStatus] = useState(false);
+  const [LoadingStatus, setLoadingStatus] = useState(true);
 
   useEffect(() => {
     const time = setInterval(

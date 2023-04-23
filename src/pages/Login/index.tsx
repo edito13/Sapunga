@@ -17,6 +17,8 @@ import { BlueButton } from "../../Components/BlueButton/style";
 import ModalCheck from "../../Components/ModalCheck";
 import api from "../../assets/api";
 import { SignUser } from "../../store/Users/users.reducer";
+import FirebaseLogin from "../../assets/Firebase";
+import { Data } from "../../interfaces";
 
 interface Props {}
 
@@ -64,11 +66,42 @@ const Login: React.FC<Props> = () => {
 
       setCookie("user", token, { path: "/" });
       localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", token);
       dispatch(SignUser({ user, token }));
     } catch (error) {
       setError(error as string);
     } finally {
       setOpenModal(true);
+    }
+  };
+
+  const LogarGoogle = async () => {
+    const user: Data | null = (await FirebaseLogin.GoogleLogar()).user;
+
+    if (user) {
+      const { email } = user;
+      const userEmail = email as string;
+
+      try {
+        const login = await api.CheckLoginGoogle(userEmail);
+
+        if (login.error) return setError(login.error);
+        // if not error is catched, so all is okay.
+
+        setError("");
+        const { user, token } = login;
+
+        setCookie("user", token, { path: "/" });
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("token", token);
+        dispatch(SignUser({ user, token }));
+      } catch (error) {
+        setError(error as string);
+      } finally {
+        setOpenModal(true);
+      }
+    } else {
+      alert("Error");
     }
   };
 
@@ -112,7 +145,7 @@ const Login: React.FC<Props> = () => {
             <h3>Iniciar Sessão</h3>
             <form onSubmit={Logar}>
               <div>
-                <label htmlFor="email">E-mail ou Telefone</label>
+                <label htmlFor="email">E-mail</label>
                 <input
                   type="email"
                   id="email"
@@ -154,13 +187,9 @@ const Login: React.FC<Props> = () => {
                 <hr />
               </div>
               <div className="midiaLogin">
-                <div>
+                <div onClick={LogarGoogle}>
                   <FaGoogle />
-                  <p>Google</p>
-                </div>
-                <div>
-                  <FaFacebook />
-                  <p>Facebook</p>
+                  <p>Usar o Google</p>
                 </div>
               </div>
             </div>

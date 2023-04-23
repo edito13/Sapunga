@@ -17,6 +17,7 @@ import {
 import { selectUserSigned } from "../../store/Users/users.reducer";
 import { useDispatch } from "react-redux";
 import { useCookies } from "react-cookie";
+import { NodeEnvironment } from "../../types";
 
 interface Props {
   index: number;
@@ -32,6 +33,7 @@ const index: React.FC<Props> = ({ index, product }) => {
   const user: UsersData = useSelector(selectUserSigned);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const env = process.env.NODE_ENV as NodeEnvironment;
   const [OpenModal, setOpenModal] = useState(false);
   const IsProductFavourite = useSelector(selectAllFavourites).filter(
     (favourite) => {
@@ -69,7 +71,14 @@ const index: React.FC<Props> = ({ index, product }) => {
   return (
     <>
       <Container data-aos="zoom-in" data-aos-delay={`${(index + 1) * 100}`}>
-        <Imagem data-aos="slide-down" src={`${BaseUrl}${product.urlPhoto}`} />
+        <Imagem
+          data-aos="slide-down"
+          src={
+            env === "development"
+              ? `${BaseUrl}${product.urlPhoto}`
+              : `${product.urlPhoto}`
+          }
+        />
         <div>
           <p>{product.name}</p>
           <span>{Money(product.price)}</span>

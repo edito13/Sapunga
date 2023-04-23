@@ -48,12 +48,13 @@ export const Container = styled.div`
   }
 
   .items {
-    margin-top: 1em;
+    margin: 1em;
 
     & > div {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 0.6em;
 
       & > div {
         display: flex;
@@ -72,6 +73,10 @@ export const Container = styled.div`
           font-size: 0.8em;
         }
       }
+    }
+
+    & > div + div {
+      border-top: 1px solid #ccc;
     }
   }
 

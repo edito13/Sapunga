@@ -4,7 +4,7 @@ import { InitialStateUsersI, logarUsuarioI, UsersData } from "../../interfaces";
 const InitialState: InitialStateUsersI = {
   authenticed: localStorage.user ? true : false,
   users: localStorage.estado ? JSON.parse(localStorage.estado) : [],
-  token: null,
+  token: localStorage.token ? localStorage.token : null,
   userSigned: localStorage.user ? JSON.parse(localStorage.user) : null,
 };
 
@@ -41,3 +41,4 @@ export const { addUsers, SignUser, logoutUser } = Users.actions;
 export const selectUsers = (state: any) => state.users.users;
 export const selectUserSigned = (state: any) => state.users.userSigned;
 export const IsAuthenticed = (state: any) => state.users.authenticed;
+export const TokenUser = (state: any) => state.users.token;

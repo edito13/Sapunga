@@ -31,6 +31,16 @@ export const Container = styled.div`
       letter-spacing: 5px;
       font-weight: 600;
       text-align: center;
+
+      /* &::after {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 65px;
+        background: currentColor;
+        opacity: 0;
+        animation: pisca 0.8s ease-in-out infinite;
+      } */
     }
     p {
       text-align: center;
@@ -43,6 +53,15 @@ export const Container = styled.div`
       margin-top: 1.5em;
     }
   }
+
+  /* @keyframes pisca {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  } */
 
   @media (min-width: 500px) {
     & > div {

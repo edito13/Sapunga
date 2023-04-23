@@ -2,13 +2,18 @@ import React, { FormEvent, useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaGoogle, FaPaperPlane } from "react-icons/fa";
+import { FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { Container } from "./style";
 import { BlueButton } from "../../Components/BlueButton/style";
 import ModalCheck from "../../Components/ModalCheck";
 import api from "../../assets/api";
 import axios from "axios";
+import { useCookies } from "react-cookie";
+import { useDispatch } from "react-redux";
+import { SignUser } from "../../store/Users/users.reducer";
+import FirebaseLogin from "../../assets/Firebase";
+import { Data } from "../../interfaces";
 
 const Login = () => {
   useEffect(() => {
@@ -17,6 +22,8 @@ const Login = () => {
 
   const successMessage = "Sua conta foi criada com sucesso.";
 
+  const [cookies, setCookie] = useCookies(["user"]);
+  const dispatch = useDispatch();
   const nameFill = useRef<HTMLInputElement>(null);
   const emailFill = useRef<HTMLInputElement>(null);
   const passwordFill = useRef<HTMLInputElement>(null);
@@ -61,11 +68,47 @@ const Login = () => {
 
       if (response.error) return setError(response.error);
       setError("");
-      console.log(response);
+      const { user, token } = response;
+
+      setCookie("user", token, { path: "/" });
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", token);
+      dispatch(SignUser({ user, token }));
     } catch (error) {
       setError(error as string);
     } finally {
       setOpenModal(true);
+    }
+  };
+  const CreateAcountByGoogle = async () => {
+    const user: Data | null = (await FirebaseLogin.GoogleLogar()).user;
+
+    if (user) {
+      const { email, displayName } = user;
+      const userEmail = email as string;
+      const name = displayName as string;
+
+      try {
+        const response = await api.CreateAcount({
+          email: userEmail,
+          name,
+        });
+
+        if (response.error) return setError(response.error);
+        // if not error is catched, so all is okay.
+
+        setError("");
+        const { user, token } = response;
+
+        setCookie("user", token, { path: "/" });
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("token", token);
+        dispatch(SignUser({ user, token }));
+      } catch (error) {
+        setError(error as string);
+      } finally {
+        setOpenModal(true);
+      }
     }
   };
 
@@ -117,7 +160,7 @@ const Login = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email">E-mail ou Telefone</label>
+                <label htmlFor="email">E-mail</label>
                 <input
                   type="text"
                   id="email"
@@ -170,13 +213,9 @@ const Login = () => {
                 <hr />
               </div>
               <div className="midiaLogin">
-                <div>
+                <div onClick={CreateAcountByGoogle}>
                   <FaGoogle />
-                  <p>Google</p>
-                </div>
-                <div>
-                  <FaFacebook />
-                  <p>Facebook</p>
+                  <p>Usar o Google</p>
                 </div>
               </div>
             </div>

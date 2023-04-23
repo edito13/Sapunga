@@ -129,9 +129,7 @@ export const Container = styled.main`
 
       .midiaLogin {
         display: flex;
-        align-items: center;
         justify-content: center;
-        gap: 1.5em;
 
         div {
           display: flex;

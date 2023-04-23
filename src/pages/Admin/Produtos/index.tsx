@@ -86,7 +86,7 @@ const index = () => {
     <tr key={product._id}>
       <td>{index + 1}</td>
       <td>{product.name}</td>
-      <td>{product.describe.substring(10) + "..."}</td>
+      <td>{product.describe.substring(0, 20) + "..."}</td>
       <td>{product.category.name}</td>
       <td>{Money(product.price)}</td>
       <td style={{ margin: "0px" }}>

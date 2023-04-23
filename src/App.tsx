@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import api from "./assets/api";
 import Routes from "./Routes";
 import { SignInAdmin } from "./store/Admins/admins.reducer";
@@ -11,15 +11,22 @@ import {
   addProducts,
   addProductsCategory,
 } from "./store/Products/products.reducer";
-import { addUsers, SignUser } from "./store/Users/users.reducer";
-import { UserType } from "./types";
-import Login2 from "./pages/Login2";
+import {
+  addUsers,
+  IsAuthenticed,
+  SignUser,
+  TokenUser,
+} from "./store/Users/users.reducer";
 
 const App = () => {
   const dispatch = useDispatch();
+  const isAuthenticed = useSelector(IsAuthenticed);
+  const Token = useSelector(TokenUser);
   const [cookies] = useCookies(["user", "admin"]);
   const token = cookies.user;
   const token_admin = cookies.admin;
+
+  const userToken = token || Token;
 
   useEffect(() => {
     if (token) {
@@ -98,9 +105,9 @@ const App = () => {
   useEffect(() => {
     localStorage.removeItem("ordersUser");
 
-    if (token) {
+    if (userToken) {
       const getOrdersUser = async () => {
-        const ordersUser = await api.SelectOrdersUser(token);
+        const ordersUser = await api.SelectOrdersUser(userToken);
 
         if (ordersUser) {
           dispatch(addOrdersUser(ordersUser));
@@ -110,14 +117,14 @@ const App = () => {
 
       getOrdersUser();
     }
-  }, []);
+  }, [isAuthenticed]);
 
   useEffect(() => {
     localStorage.removeItem("favourites");
 
-    if (token) {
+    if (userToken) {
       const getFavourites = async () => {
-        const favourites = await api.SelectFavourites(token);
+        const favourites = await api.SelectFavourites(userToken);
 
         if (favourites) {
           dispatch(addFavourites(favourites));
@@ -127,7 +134,7 @@ const App = () => {
 
       getFavourites();
     }
-  }, []);
+  }, [isAuthenticed]);
 
   useEffect(() => {
     localStorage.removeItem("categories");
@@ -143,27 +150,6 @@ const App = () => {
 
     getCategories();
   }, []);
-
-  // const [User, setUser] = useState<UserType>();
-
-  // const GetLoginUserData = (newData: UserType) => {
-  //   if (newData) {
-  //     const { displayName, photoURL, email } = newData;
-
-  //     const newUser = {
-  //       name: displayName,
-  //       photoURL,
-  //       email,
-  //     };
-
-  //     // setUser(newUser);
-  //     console.log(newUser);
-  //   }
-  // };
-
-  // if (!User) {
-  //   return <Login2 onReceiveGoogle={GetLoginUserData} />;
-  // }
 
   return <Routes />;
 };
