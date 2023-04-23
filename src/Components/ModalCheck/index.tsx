@@ -11,7 +11,7 @@ interface Props {
 
 const index: React.FC<Props> = ({ erro, successMessage, open, onClose }) => {
   const [LoadingCounter, setLoadingCounter] = useState(1);
-  const [LoadingStatus, setLoadingStatus] = useState(false);
+  const [LoadingStatus, setLoadingStatus] = useState(true);
 
   useEffect(() => {
     const time = setInterval(
