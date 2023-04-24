@@ -18,6 +18,7 @@ import {
 import ModalCreateProduct from "../../../Components/ModalCreateProduct";
 import { BlueButton } from "../../../Components/BlueButton/style";
 import LoadingProgress from "../../../Components/LoadingProgress";
+import { NodeEnvironment } from "../../../types";
 import "aos/dist/aos.css";
 
 const index = () => {
@@ -30,6 +31,7 @@ const index = () => {
   }, []);
 
   const dispatch = useDispatch();
+  const env = process.env.NODE_ENV as NodeEnvironment;
   const SearchField = useRef<HTMLInputElement>(null);
 
   const [LoadingCounter, setLoadingCounter] = useState(1);
@@ -92,7 +94,11 @@ const index = () => {
       <td style={{ margin: "0px" }}>
         <img
           style={{ maxWidth: "50px", maxHeight: "50px" }}
-          src={`${BaseUrl}${product.urlPhoto}`}
+          src={
+            env === "development"
+              ? `${BaseUrl}${product.urlPhoto}`
+              : `${product.urlPhoto}`
+          }
           alt=""
         />
       </td>

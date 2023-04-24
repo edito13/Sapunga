@@ -20,12 +20,14 @@ import {
   selectOrdersUser,
 } from "../../store/Orders/orders.reducer";
 import { selectUserSigned } from "../../store/Users/users.reducer";
+import { NodeEnvironment } from "../../types";
 
 interface Props {}
 
 export default ({}: Props) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const env = process.env.NODE_ENV as NodeEnvironment;
   const user: UsersData = useSelector(selectUserSigned);
   const [cookies] = useCookies(["user"]);
   const Product: ProductsData = useSelector(selectAllProducts).filter(
@@ -128,7 +130,13 @@ export default ({}: Props) => {
           </div>
         </div>
         <ContainerProduct>
-          <ImgProduct src={`${BaseUrl}${Product.urlPhoto}`} />
+          <ImgProduct
+            src={
+              env === "development"
+                ? `${BaseUrl}${Product.urlPhoto}`
+                : `${Product.urlPhoto}`
+            }
+          />
           <ul>
             <li>
               <p>Nome do produto:</p>
