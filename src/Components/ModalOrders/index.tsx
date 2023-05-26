@@ -63,14 +63,6 @@ const index: React.FC<Props> = ({ open, onClose }) => {
     dispatch(addOrdersUser(response));
   };
 
-  const DizerMessage = () => {
-    const message = new SpeechSynthesisUtterance();
-    message.text = "Olá, bom dia senhor Editoh.";
-    // message.text = "Bunnnnnnguiléééééé, Bannnnnnguiiii";
-    window.speechSynthesis.speak(message);
-    console.log("Passou aqui");
-  };
-
   return (
     <MainModal open={open} onClose={onClose}>
       <Container>

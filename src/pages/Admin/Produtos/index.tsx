@@ -3,7 +3,7 @@ import AOS from "aos";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "@mantine/core";
 import { IconButton } from "@mui/material";
-import { FaTrash } from "react-icons/fa";
+import { FaAdjust, FaTrash } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
 import { BsBagFill, BsFillPlusCircleFill } from "react-icons/bs";
 import api, { BaseUrl } from "../../../assets/api";
@@ -105,6 +105,9 @@ const index = () => {
       <td>
         <IconButton onClick={() => DeleteProduct(product._id)}>
           <FaTrash />
+        </IconButton>
+        <IconButton onClick={() => alert("Editing post " + product._id)}>
+          <FaAdjust />
         </IconButton>
       </td>
     </tr>
