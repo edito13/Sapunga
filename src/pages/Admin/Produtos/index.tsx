@@ -16,6 +16,7 @@ import {
   selectAllProducts,
 } from "../../../store/Products/products.reducer";
 import ModalCreateProduct from "../../../Components/ModalCreateProduct";
+import ModalEditeProduct from "../../../Components/ModalEditeProduct";
 import { BlueButton } from "../../../Components/BlueButton/style";
 import LoadingProgress from "../../../Components/LoadingProgress";
 import { NodeEnvironment } from "../../../types";
@@ -51,13 +52,28 @@ const index = () => {
     else setLoadingStatus(false);
   }, [LoadingCounter]);
 
-  const [OpenModal, setOpenModal] = useState(false);
+  const [OpenCreateProductModal, setOpenCreateProductModal] = useState(false);
+  const [OpenEditeProductModal, setOpenEditeProductModal] = useState(false);
 
-  const CloseModal = useCallback(() => setOpenModal(false), [OpenModal]);
+  const CloseCreateModal = useCallback(
+    () => setOpenCreateProductModal(false),
+    [OpenCreateProductModal]
+  );
+  const CloseEditeModal = useCallback(
+    () => setOpenEditeProductModal(false),
+    [OpenEditeProductModal]
+  );
+
+  const OpenEditeModal = (_id: string) => {
+    setIdProduct(_id);
+    setOpenEditeProductModal(true);
+  };
 
   const [Products, setProducts] = useState<ProductsData[]>(
     useSelector(selectAllProducts)
   );
+
+  const [IdProduct, setIdProduct] = useState<string>("");
 
   const SearchProducts = () => {
     const SearchValue = SearchField.current?.value as string;
@@ -106,7 +122,7 @@ const index = () => {
         <IconButton onClick={() => DeleteProduct(product._id)}>
           <FaTrash />
         </IconButton>
-        <IconButton onClick={() => alert("Editing post " + product._id)}>
+        <IconButton onClick={() => OpenEditeModal(product._id)}>
           <FaAdjust />
         </IconButton>
       </td>
@@ -133,7 +149,7 @@ const index = () => {
             </BlueButton>
           </div>
           <BlueButton
-            onClick={() => setOpenModal(true)}
+            onClick={() => setOpenCreateProductModal(true)}
             startIcon={<BsFillPlusCircleFill />}
             data-aos="zoom-in"
             data-aos-delay="200"
@@ -170,10 +186,18 @@ const index = () => {
           </>
         )}
       </Container>
-      {OpenModal && (
+      {OpenCreateProductModal && (
         <ModalCreateProduct
-          open={OpenModal}
-          onClose={CloseModal}
+          open={OpenCreateProductModal}
+          onClose={CloseCreateModal}
+          getProducts={getProducts}
+        />
+      )}
+      {OpenEditeProductModal && (
+        <ModalEditeProduct
+          open={OpenEditeProductModal}
+          onClose={CloseEditeModal}
+          id_product={IdProduct}
           getProducts={getProducts}
         />
       )}

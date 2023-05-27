@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
-import { Outlet } from "react-router";
+import { Navigate, Outlet, useNavigate } from "react-router";
 import NavBar from "../../Components/NavBar";
 import { Container } from "./style";
 import "aos/dist/aos.css";
@@ -8,6 +8,12 @@ import "aos/dist/aos.css";
 const index = () => {
   useEffect(() => {
     AOS.init();
+  }, []);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/admin/dashboard");
   }, []);
 
   return (
