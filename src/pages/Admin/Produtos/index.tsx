@@ -3,9 +3,13 @@ import AOS from "aos";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "@mantine/core";
 import { IconButton } from "@mui/material";
-import { FaAdjust, FaTrash } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
-import { BsBagFill, BsFillPlusCircleFill } from "react-icons/bs";
+import {
+  BsBagFill,
+  BsFillPlusCircleFill,
+  BsPencilSquare,
+  BsTrashFill,
+} from "react-icons/bs";
 import api, { BaseUrl } from "../../../assets/api";
 import { Title } from "../style";
 import { Container } from "./style";
@@ -120,10 +124,10 @@ const index = () => {
       </td>
       <td>
         <IconButton onClick={() => DeleteProduct(product._id)}>
-          <FaTrash />
+          <BsTrashFill />
         </IconButton>
         <IconButton onClick={() => OpenEditeModal(product._id)}>
-          <FaAdjust />
+          <BsPencilSquare />
         </IconButton>
       </td>
     </tr>
