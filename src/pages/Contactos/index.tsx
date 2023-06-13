@@ -19,6 +19,7 @@ import ToTop from "../../Components/ToTop";
 import { BlueButton } from "../../Components/BlueButton/style";
 import { IsAuthenticed } from "../../store/Users/users.reducer";
 import api from "../../assets/api";
+import PopoverContainer from "../../Components/PopoverComponent";
 
 const index = () => {
   useEffect(() => {
@@ -33,6 +34,10 @@ const index = () => {
 
   const [OpenModal, setOpenModal] = useState<boolean>(false);
   const [Error, setError] = useState<string>("");
+  const [anchorEl, setAnchorEl] = useState(false);
+
+  // Desactivar Popover
+  const handleClosePop = () => setAnchorEl(false);
 
   const onClose = useCallback(() => setOpenModal(false), [OpenModal]);
 
@@ -119,6 +124,11 @@ const index = () => {
             </form>
           </div>
         </div>
+        <PopoverContainer
+          open={anchorEl}
+          onClose={handleClosePop}
+          msg="Produto cadastrado com sucesso."
+        />
       </Container>
       <Footer />
       {OpenModal && (

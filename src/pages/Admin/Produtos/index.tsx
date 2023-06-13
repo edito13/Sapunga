@@ -22,6 +22,7 @@ import ModalCreateProduct from "../../../Components/ModalCreateProduct";
 import ModalEditeProduct from "../../../Components/ModalEditeProduct";
 import { BlueButton } from "../../../Components/BlueButton/style";
 import LoadingProgress from "../../../Components/LoadingProgress";
+import PopoverContainer from "../../../Components/PopoverComponent";
 import { NodeEnvironment } from "../../../types";
 import "aos/dist/aos.css";
 
@@ -40,6 +41,7 @@ const index = () => {
 
   const [LoadingCounter, setLoadingCounter] = useState(1);
   const [LoadingStatus, setLoadingStatus] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(false);
 
   useEffect(() => {
     const time = setInterval(
@@ -71,6 +73,9 @@ const index = () => {
     setIdProduct(_id);
     setOpenEditeProductModal(true);
   };
+
+  // Desactivar Popover
+  const handleClosePop = () => setAnchorEl(false);
 
   const [Products, setProducts] = useState<ProductsData[]>(
     useSelector(selectAllProducts)
@@ -189,6 +194,11 @@ const index = () => {
           </>
         )}
       </Container>
+      <PopoverContainer
+        open={anchorEl}
+        onClose={handleClosePop}
+        msg="Produto cadastrado com sucesso."
+      />
       {OpenCreateProductModal && (
         <ModalCreateProduct
           open={OpenCreateProductModal}

@@ -21,6 +21,7 @@ import {
 } from "../../store/Orders/orders.reducer";
 import { selectUserSigned } from "../../store/Users/users.reducer";
 import { NodeEnvironment } from "../../types";
+import PopoverContainer from "../../Components/PopoverComponent";
 
 interface Props {}
 
@@ -51,6 +52,10 @@ export default ({}: Props) => {
 
   const [Quantity, setQuantity] = useState<number>(1);
   const [OpenModal, setOpenModal] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(false);
+
+  // Desactivar Popover
+  const handleClosePop = () => setAnchorEl(false);
 
   const CloseModal = useCallback(() => {
     setOpenModal(false);
@@ -167,6 +172,11 @@ export default ({}: Props) => {
             </BlueButton>
           </footer>
         </ContainerProduct>
+        <PopoverContainer
+          open={anchorEl}
+          onClose={handleClosePop}
+          msg="Encomenda feita com sucesso."
+        />
       </Container>
       {OpenModal && <ModalLoading open={OpenModal} onClose={CloseModal} />}
     </>

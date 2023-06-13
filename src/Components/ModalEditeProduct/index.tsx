@@ -12,6 +12,7 @@ import {
 } from "../../store/Products/products.reducer";
 import { BlueButton } from "../BlueButton/style";
 import { Container, ImgProduct, MainModal } from "./style";
+import PopoverContainer from "../PopoverComponent";
 
 interface Props {
   open: boolean;
@@ -37,6 +38,11 @@ const index: React.FC<Props> = ({ open, onClose, id_product, getProducts }) => {
   const precoFill = useRef<HTMLInputElement>(null);
   const describeFill = useRef<HTMLTextAreaElement>(null);
   const categoryFill = useRef<HTMLSelectElement>(null);
+
+  const [anchorEl, setAnchorEl] = useState(false);
+
+  // Desactivar Popover
+  const handleClosePop = () => setAnchorEl(false);
 
   useEffect(() => {
     const time = setInterval(
@@ -99,7 +105,10 @@ const index: React.FC<Props> = ({ open, onClose, id_product, getProducts }) => {
       dispatch(addProducts(response));
       getProducts(response);
       setLoadingStatus(true);
-      setTimeout(() => onClose(), 800);
+      setTimeout(() => {
+        setAnchorEl(true);
+        setTimeout(() => onClose(), 800);
+      });
     } catch (error) {
       alert(error);
     }
@@ -180,6 +189,11 @@ const index: React.FC<Props> = ({ open, onClose, id_product, getProducts }) => {
             </form>
           </main>
         )}
+        <PopoverContainer
+          open={anchorEl}
+          onClose={handleClosePop}
+          msg="Produto cadastrado com sucesso."
+        />
       </Container>
     </MainModal>
   );

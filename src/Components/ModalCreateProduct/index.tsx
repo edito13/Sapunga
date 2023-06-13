@@ -14,16 +14,10 @@ import { selectUserSigned } from "../../store/Users/users.reducer";
 import api, { BaseUrl } from "../../assets/api";
 import { BlueButton } from "../BlueButton/style";
 import { BsBagPlusFill } from "react-icons/bs";
-import {
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-} from "@mui/material";
+import { Button } from "@mui/material";
 import { SelectCategories } from "../../store/Categories/categories.reducer";
 import { addProducts } from "../../store/Products/products.reducer";
+import PopoverContainer from "../PopoverComponent";
 
 interface Props {
   open: boolean;
@@ -45,6 +39,10 @@ const index: React.FC<Props> = ({ open, onClose, getProducts }) => {
   const precoFill = useRef<HTMLInputElement>(null);
   const describeFill = useRef<HTMLTextAreaElement>(null);
   const categoryFill = useRef<HTMLSelectElement>(null);
+  const [anchorEl, setAnchorEl] = useState(false);
+
+  // Desactivar Popover
+  const handleClosePop = () => setAnchorEl(false);
 
   useEffect(() => {
     const time = setInterval(
@@ -106,7 +104,12 @@ const index: React.FC<Props> = ({ open, onClose, getProducts }) => {
       dispatch(addProducts(response));
       getProducts(response);
       setLoadingStatus(true);
-      setTimeout(() => onClose(), 800);
+      setTimeout(() => {
+        setAnchorEl(true);
+        setTimeout(() => {
+          onClose();
+        }, 800);
+      }, 800);
     } catch (error) {
       alert(error);
     }
@@ -145,25 +148,6 @@ const index: React.FC<Props> = ({ open, onClose, getProducts }) => {
                 <input type="number" ref={precoFill} id="price" />
               </div>
               <div>
-                {/* <FormControl variant="outlined">
-                  <InputLabel id="demo-simple-select-outlined-label">
-                    Age
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    // value={age}
-                    // onChange={handleChange}
-                    label="Age"
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                  </Select>
-                </FormControl> */}
                 <label htmlFor="category">Categoria:</label>
                 <select id="category" ref={categoryFill}>
                   {categories.map((category) => (
@@ -188,6 +172,11 @@ const index: React.FC<Props> = ({ open, onClose, getProducts }) => {
             </form>
           </main>
         )}
+        <PopoverContainer
+          open={anchorEl}
+          onClose={handleClosePop}
+          msg="Produto cadastrado com sucesso."
+        />
       </Container>
     </MainModal>
   );
