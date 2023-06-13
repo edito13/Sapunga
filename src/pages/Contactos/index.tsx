@@ -57,6 +57,7 @@ const index = () => {
       setError(error as string);
     } finally {
       setOpenModal(true);
+      messageField.current?.value === "";
     }
   };
 
