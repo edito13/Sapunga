@@ -3,7 +3,7 @@ import styled from "styled-components";
 interface Props {}
 
 export const Container = styled.div`
-  padding: 0 2em;
+  padding: 0 2em 2em;
   width: 100%;
 
   .statistic-container {
