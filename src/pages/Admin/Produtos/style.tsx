@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Table as TableContainer } from "@mantine/core";
 
 interface Props {}
 
@@ -53,4 +54,9 @@ export const Container = styled.div`
     text-align: center;
     margin: 0.5em;
   }
+`;
+
+export const Table = styled(TableContainer)`
+  max-height: 10vh;
+  background: red;
 `;

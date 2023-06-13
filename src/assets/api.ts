@@ -40,6 +40,15 @@ interface authDataI {
   token: string;
 }
 
+interface dataEditeProduct {
+  id: string;
+  urlPhoto: string;
+  name: string;
+  price: number;
+  describe: string;
+  categoryID: string;
+}
+
 export const BaseUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
@@ -202,6 +211,10 @@ const api = {
         Authorization: `Bearer ${token}`,
       },
     });
+    return response.data;
+  },
+  async EditeProduct(data: dataEditeProduct) {
+    const response = await axios.put(`${BaseUrl}/product/`, data);
     return response.data;
   },
 };

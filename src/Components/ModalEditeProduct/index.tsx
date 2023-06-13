@@ -71,7 +71,7 @@ const index: React.FC<Props> = ({ open, onClose, id_product, getProducts }) => {
     }
   };
 
-  const CreateProduct = async (event: FormEvent) => {
+  const EditeProduct = async (event: FormEvent) => {
     event.preventDefault();
 
     const name = nameFill.current?.value;
@@ -87,20 +87,19 @@ const index: React.FC<Props> = ({ open, onClose, id_product, getProducts }) => {
       else if (!categoryID) throw "Você escolher uma categoria";
       else if (!urlPhoto) throw "O produto precisa ter uma foto";
 
-      alert(describe);
+      const response = await api.EditeProduct({
+        id: id_product,
+        name,
+        price: +preco,
+        categoryID,
+        urlPhoto,
+        describe,
+      });
 
-      // const response = await api.CreateProduct({
-      //   name,
-      //   price: +preco,
-      //   categoryID,
-      //   urlPhoto,
-      //   describe,
-      // });
-
-      // dispatch(addProducts(response));
-      // getProducts(response);
-      // setLoadingStatus(true);
-      // setTimeout(() => onClose(), 800);
+      dispatch(addProducts(response));
+      getProducts(response);
+      setLoadingStatus(true);
+      setTimeout(() => onClose(), 800);
     } catch (error) {
       alert(error);
     }
@@ -113,7 +112,7 @@ const index: React.FC<Props> = ({ open, onClose, id_product, getProducts }) => {
           <LoadingProgress />
         ) : (
           <main>
-            <form onSubmit={CreateProduct}>
+            <form onSubmit={EditeProduct}>
               <div>
                 <label htmlFor="photo">
                   <ImgProduct

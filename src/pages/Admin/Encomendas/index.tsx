@@ -38,15 +38,19 @@ const index = () => {
 
   const Orders: OrdersData[] = useSelector(selectAllOrders);
 
-  const rows = Orders.map((order, index) => (
-    <tr key={order._id}>
-      <td>{index + 1}</td>
-      <td>{order.product?.name}</td>
-      <td>{order.user?.name}</td>
-      <td>{order.user?.email}</td>
-      <td>{order.quantity ?? 0}</td>
-    </tr>
-  ));
+  const rows = Orders.map((order, index) => {
+    const data = new Date(order.createdAt).toLocaleString();
+    return (
+      <tr key={order._id}>
+        <td>{index + 1}</td>
+        <td>{order.product?.name}</td>
+        <td>{order.user?.name}</td>
+        <td>{order.user?.email}</td>
+        <td>{order.quantity ?? 0}</td>
+        <td>{data}</td>
+      </tr>
+    );
+  });
 
   return (
     <Container>
@@ -69,10 +73,11 @@ const index = () => {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Nome do produto</th>
+                  <th>Produto</th>
                   <th>Usuário</th>
                   <th>Email</th>
                   <th>Quantidade</th>
+                  <th>Data da Encomenda</th>
                 </tr>
               </thead>
               <tbody>{rows}</tbody>

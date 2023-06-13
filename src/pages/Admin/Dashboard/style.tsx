@@ -41,7 +41,7 @@ export const Container = styled.div`
       }
 
       span {
-        font-size: 2em;
+        font-size: 2.8em;
         color: #000066;
         font-family: Arial, Helvetica, sans-serif;
       }

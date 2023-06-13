@@ -25,14 +25,18 @@ const index = () => {
   const Products: ProductsData[] = useSelector(selectAllProducts);
   const Orders: OrdersData[] = useSelector(selectAllOrders);
 
-  const rows = Users.map((user, index) => (
-    <tr key={user._id}>
-      <td>{index + 1}</td>
-      <td>{user.name}</td>
-      <td>{user.email}</td>
-      <td>{user.password?.substring(0, 10) + "..."}</td>
-    </tr>
-  ));
+  const rows = Users.map((user, index) => {
+    const data = new Date(user.createdAt).toLocaleString();
+    return (
+      <tr key={user._id}>
+        <td>{index + 1}</td>
+        <td>{user.name}</td>
+        <td>{user.email}</td>
+        <td>********</td>
+        <td>{data}</td>
+      </tr>
+    );
+  });
 
   return (
     <Container>
@@ -87,6 +91,7 @@ const index = () => {
               <th>Nome</th>
               <th>E-mail</th>
               <th>Senha</th>
+              <th>Data de Cadastro</th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>

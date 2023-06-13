@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import { useDispatch, useSelector } from "react-redux";
-import { Table } from "@mantine/core";
 import { IconButton } from "@mui/material";
 import { BiSearch } from "react-icons/bi";
 import {
@@ -12,7 +11,7 @@ import {
 } from "react-icons/bs";
 import api, { BaseUrl } from "../../../assets/api";
 import { Title } from "../style";
-import { Container } from "./style";
+import { Container, Table } from "./style";
 import { Money } from "../../../assets/ConvertMoney";
 import { ProductsData } from "../../../interfaces";
 import {
